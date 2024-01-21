@@ -1,18 +1,17 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import styles from './UserProfile.module.css'; // Import the module CSS file
+import styles from './internProfile.module.css';
 import svg from '../../assets/profile/internProfile.svg';
 import svg2 from '../../assets/profile/background.svg';
 
 // Import user profiles and interns data
-import { interns } from './userDetails';
+import { interns } from './internDetails';
 
 const UserProfilePage = () => {
   const { username } = useParams();
   const userProfile = interns[username];
 
   if (!userProfile) {
-    // Handle the case when the user with the provided username is not found
     return <div className={styles['user-profile']}>User not found</div>;
   }
 
