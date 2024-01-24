@@ -2,6 +2,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+<<<<<<< HEAD
+=======
 }
 body {
   margin: 0;
@@ -34,4 +36,5 @@ body {
 .image {
   max-width: 100%;
   height: auto;
+>>>>>>> e29d2ce55eb92cdb34d70164f2eb34e86557b858
 }
