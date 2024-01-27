@@ -60,9 +60,78 @@
 }
 
 .landingPage_astronaut {
-  display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 500px;
-  padding-bottom: 200px;
+  padding-bottom: 300px;
+}
+
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 80px;
+}
+
+.header {
+  color: #fff;
+  text-align: center;
+  font-family: Goldman;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.26px;
+}
+
+.play_game {
+  border-radius: 50px;
+  border: 2px solid #fff;
+  display: flex;
+  width: 231px;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  color: #fff;
+  font-family: Goldman;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  background: none;
+}
+
+.intern_hari_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 77px;
+}
+
+.intern_btn_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 77px;
+  padding-left: 40px;
+}
+
+.meet_intern_btn {
+  color: #1d8fcb;
+  text-align: center;
+  font-family: Goldman;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.18px;
+  border-radius: 50px;
+  border: 2px solid #fff;
+  background: #fff;
+  width: 231px;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
 }
