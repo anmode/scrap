@@ -1,48 +1,146 @@
-export const hari = {
-  username: 'hari',
-  name: 'Harishankaran Karunanidhi',
-  about:
-    'I am the CTO and Co-founder of HackerRank. I make sure the interns do not break production while creating new features at HackerRank.',
-  linkedin: 'https://in.linkedin.com/in/sp2hari',
-  web: 'http://sp2hari.com',
-  twitter: 'https://twitter.com/sp2hari',
-  github: 'https://github.com/sp2hari',
-};
-
-export const vaasavi = {
-  username: 'super-boss-vaasavi',
-  name: 'Vaasavi VP',
-  city: 'Bangalore',
-  image: 'Vaasavi.webp',
-  about: 'Hi I am Vaasavi, I am from the People Ops team. I am the boss of interns.',
-  linkedin: 'https://in.linkedin.com/in/vaasavi-suncol',
-  instagram: 'https://www.instagram.com/little_spark_of_joy/',
-};
-
 export const anmol = {
   username: 'anmol',
   name: 'Anmol Agrawal',
   position: 'SDE Intern',
   city: 'Hathras',
-  image: 'anmol.webp',
-  about:
-    'I do not like coding but coding likes me.',
+  about: 'I do not like coding but coding likes me.',
   linkedin: 'https://linkedin.com/in/anmode',
   github: 'https://github.com/anmode',
+  website: '',
 };
 
-export const Nobody = {
-  name: 'Nobody Sharma',
-  username: 'Nobody',
-  city: 'Jaipur',
+export const mahak = {
+  username: 'mahak',
+  name: 'Mahak Porwal',
   position: 'SDE Intern',
-  image: 'Nobody.webp',
-  about:
-    "404 Not Found",
+  city: 'Dummy City',
+  about: 'Dummy about Mahak.',
+  linkedin: 'https://linkedin.com/in/mahakporwal',
+  github: 'https://github.com/mahak',
+  website: '',
+};
+
+export const atul = {
+  username: 'atul',
+  name: 'Atul Sharma',
+  position: 'SDE Intern',
+  city: 'Dummy City',
+  about: 'Dummy about Atul.',
+  linkedin: 'https://linkedin.com/in/atulsharma',
+  github: 'https://github.com/atul',
+  website: '',
+};
+
+export const sumit = {
+  username: 'sumit',
+  name: 'Sumit Maithani',
+  position: 'SDE Intern',
+  city: 'Dummy City',
+  about: 'Dummy about Sumit.',
+  linkedin: 'https://linkedin.com/in/sumitmaithani',
+  github: 'https://github.com/sumit',
+  website: '',
+};
+
+export const suyash = {
+  username: 'suyash',
+  name: 'Suyash Purwar',
+  position: 'SDE Intern',
+  city: 'Dummy City',
+  about: 'Dummy about Suyash.',
+  linkedin: 'https://linkedin.com/in/suyashpurwar',
+  github: 'https://github.com/suyash',
+  website: '',
+};
+
+export const khushboo = {
+  username: 'khushboo',
+  name: 'Khushboo Chaturvedi',
+  position: 'SDE Intern',
+  city: 'Dummy City',
+  about: 'Dummy about Khushboo.',
+  linkedin: 'https://linkedin.com/in/khushboochaturvedi',
+  github: 'https://github.com/khushboo',
+  website: '',
+};
+
+export const shreya = {
+  username: 'shreya',
+  name: 'Shreya',
+  position: 'SDE Intern',
+  city: 'Dummy City',
+  about: 'Dummy about Shreya.',
+  linkedin: 'https://linkedin.com/in/shreya',
+  github: 'https://github.com/shreya',
+  website: '',
+};
+
+export const sindhu = {
+  username: 'sindhu',
+  name: 'Sindhu',
+  position: 'SDE Intern',
+  city: 'Dummy City',
+  about: 'Dummy about Sindhu.',
+  linkedin: 'https://linkedin.com/in/sindhu',
+  github: 'https://github.com/sindhu',
+  website: '',
+};
+
+export const naman = {
+  username: 'naman',
+  name: 'Naman Lakhwani',
+  position: 'SDE Intern',
+  city: 'Dummy City',
+  about: 'Dummy about Naman.',
+  linkedin: 'https://linkedin.com/in/namanlakhwani',
+  github: 'https://github.com/naman',
+  website: '',
+};
+
+export const akash = {
+  username: 'akash',
+  name: 'Akash',
+  position: 'Product Design Intern',
+  city: 'Dummy City',
+  about: 'Dummy about Akash.',
+  linkedin: 'https://linkedin.com/in/akash',
+  github: 'https://github.com/akash',
+  website: '',
+};
+
+export const arshad = {
+  username: 'arshad',
+  name: 'Arshad',
+  position: 'Product Design Intern',
+  city: 'Dummy City',
+  about: 'Dummy about Arshad.',
+  linkedin: 'https://linkedin.com/in/arshad',
+  github: 'https://github.com/arshad',
+  website: '',
+};
+
+export const aaryan = {
+  username: 'aaryan',
+  name: 'Aaryan Bhatia Ghosh',
+  position: 'Product Ops Intern',
+  city: 'Dummy City',
+  about: 'Dummy about Aaryan.',
+  linkedin: 'https://linkedin.com/in/aaryan',
+  github: 'https://github.com/aaryan',
+  website: '',
 };
 
 export const interns = {
- anmol,
- Nobody
+  anmol,
+  mahak,
+  atul,
+  sumit,
+  suyash,
+  khushboo,
+  shreya,
+  sindhu,
+  naman,
+  akash,
+  arshad,
+  aaryan,
 };
-
