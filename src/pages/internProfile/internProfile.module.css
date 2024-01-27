@@ -11,15 +11,9 @@
 /* UserProfile.module.css */
 
 .internAvtar {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /* width: 282px;
-  height: 582px; */
   z-index: 20;
+  height: 100%;
 }
-
 
 .user-profile {
   position: absolute;
@@ -33,6 +27,53 @@
   backdrop-filter: blur(65px);
   padding: 20px;
   color: white;
+  display: flex;
+  width: 840px;
+  height: 493px;
 }
 
-/* Add any additional styling as needed */
+.inten_info_container {
+  padding: 37px 27px;
+}
+
+.intern_info {
+  display: flex;
+  gap: 60px;
+  color: #fff;
+  font-family: Goldman;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  padding-bottom: 23px;
+}
+
+.intern_label {
+  display: flex;
+}
+
+.intern_label_head {
+  box-sizing: border-box;
+  width: 70px;
+  display: flex;
+}
+
+.intern_label_col {
+  padding-left: 30px;
+}
+
+.intern_content {
+  display: flex;
+  justify-content: start;
+  text-align: start;
+}
+
+.social_btn {
+  background-color: none;
+  outline: none;
+  border: none;
+  padding: 0 24px 0 0;
+  width: 54px;
+  height: 29px;
+  cursor: pointer;
+}

@@ -7,6 +7,8 @@ export const anmol = {
   linkedin: 'https://linkedin.com/in/anmode',
   github: 'https://github.com/anmode',
   website: '',
+  instagram: '',
+  hobby: 'Bathroom singer'
 };
 
 export const mahak = {
@@ -18,6 +20,8 @@ export const mahak = {
   linkedin: 'https://linkedin.com/in/mahakporwal',
   github: 'https://github.com/mahak',
   website: '',
+  instagram: '',
+  hobby: 'Bathroom singer'
 };
 
 export const atul = {
@@ -29,6 +33,8 @@ export const atul = {
   linkedin: 'https://linkedin.com/in/atulsharma',
   github: 'https://github.com/atul',
   website: '',
+  instagram: '',
+  hobby: 'Bathroom singer'
 };
 
 export const sumit = {
@@ -36,10 +42,13 @@ export const sumit = {
   name: 'Sumit Maithani',
   position: 'SDE Intern',
   city: 'Dummy City',
-  about: 'Dummy about Sumit.',
+  about:
+    'Bullying Interns Bullying InternsBullying Interns Bullying InternsBullying Interns Bullying InternsBullying Interns Bullying InternsBullying Interns Bullying InternsBullying',
   linkedin: 'https://linkedin.com/in/sumitmaithani',
   github: 'https://github.com/sumit',
   website: '',
+  instagram: '',
+  hobby: 'Bathroom singer'
 };
 
 export const suyash = {
@@ -51,6 +60,8 @@ export const suyash = {
   linkedin: 'https://linkedin.com/in/suyashpurwar',
   github: 'https://github.com/suyash',
   website: '',
+  instagram: '',
+  hobby: 'Bathroom singer'
 };
 
 export const khushboo = {
@@ -62,6 +73,8 @@ export const khushboo = {
   linkedin: 'https://linkedin.com/in/khushboochaturvedi',
   github: 'https://github.com/khushboo',
   website: '',
+  instagram: '',
+  hobby: 'Bathroom singer'
 };
 
 export const shreya = {
@@ -73,6 +86,8 @@ export const shreya = {
   linkedin: 'https://linkedin.com/in/shreya',
   github: 'https://github.com/shreya',
   website: '',
+  instagram: '',
+  hobby: 'Bathroom singer'
 };
 
 export const sindhu = {
@@ -84,6 +99,8 @@ export const sindhu = {
   linkedin: 'https://linkedin.com/in/sindhu',
   github: 'https://github.com/sindhu',
   website: '',
+  instagram: '',
+  hobby: 'Bathroom singer'
 };
 
 export const naman = {
@@ -95,6 +112,8 @@ export const naman = {
   linkedin: 'https://linkedin.com/in/namanlakhwani',
   github: 'https://github.com/naman',
   website: '',
+  instagram: '',
+  hobby: 'Bathroom singer'
 };
 
 export const akash = {
@@ -106,6 +125,8 @@ export const akash = {
   linkedin: 'https://linkedin.com/in/akash',
   github: 'https://github.com/akash',
   website: '',
+  instagram: '',
+  hobby: 'Bathroom singer'
 };
 
 export const arshad = {
@@ -117,6 +138,8 @@ export const arshad = {
   linkedin: 'https://linkedin.com/in/arshad',
   github: 'https://github.com/arshad',
   website: '',
+  instagram: '',
+  hobby: 'Bathroom singer'
 };
 
 export const aaryan = {
@@ -128,6 +151,8 @@ export const aaryan = {
   linkedin: 'https://linkedin.com/in/aaryan',
   github: 'https://github.com/aaryan',
   website: '',
+  instagram: '',
+  hobby: 'Bathroom singer'
 };
 
 export const interns = {
@@ -142,5 +167,5 @@ export const interns = {
   naman,
   akash,
   arshad,
-  aaryan,
+  aaryan
 };

@@ -19,6 +19,12 @@ const LandingPage = () => {
       transition={{
         ease: 'linear'
       }}>
+      <div className={styles.header_container}>
+        <div className={styles.header}>2024 Interns</div>
+        <div>
+          <button className={styles.play_game}>Play Game</button>
+        </div>
+      </div>
       <motion.div className={styles.landingPage_content} ref={scrollContent}>
         <div className={styles.landingPage_Txt_Container}>
           <h1 className={styles.landingPage_Txt}>
@@ -28,7 +34,12 @@ const LandingPage = () => {
           </h1>
           <h2 className={styles.scroll_txt}>. scroll .</h2>
           <div className={styles.landingPage_astronaut}>
-            <HariSVG />
+            <div className={styles.intern_hari_wrap}>
+              <HariSVG />
+            </div>
+            <div className={styles.intern_btn_wrap}>
+              <button className={styles.meet_intern_btn}>Meet my Interns</button>
+            </div>
           </div>
         </div>
       </motion.div>
