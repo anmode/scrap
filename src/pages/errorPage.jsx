@@ -1,13 +1,10 @@
 // errorPage.jsx
-
-import React from 'react';
-
 const ErrorPage = () => {
   return (
     <div style={styles.container}>
       <h1 style={styles.heading}>Oops! Something went wrong.</h1>
       <p style={styles.message}>
-        The page you are looking for doesn't exist.
+        The page you are looking for doesn&apos;t exist.
       </p>
     </div>
   );

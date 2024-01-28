@@ -3,12 +3,17 @@
 
 .landingPage {
   background-color: #121418;
-  height: 100vh;
+  height: 100%;
   background-image: url(../../assets/background.svg);
   background-size: 220%;
   background-repeat: no-repeat;
   overflow: hidden;
   background-position: top center;
+  top: 100%;
+  position: relative;
+  left: 0;
+  right: 0;
+  transition: 1.2s ease-out;
 }
 
 .landingPage_content {
@@ -147,4 +152,24 @@
 
 .scroll_span:hover {
   font-size: 35px;
+}
+
+.video_ended {
+  transform: translateY(-100%);
+}
+
+.overlay_loader {
+  transition: 1.5s ease-out;
+  position: relative;
+}
+
+.landing_page_slide_up {
+  top: -100%;
+}
+
+.main_wrapper{
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background-color: black;
 }
