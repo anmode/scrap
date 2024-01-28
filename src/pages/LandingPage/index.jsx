@@ -12,6 +12,12 @@ const LandingPage = () => {
   });
   const backgroundSize = useTransform(scrollY, interpolationStart, interpolateTo);
 
+  const scrollAstronaut = useRef(null)
+
+  const scrollAstronautFunction = () => {
+    scrollAstronaut.current?.scrollIntoView({behavior: 'smooth', block: "end", inline: "nearest"});
+  }
+
   return (
     <motion.div
       className={styles.landingPage}
@@ -32,8 +38,8 @@ const LandingPage = () => {
             <br />
             Hacker<span className={styles.spaceTxt}>Space</span>
           </h1>
-          <h2 className={styles.scroll_txt}>. scroll .</h2>
-          <div className={styles.landingPage_astronaut}>
+          <h2 className={styles.scroll_txt}>. <span className={styles.scroll_span} onClick={scrollAstronautFunction}>scroll</span> .</h2>
+          <div ref={scrollAstronaut} className={styles.landingPage_astronaut}>
             <div className={styles.intern_hari_wrap}>
               <HariSVG />
             </div>

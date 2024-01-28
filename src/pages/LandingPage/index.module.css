@@ -19,7 +19,7 @@
 }
 
 .landingPage_Txt_Container {
-  margin-top: 8%;
+  margin-top: 18%;
 }
 
 .landingPage_Txt {
@@ -63,13 +63,16 @@
   align-items: center;
   justify-content: center;
   margin-top: 500px;
-  padding-bottom: 300px;
+  padding-bottom: 250px;
+  margin-left: -60px;
 }
 
 .header_container {
   display: flex;
   justify-content: space-between;
   padding: 40px 80px;
+  position: fixed;
+  width: 100%;
 }
 
 .header {
@@ -134,4 +137,14 @@
   align-items: center;
   gap: 10px;
   cursor: pointer;
+}
+
+.scroll_span{
+  cursor: pointer;
+  transition: all 500ms;
+  display: inline-block;
+}
+
+.scroll_span:hover {
+  font-size: 35px;
 }
