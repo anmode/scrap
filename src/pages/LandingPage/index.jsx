@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { HariSVG } from '../../assets/hari';
 
 const interpolationStart = [0, 2000];
-const interpolateTo = ['100%', '150%'];
+const interpolateTo = ['220%', '300%'];
 const LandingPage = () => {
   const scrollContent = useRef(null);
   const { scrollY } = useScroll({

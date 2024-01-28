@@ -5,7 +5,7 @@
   background-color: #121418;
   height: 100vh;
   background-image: url(../../assets/background.svg);
-  background-size: cover;
+  background-size: 220%;
   background-repeat: no-repeat;
   overflow: hidden;
   background-position: top center;
@@ -19,7 +19,7 @@
 }
 
 .landingPage_Txt_Container {
-  margin-top: 15%;
+  margin-top: 8%;
 }
 
 .landingPage_Txt {
