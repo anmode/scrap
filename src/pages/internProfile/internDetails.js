@@ -157,15 +157,15 @@ export const aaryan = {
 
 export const interns = {
   anmol,
+  aaryan,
+  suyash,
   mahak,
   atul,
+  naman,
   sumit,
-  suyash,
   khushboo,
   shreya,
   sindhu,
-  naman,
   akash,
   arshad,
-  aaryan
 };
