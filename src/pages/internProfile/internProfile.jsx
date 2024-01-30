@@ -16,64 +16,46 @@ const InternProfilePage = () => {
   const { username } = useParams();
   const internProfile = interns[username];
   const [internImages, setInternImages] = useState([]);
-  const [loadingBackground, setLoadingBackground] = useState(true);
-  const [loadingProfile, setLoadingProfile] = useState(true);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const importBackground = async () => {
-      await import(`../../../src/assets/planets/planet1.svg`);
-      await import(`../../../src/assets/planets/planet2.svg`);
-      await import(`../../../src/assets/planets/planet3.svg`);
-      setLoadingBackground(false);
-    };
-
-    importBackground();
-  }, []);
-
-  useEffect(() => {
-    const importInternImages = async () => {
-      try {
-        const images = await Promise.all(
-          Array.from({ length: 12 }, (_, i) =>
-            import(`../../../src/assets/internAvtar/${username}.svg`).then(
-              (module) => module.default
+  
+    useEffect(() => {
+      const importData = async () => {
+        try {
+          // Import background planets
+          await import(`../../../src/assets/planets/planet1.svg`);
+          await import(`../../../src/assets/planets/planet2.svg`);
+          await import(`../../../src/assets/planets/planet3.svg`);
+  
+          // Import intern avatars dynamically
+          const images = await Promise.all(
+            Array.from({ length: 12 }, (_, i) =>
+              import(`../../../src/assets/internAvtar/${username}.svg`).then(
+                (module) => module.default
+              )
             )
-          )
-        );
-        setInternImages(images);
-        setLoadingProfile(false);
-      } catch (error) {
-        console.error(`Error loading intern images: ${error}`);
-        setLoadingProfile(false);
-        navigate('/intern/notFound');
-      }
-    };
+          );
+  
+          setInternImages(images);
+          setLoading(false);
+        } catch (error) {
+          console.error(`Error loading data: ${error}`);
+          setLoading(false);
+          navigate('/intern/notFound');
+        }
+      };
+  
+      importData();
+    }, [username, navigate]);
 
-    importInternImages();
-  }, [username]);
-
-  useEffect(() => {
-    const handleKeyPress = (event) => {
-      if (event.key === 'Backspace') {
-        navigate('/intern/all'); // Adjust the URL as needed
-      }
-    };
-
-    document.addEventListener('keydown', handleKeyPress);
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyPress);
-    };
-  }, [navigate]);
-
-  if (!internProfile || loadingBackground || loadingProfile) {
-    return <div className={styles['user-profile']}>Loading...</div>;
-  }
+    if (loading) {
+        return <div className={styles['user-profile']}>Loading...</div>;
+    }
 
   const determineGroup = (index) => {
     return Math.floor(index / 3) + 1;
   };
+
 
   const internIndex = Object.values(interns).findIndex((intern) => intern.username === username);
   const groupNumber = determineGroup(internIndex);
