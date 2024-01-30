@@ -5,7 +5,7 @@
   background-color: #121418;
   height: 100%;
   background-image: url(../../assets/background.svg);
-  background-size: 220%;
+  background-size: 250%;
   background-repeat: no-repeat;
   overflow: hidden;
   background-position: top center;
@@ -39,6 +39,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 106px;
+  cursor: default;
 }
 
 .spaceTxt {
@@ -51,6 +52,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  cursor: default;
 }
 
 .scroll_txt {
@@ -155,12 +157,18 @@
 }
 
 .video_ended {
-  transform: translateY(-100%);
+  transform: translateY(-150%);
 }
 
 .overlay_loader {
   transition: 1.5s ease-out;
   position: relative;
+}
+
+.overlay_loader video {
+  width: 100%;
+  height: auto;
+  
 }
 
 .landing_page_slide_up {

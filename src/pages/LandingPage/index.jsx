@@ -5,7 +5,7 @@ import { HariSVG } from '../../assets/hari';
 import video from '../../assets/loader.mp4';
 
 const interpolationStart = [0, 2000];
-const interpolateTo = ['220%', '300%'];
+const interpolateTo = ['250%', '300%'];
 const LandingPage = () => {
   const scrollContent = useRef(null);
   const { scrollY } = useScroll({
@@ -39,12 +39,16 @@ const LandingPage = () => {
             ? `${styles.overlay_loader} ${styles.video_ended}`
             : `${styles.overlay_loader}`
         }>
-        <video src={video} width="100%" height="100%" autoPlay muted onTimeUpdate={timeUpdate}>
+        <video src={video} autoPlay muted onTimeUpdate={timeUpdate}>
           Your browser does not support the video tag.
         </video>
       </div>
       <motion.div
-        className={slideLoader ? `${styles.landingPage} ${styles.landing_page_slide_up}` : `${styles.landingPage}`}
+        className={
+          slideLoader
+            ? `${styles.landingPage} ${styles.landing_page_slide_up}`
+            : `${styles.landingPage}`
+        }
         style={{ backgroundSize }}
         transition={{
           ease: 'linear'
