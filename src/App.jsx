@@ -10,7 +10,7 @@ function App() {
       <Route path="/" element={<LandingPage />} />
       <Route path="/:username" element={<InternProfilePage />} />
       <Route path="*" element={<ErrorPage />} />
-      <Route path="/interns" element={<InternsPage />} />
+      <Route path="/allInterns" element={<InternsPage />} />
     </Routes>
   </Router>
   );

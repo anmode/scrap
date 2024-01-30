@@ -4,8 +4,10 @@
   width: 100%;
   height: 100vh;
   background-size: cover;
-  position: fixed;
-  z-index: -1;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* UserProfile.module.css */
@@ -16,10 +18,6 @@
 }
 
 .user-profile {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background: rgba(25.88, 25.88, 25.88, 0.25);
   box-shadow: 0px 10px 80px rgba(0, 0, 0, 0.75);
   border-radius: 20px;
@@ -28,17 +26,25 @@
   padding: 20px;
   color: white;
   display: flex;
-  width: 840px;
-  height: 493px;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 60%;
+  height: 65%;
 }
 
 .inten_info_container {
   padding: 37px 27px;
+  width: 70%;
+}
+
+.img_container {
+  width: 30%;
 }
 
 .intern_info {
   display: flex;
-  gap: 60px;
+  align-items: center;
+  gap: 52px;
   color: #fff;
   font-family: Goldman;
   font-size: 20px;
@@ -68,18 +74,24 @@
   text-align: start;
 }
 
+.social_btn_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 25px
+}
+
 .social_btn {
   background-color: none;
   outline: none;
   border: none;
-  padding: 0 24px 0 0;
-  width: 54px;
-  height: 29px;
+  width: 25px;
+  height: 25px;
   cursor: pointer;
 }
 
 
-.backButton {
+.backAllButton {
   position: absolute;
   top: 10px;
   left: 10px;
@@ -95,4 +107,112 @@
 
 .backButton:hover {
   background-color: rgba(0, 0, 0, 0.129);
+}
+
+/* Styles for navigation buttons */
+.navigationButtons {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.backButton,
+.nextButton {
+  width: 48%;
+  height: 40px;
+  transition: background-color 0.3s ease-in-out;
+  backdrop-filter: blur(60px);
+  background-color: rgba(0, 0, 0, 0.035);
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backButton {
+  margin-right: 4%;
+}
+
+.nextButton {
+  margin-left: 4%;
+}
+
+/* Adjust styling for better visibility */
+.backButton:hover,
+.nextButton:hover {
+  background-color: #2980b9;
+}
+
+.img_container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Only display arrows on mobile devices */
+@media only screen and (min-width: 768px) {
+  .backButton,
+  .nextButton {
+    display: none;
+  }
+}
+
+/* ... (other styles) */
+
+@media(max-width: 1024px) {
+  .inten_info_container{
+    font-size: 16px;
+  }
+
+  .user-profile{
+    width: 85%;
+  }
+}
+
+@media(max-width: 539px) {
+  .user-profile{
+    flex-direction: column;
+    width: 94%;
+    height: 70%;
+  }
+
+  .img_container{
+    width: 100%;
+    height: 42%;
+  }
+
+  .inten_info_container{
+    width: 100%;
+    height: 70%;
+    padding: 6px;
+    padding-top: 3px;
+  }
+
+  .social_btn_wrap {
+    gap: 18px
+  }
+
+
+  .social_btn {
+    width: 16px;
+    height: 16px;
+  }
+
+  .intern_info{
+    font-size: 16px;
+  }
+}
+
+@media(max-width: 375px) {
+  .intern_info{
+    font-size: 14px;
+  }
 }
