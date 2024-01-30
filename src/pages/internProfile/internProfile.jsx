@@ -56,7 +56,7 @@ const InternProfilePage = () => {
     useEffect(() => {
       const handleKeyDown = (event) => {
         if (event.key === 'Backspace') {
-          navigate('/allInterns');
+          navigate('interns/2024/allInterns');
         } else if (event.key === 'ArrowLeft' && currentIndex > 0) {
           navigate(`/${allUsernames[currentIndex - 1]}`);
         } else if (event.key === 'ArrowRight' && currentIndex < allUsernames.length - 1) {
@@ -82,7 +82,7 @@ const InternProfilePage = () => {
   const navigateToIntern = (index) => {
     if (index >= 0 && index < allUsernames.length) {
       const nextUsername = allUsernames[index];
-      navigate(`/${nextUsername}`);
+      navigate(`/interns/2024/${nextUsername}`);
     }
   };
 
@@ -105,7 +105,7 @@ const InternProfilePage = () => {
     planetBackgrounds[Math.min(groupNumber - 1, planetBackgrounds.length - 1)];
 
     const navigateToAllInterns = () => {
-      navigate('/allInterns');
+      navigate('/interns/2024/allInterns');
     };
 
   return (

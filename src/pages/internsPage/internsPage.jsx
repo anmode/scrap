@@ -36,7 +36,7 @@ const InternsPage = () => {
 
     };
     if (isMobile) {
-      navigate('/anmol');
+      navigate('interns/2024/anmol');
     } else {
       importData();
     }
