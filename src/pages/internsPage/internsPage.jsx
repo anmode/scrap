@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './internsPage.module.css';
-
-
-import { interns } from '../internProfile/internDetails'; // Import the interns data
+import { interns } from '../internProfile/internDetails';
 
 const InternsPage = () => {
   const navigate = useNavigate();
   const [internData, setInternData] = useState([]);
-
+  const positionConfig = [
+    [1, 1],
+    [1, -1],
+    [-1, 1],
+    [-1, -1]
+  ];
   useEffect(() => {
     const importData = async () => {
       try {
@@ -35,32 +38,27 @@ const InternsPage = () => {
 
   return (
     <div className={styles.landingPage}>
+
       {internData.map((intern, index) => {
         let positionStyle;
 
         if (index < 4) {
-          // Top center
           positionStyle = {
             position: 'absolute',
-            top: '20px',
-            left: `${index * 100 + 100}px`, 
-            transform: 'translateX(-50%)',
+            top: `${11 + 10*(positionConfig[index%4][0])}%`,
+            left: `${44+ 6.25*(positionConfig[index % 4][1])}%`,
           };
         } else if (index < 8) {
-          // Left bottom
           positionStyle = {
             position: 'absolute',
-            bottom: '20px',
-            left: `${index * 100}px`, 
-            transform: 'translateX(-50%)',
+            top: `${60 + 10*(positionConfig[index % 4][0])}%`,
+            left: `${20 + 6.25*(positionConfig[index % 4][1])}%`,
           };
         } else {
-          // Right bottom
           positionStyle = {
             position: 'absolute',
-            bottom: '100px',
-            right: `${index * 100}px`, 
-            transform: 'translateX(50%)',
+            top: `${60 + 10 *(positionConfig[index % 4][0])}%`,
+            left: `${68 + 6.25 * (positionConfig[index % 4][1])}%`,
           };
         }
 
@@ -71,8 +69,6 @@ const InternsPage = () => {
               alt={`Profile of Intern ${intern.username}`}
               className={styles.internAvatar}
             />
-            {/* You can add more information or links for each intern if needed */}
-            <p>{intern.username}</p>
           </div>
         );
       })}
