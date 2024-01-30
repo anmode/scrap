@@ -3,12 +3,10 @@ import { useParams, useNavigate } from 'react-router-dom';
 import styles from './internProfile.module.css';
 import { interns } from './internDetails';
 
-// Import planet SVGs
 import planet1 from '../../assets/planets/planet1.svg';
 import planet2 from '../../assets/planets/planet2.svg';
 import planet3 from '../../assets/planets/planet3.svg';
 
-// Import socials png
 import linkedin from '../../assets/images/socials/linkedin.png';
 import Insta from '../../assets/images/socials/Instagram.png';
 import Github from '../../assets/images/socials/Github.png';
@@ -18,51 +16,46 @@ const InternProfilePage = () => {
   const { username } = useParams();
   const internProfile = interns[username];
   const [internImages, setInternImages] = useState([]);
-  const [loadingBackground, setLoadingBackground] = useState(true);
-  const [loadingProfile, setLoadingProfile] = useState(true);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const importBackground = async () => {
-      await import(`../../../src/assets/planets/planet1.svg`);
-      await import(`../../../src/assets/planets/planet2.svg`);
-      await import(`../../../src/assets/planets/planet3.svg`);
-      setLoadingBackground(false);
-    };
-
-    importBackground();
-  }, []);
-
-  useEffect(() => {
-    const importInternImages = async () => {
-      try {
-        const images = await Promise.all(
-          Array.from({ length: 12 }, (_, i) =>
-            import(`../../../src/assets/internAvtar/${username}.svg`).then(
-              (module) => module.default
+  
+    useEffect(() => {
+      const importData = async () => {
+        try {
+          // Import background planets
+          await import(`../../../src/assets/planets/planet1.svg`);
+          await import(`../../../src/assets/planets/planet2.svg`);
+          await import(`../../../src/assets/planets/planet3.svg`);
+  
+          // Import intern avatars dynamically
+          const images = await Promise.all(
+            Array.from({ length: 12 }, (_, i) =>
+              import(`../../../src/assets/internAvtar/${username}.svg`).then(
+                (module) => module.default
+              )
             )
-          )
-        );
-        setInternImages(images);
-        setLoadingProfile(false);
-      } catch (error) {
-        // If username is not found, navigate to the ErrorPage
-        console.error(`Error loading intern images: ${error}`);
-        setLoadingProfile(false);
-        navigate('/intern/notFound');
-      }
-    };
+          );
+  
+          setInternImages(images);
+          setLoading(false);
+        } catch (error) {
+          console.error(`Error loading data: ${error}`);
+          setLoading(false);
+          navigate('/intern/notFound');
+        }
+      };
+  
+      importData();
+    }, [username, navigate]);
 
-    importInternImages();
-  }, [username]);
-
-  if (!internProfile || loadingBackground || loadingProfile) {
-    return <div className={styles['user-profile']}>Loading...</div>;
-  }
+    if (loading) {
+        return <div className={styles['user-profile']}>Loading...</div>;
+    }
 
   const determineGroup = (index) => {
     return Math.floor(index / 3) + 1;
   };
+
 
   const internIndex = Object.values(interns).findIndex((intern) => intern.username === username);
   const groupNumber = determineGroup(internIndex);
@@ -71,14 +64,24 @@ const InternProfilePage = () => {
   const planetBackground =
     planetBackgrounds[Math.min(groupNumber - 1, planetBackgrounds.length - 1)];
 
+    const navigateToAllInterns = () => {
+      navigate('/intern/all');
+    };
+
   return (
     <>
       <div
         style={{
           backgroundImage: `url(${planetBackground})`
         }}
-        className={styles.landingPage}></div>
+        className={styles.landingPage}
+        role="banner"
+        aria-label="Intern Profile Background"
+      ></div>
       <div className={styles['user-profile']}>
+      <button className={styles.backButton} onClick={navigateToAllInterns}>
+          Back to All Interns
+        </button>
         <div>
           <img
             className={styles.internAvtar}
@@ -122,17 +125,37 @@ const InternProfilePage = () => {
             </div>
             <div className={styles.social_container}>
               <span className={styles.social_btn_wrap}>
-                <a href={internProfile.linkedin} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={internProfile.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
                   <img src={linkedin} className={styles.social_btn} alt="LinkedIn" />
                 </a>
-                <a href={internProfile.linkedin} target="_blank" rel="noopener noreferrer">
-                  <img src={Insta} className={styles.social_btn} alt="LinkedIn" />
+                <a
+                  href={internProfile.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                >
+                  <img src={Insta} className={styles.social_btn} alt="Instagram" />
                 </a>
-                <a href={internProfile.github} target="_blank" rel="noopener noreferrer">
-                  <img src={Github} className={styles.social_btn} alt="LinkedIn" />
+                <a
+                  href={internProfile.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                >
+                  <img src={Github} className={styles.social_btn} alt="GitHub" />
                 </a>
-                <a href={internProfile.website} target="_blank" rel="noopener noreferrer">
-                  <img src={Website} className={styles.social_btn} alt="LinkedIn" />
+                <a
+                  href={internProfile.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Website"
+                >
+                  <img src={Website} className={styles.social_btn} alt="Website" />
                 </a>
               </span>
             </div>
