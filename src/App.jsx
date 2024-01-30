@@ -10,7 +10,7 @@ function App() {
         <Route path="/interns/2024" element={<LandingPage />} />
         <Route path="/interns/2024/:username" element={<InternProfilePage />} />
         <Route path="/interns/2024/allInterns" element={<InternsPage />} />
-        <Route path="*" element={<Navigate to="/interns/2024" />} />
+        <Route path='' element={<Navigate to="/interns/2024/" />} />
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
     </Router>
