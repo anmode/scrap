@@ -122,7 +122,7 @@ const InternProfilePage = () => {
       <button className={styles.backAllButton} onClick={navigateToAllInterns}>
           Back
         </button>
-        <div>
+        <div className={styles.img_container}>
           <img
             className={styles.internAvtar}
             src={internImages[0]}
