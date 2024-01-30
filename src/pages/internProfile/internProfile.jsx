@@ -3,9 +3,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 import styles from './internProfile.module.css';
 import { interns } from './internDetails';
 
-import planet1 from '../../assets/planets/planet1.svg';
-import planet2 from '../../assets/planets/planet2.svg';
-import planet3 from '../../assets/planets/planet3.svg';
+import planet1 from '../../assets/planets/planet1.webp';
+import planet2 from '../../assets/planets/planet2.webp';
+import planet3 from '../../assets/planets/planet3.webp';
 
 import linkedin from '../../assets/images/socials/linkedin.png';
 import Insta from '../../assets/images/socials/Instagram.png';
@@ -18,14 +18,17 @@ const InternProfilePage = () => {
   const [internImages, setInternImages] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const allUsernames = Object.keys(interns);
+  const currentIndex = allUsernames.indexOf(username);
+
   
     useEffect(() => {
       const importData = async () => {
         try {
           // Import background planets
-          await import(`../../../src/assets/planets/planet1.svg`);
-          await import(`../../../src/assets/planets/planet2.svg`);
-          await import(`../../../src/assets/planets/planet3.svg`);
+          await import(`../../../src/assets/planets/planet1.webp`);
+          await import(`../../../src/assets/planets/planet2.webp`);
+          await import(`../../../src/assets/planets/planet3.webp`);
   
           // Import intern avatars dynamically
           const images = await Promise.all(
@@ -48,24 +51,61 @@ const InternProfilePage = () => {
       importData();
     }, [username, navigate]);
 
+
+
+    useEffect(() => {
+      const handleKeyDown = (event) => {
+        if (event.key === 'Backspace') {
+          navigate('/allInterns');
+        } else if (event.key === 'ArrowLeft' && currentIndex > 0) {
+          navigate(`/${allUsernames[currentIndex - 1]}`);
+        } else if (event.key === 'ArrowRight' && currentIndex < allUsernames.length - 1) {
+          navigate(`/${allUsernames[currentIndex + 1]}`);
+        }
+      };
+      document.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.removeEventListener('keydown', handleKeyDown);
+      };
+    }, [currentIndex, allUsernames, navigate]);
+  
+
     if (loading) {
         return <div className={styles['user-profile']}>Loading...</div>;
     }
 
   const determineGroup = (index) => {
-    return Math.floor(index / 3) + 1;
+    return Math.floor(index / 4) + 1;
+  };
+
+
+  const navigateToIntern = (index) => {
+    if (index >= 0 && index < allUsernames.length) {
+      const nextUsername = allUsernames[index];
+      navigate(`/${nextUsername}`);
+    }
+  };
+
+  const navigateToNextIntern = () => {
+    navigateToIntern(currentIndex + 1);
+  };
+
+  const navigateToPrevIntern = () => {
+    navigateToIntern(currentIndex - 1);
   };
 
 
   const internIndex = Object.values(interns).findIndex((intern) => intern.username === username);
+  // console.log(internIndex);
   const groupNumber = determineGroup(internIndex);
+  // console.log(groupNumber);
 
   const planetBackgrounds = [planet1, planet2, planet3];
   const planetBackground =
     planetBackgrounds[Math.min(groupNumber - 1, planetBackgrounds.length - 1)];
 
     const navigateToAllInterns = () => {
-      navigate('/intern/all');
+      navigate('/allInterns');
     };
 
   return (
@@ -77,10 +117,10 @@ const InternProfilePage = () => {
         className={styles.landingPage}
         role="banner"
         aria-label="Intern Profile Background"
-      ></div>
-      <div className={styles['user-profile']}>
-      <button className={styles.backButton} onClick={navigateToAllInterns}>
-          Back to All Interns
+      >
+        <div className={styles['user-profile']}>
+      <button className={styles.backAllButton} onClick={navigateToAllInterns}>
+          Back
         </button>
         <div>
           <img
@@ -162,6 +202,21 @@ const InternProfilePage = () => {
           </div>
         </div>
       </div>
+   
+      </div>
+
+      <div className={styles.navigationButtons}>
+  {currentIndex > 0 && (
+    <button className={styles.backButton} onClick={navigateToPrevIntern}>
+      &larr;
+    </button>
+  )}
+  {currentIndex < allUsernames.length - 1 && (
+    <button className={styles.nextButton} onClick={navigateToNextIntern}>
+      &rarr;
+    </button>
+  )}
+</div>
     </>
   );
 };

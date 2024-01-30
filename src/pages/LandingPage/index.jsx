@@ -3,11 +3,13 @@ import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { HariSVG } from '../../assets/hari';
 import video from '../../assets/loader.mp4';
+import {useNavigate} from 'react-router-dom';
 
 const interpolationStart = [0, 2000];
 const interpolateTo = ['220%', '300%'];
 const LandingPage = () => {
   const scrollContent = useRef(null);
+  const navigate = useNavigate();
   const { scrollY } = useScroll({
     container: scrollContent
   });
@@ -29,6 +31,10 @@ const LandingPage = () => {
     if (e.target.currentTime >= 2.879) {
       setSlideLoader(true);
     }
+  };
+
+  const navigateToAllInterns = () => {
+    navigate('/allInterns');
   };
 
   return (
@@ -74,7 +80,7 @@ const LandingPage = () => {
                 <HariSVG />
               </div>
               <div className={styles.intern_btn_wrap}>
-                <button className={styles.meet_intern_btn}>Meet my Interns</button>
+                <button className={styles.meet_intern_btn} onClick={navigateToAllInterns}>Meet my Interns</button>
               </div>
             </div>
           </div>

@@ -43,7 +43,7 @@ export const sumit = {
   position: 'SDE Intern',
   city: 'Dummy City',
   about:
-    'Bullying Interns Bullying InternsBullying Interns Bullying InternsBullying Interns Bullying InternsBullying Interns Bullying InternsBullying Interns Bullying InternsBullying',
+    'Bullying Interns',
   linkedin: 'https://linkedin.com/in/sumitmaithani',
   github: 'https://github.com/sumit',
   website: '',

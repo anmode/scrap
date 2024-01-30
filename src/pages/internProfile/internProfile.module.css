@@ -4,8 +4,12 @@
   width: 100%;
   height: 100vh;
   background-size: cover;
+  background-repeat: no-repeat;
   position: fixed;
   z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* UserProfile.module.css */
@@ -16,10 +20,6 @@
 }
 
 .user-profile {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background: rgba(25.88, 25.88, 25.88, 0.25);
   box-shadow: 0px 10px 80px rgba(0, 0, 0, 0.75);
   border-radius: 20px;
@@ -28,8 +28,10 @@
   padding: 20px;
   color: white;
   display: flex;
-  width: 840px;
-  height: 493px;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 60%;
+  height: 65%;
 }
 
 .inten_info_container {
@@ -79,7 +81,7 @@
 }
 
 
-.backButton {
+.backAllButton {
   position: absolute;
   top: 10px;
   left: 10px;
@@ -96,3 +98,55 @@
 .backButton:hover {
   background-color: rgba(0, 0, 0, 0.129);
 }
+
+/* Styles for navigation buttons */
+.navigationButtons {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.backButton,
+.nextButton {
+  width: 48%;
+  height: 40px;
+  transition: background-color 0.3s ease-in-out;
+  backdrop-filter: blur(60px);
+  background-color: rgba(0, 0, 0, 0.035);
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backButton {
+  margin-right: 4%;
+}
+
+.nextButton {
+  margin-left: 4%;
+}
+
+/* Adjust styling for better visibility */
+.backButton:hover,
+.nextButton:hover {
+  background-color: #2980b9;
+}
+
+/* Only display arrows on mobile devices */
+@media only screen and (min-width: 768px) {
+  .backButton,
+  .nextButton {
+    display: none;
+  }
+}
+
+/* ... (other styles) */
