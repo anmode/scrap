@@ -29,7 +29,7 @@ const InternsPage = () => {
 
       setInternData(data);
     } catch (error) {
-      console.error(`Error loading data: ${error}`);
+      // console.error(`Error loading data: ${error}`);
       navigate('/notFound');
     }
   };
