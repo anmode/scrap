@@ -3,6 +3,9 @@ import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { HariSVG } from '../../assets/hari';
 import video from '../../assets/loader.mp4';
+import {useNavigate} from 'react-router-dom';
+import Navbar from '../navbar/navbar';
+import { Link, Outlet } from 'react-router-dom';
 
 const getInterpolateToValues = () => {
   const windowWidth = window.innerWidth;
@@ -23,6 +26,7 @@ const interpolationStart = [0, 2000];
 const interpolateTo = getInterpolateToValues();
 const LandingPage = () => {
   const scrollContent = useRef(null);
+  const navigate = useNavigate();
   const { scrollY } = useScroll({
     container: scrollContent
   });
@@ -44,6 +48,10 @@ const LandingPage = () => {
     if (e.target.currentTime >= 2.879) {
       setSlideLoader(true);
     }
+  };
+
+  const navigateToAllInterns = () => {
+    navigate('/interns/2024/allInterns');
   };
 
   return (
@@ -68,10 +76,6 @@ const LandingPage = () => {
         transition={{
           ease: 'linear'
         }}>
-        <div className={styles.header_container}>
-          <div className={styles.header}>2024 Interns</div>
-            <button className={styles.play_game}>Play Game</button>
-        </div>
         <motion.div className={styles.landingPage_content} ref={scrollContent}>
           <div className={styles.landingPage_Txt_Container}>
             <h1 className={styles.landingPage_Txt}>
@@ -91,7 +95,7 @@ const LandingPage = () => {
                 <HariSVG />
               </div>
               <div className={styles.intern_btn_wrap}>
-                <button className={styles.meet_intern_btn}>Meet my Interns</button>
+                <button className={styles.meet_intern_btn} onClick={navigateToAllInterns}>Meet my Interns</button>
               </div>
             </div>
           </div>
