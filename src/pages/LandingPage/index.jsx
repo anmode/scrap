@@ -2,8 +2,8 @@ import styles from './index.module.css';
 import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { HariSVG } from '../../assets/hari';
-import video from '../../assets/loader.mp4';
 import {useNavigate} from 'react-router-dom';
+import getAssetPath from '../../util/asset';
 
 const getInterpolateToValues = () => {
   const windowWidth = window.innerWidth;
@@ -62,7 +62,7 @@ const LandingPage = () => {
             ? `${styles.overlay_loader} ${styles.video_ended}`
             : `${styles.overlay_loader}`
         }>
-        <video src={video} autoPlay muted onTimeUpdate={timeUpdate}>
+        <video src={getAssetPath(`loader.mp4`)} autoPlay muted onTimeUpdate={timeUpdate}>
           Your browser does not support the video tag.
         </video>
       </div>
