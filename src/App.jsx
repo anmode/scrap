@@ -1,5 +1,5 @@
 // App.js
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import SharedLayout from './pages/sharedLayout/sharedlayout';
 import LandingPage from './pages/LandingPage/index';
 import ErrorPage from './pages/errorPage';
