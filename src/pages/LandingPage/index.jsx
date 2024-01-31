@@ -4,6 +4,8 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { HariSVG } from '../../assets/hari';
 import video from '../../assets/loader.mp4';
 import {useNavigate} from 'react-router-dom';
+import Navbar from '../navbar/navbar';
+import { Link, Outlet } from 'react-router-dom';
 
 const interpolationStart = [0, 2000];
 const interpolateTo = ['220%', '300%'];
@@ -55,12 +57,6 @@ const LandingPage = () => {
         transition={{
           ease: 'linear'
         }}>
-        <div className={styles.header_container}>
-          <div className={styles.header}>2024 Interns</div>
-          <div>
-            <button className={styles.play_game}>Play Game</button>
-          </div>
-        </div>
         <motion.div className={styles.landingPage_content} ref={scrollContent}>
           <div className={styles.landingPage_Txt_Container}>
             <h1 className={styles.landingPage_Txt}>
