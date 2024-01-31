@@ -7,7 +7,8 @@
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
+  flex-direction: column;
 }
 
 /* UserProfile.module.css */
@@ -15,6 +16,7 @@
 .internAvtar {
   z-index: 20;
   height: 100%;
+  width: 100%;
 }
 
 .user-profile {
@@ -30,6 +32,7 @@
   justify-content: space-evenly;
   width: 60%;
   height: 65%;
+  margin-top: 20%;
 }
 
 .inten_info_container {
@@ -43,7 +46,6 @@
 
 .intern_info {
   display: flex;
-  align-items: center;
   gap: 52px;
   color: #fff;
   font-family: Goldman;
@@ -113,8 +115,6 @@
 .navigationButtons {
   display: flex;
   justify-content: space-between;
-  position: fixed;
-  bottom: 0;
   width: 100%;
   padding: 15px;
   box-sizing: border-box;
@@ -167,13 +167,51 @@
 
 /* ... (other styles) */
 
+@media (max-width: 1366px) {
+  .user-profile{
+    margin-top: 10%;
+    height: 60%;
+  }
+}
+
 @media(max-width: 1024px) {
   .inten_info_container{
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .user-profile{
     width: 85%;
+    height: 60%;
+    margin-top: 19%;
+  }
+
+  @media(max-height: 1366px) {
+    .user-profile{
+      height: 35%;
+      margin-top: 19%;
+    }
+  }
+}
+
+/* @media screen {
+  @media(max-width: 1024px) {
+    @media(max-height: 1)
+  }
+} */
+
+@media(max-width: 820px) {
+  .user-profile{
+    height: 45%;
+  }
+}
+
+@media(max-width: 769px) {
+  .landingPage{
+    justify-content: flex-start;
+  }
+
+  .user-profile {
+    margin-top: 15%;
   }
 }
 
@@ -207,12 +245,29 @@
   }
 
   .intern_info{
-    font-size: 16px;
+    font-size: 14px;
+  }
+
+  .landingPage {
+    padding-bottom: 60px;
+  }
+
+  .user-profile{
+    height: 75%;
+    margin-top: 25%;
   }
 }
 
 @media(max-width: 375px) {
   .intern_info{
-    font-size: 14px;
+    font-size: 12px;
+  }
+
+  .landingPage {
+    padding-bottom: 0px;
+  }
+
+  .user-profile {
+    margin-top: 10%;
   }
 }

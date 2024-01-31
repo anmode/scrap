@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import styles from './internProfile.module.css';
 import { interns } from './internDetails';
@@ -202,9 +202,6 @@ const InternProfilePage = () => {
           </div>
         </div>
       </div>
-   
-      </div>
-
       <div className={styles.navigationButtons}>
   {currentIndex > 0 && (
     <button className={styles.backButton} onClick={navigateToPrevIntern}>
@@ -217,6 +214,7 @@ const InternProfilePage = () => {
     </button>
   )}
 </div>
+      </div>
     </>
   );
 };
