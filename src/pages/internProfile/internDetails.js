@@ -66,13 +66,13 @@ export const khushboo = {
   username: 'khushboo',
   name: 'Khushboo Chaturvedi',
   position: 'SDE Intern',
-  city: 'Dummy City',
-  about: 'Dummy about Khushboo.',
-  linkedin: 'https://linkedin.com/in/khushboochaturvedi',
-  github: 'https://github.com/khushboo',
-  website: '',
-  instagram: '',
-  hobby: 'Bathroom singer'
+  city: 'Katni',
+  about: 'I am a Front-end Developer with a passion for crafting stunning and fluid user interactions.',
+  linkedin: 'https://linkedin.com/in/khush2706',
+  github: 'https://github.com/khush2706',
+  website: 'https://sabkhush.tech',
+  instagram: 'https://www.instagram.com/khushboo_27__',
+  hobby: 'Binging and playing my uke'
 };
 
 export const shreya = {
