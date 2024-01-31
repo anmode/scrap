@@ -15,6 +15,7 @@ function App() {
           <Route path=":username" element={<InternProfilePage />} />
           <Route path="allInterns" element={<InternsPage />} />
         </Route>
+        <Route path='' element={<Navigate to='/interns/2024/' />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
