@@ -1,7 +1,7 @@
 // errorPage.jsx
 const ErrorPage = () => {
 
-  console.log("deploy check")
+  console.log("deploy check");
   return (
     <div style={styles.container}>
       <h1 style={styles.heading}>Oops! Something went wrong.</h1>
