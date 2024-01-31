@@ -10,7 +10,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/interns/2024" element={<SharedLayout />} >
+        <Route path="/" element={<SharedLayout />} >
           <Route index element={<LandingPage />} />
           <Route path=":username" element={<InternProfilePage />} />
           <Route path="allInterns" element={<InternsPage />} />
