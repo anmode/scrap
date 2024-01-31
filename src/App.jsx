@@ -10,11 +10,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Routes path="/interns/2024/" element={<SharedLayout />} >
+        <Route path="/interns/2024/" element={<SharedLayout />}>
           <Route index element={<LandingPage />} />
           <Route path=":username" element={<InternProfilePage />} />
           <Route path="allInterns" element={<InternsPage />} />
-        </Routes>
+        </Route>
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
