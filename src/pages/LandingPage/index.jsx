@@ -4,17 +4,17 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { HariSVG } from '../../assets/hari';
 import video from '../../assets/loader.mp4';
 import {useNavigate} from 'react-router-dom';
-import Navbar from '../navbar/navbar';
-import { Link, Outlet } from 'react-router-dom';
 
 const getInterpolateToValues = () => {
   const windowWidth = window.innerWidth;
-  if(windowWidth <= 2560 && windowWidth > 1024){
+  if(windowWidth <= 2560 && windowWidth > 1440){
     return ['220%', '300%']
+  } else if(windowWidth <= 1440 && windowWidth > 1024) {
+    return ['240%', '320%']
   } else if(windowWidth <= 1024 && windowWidth > 768) {
-    return ['260%', '360%']
+    return ['300%', '350%']
   } else if(windowWidth <= 768 && windowWidth > 539){
-    return ['350%', '480%']
+    return ['350%', '420%']
   } else if(windowWidth <= 539 && windowWidth > 375){
     return ['110%', '170%']
   } else {
@@ -90,7 +90,8 @@ const LandingPage = () => {
               </span>{' '}
               .
             </h2>
-            <div ref={scrollAstronaut} className={styles.landingPage_astronaut}>
+          </div>
+          <div ref={scrollAstronaut} className={styles.landingPage_astronaut}>
               <div className={styles.intern_hari_wrap}>
                 <HariSVG />
               </div>
@@ -98,7 +99,6 @@ const LandingPage = () => {
                 <button className={styles.meet_intern_btn} onClick={navigateToAllInterns}>Meet my Interns</button>
               </div>
             </div>
-          </div>
         </motion.div>
       </motion.div>
     </div>

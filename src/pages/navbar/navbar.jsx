@@ -1,14 +1,13 @@
 // Navbar.js
-import React from 'react';
 import styles from './navbar.module.css';
 
 const Navbar = () => {
+  const showGameBtn = window.innerHeight < window.innerWidth && window.innerWidth >= 1024
+
   return (
     <div className={styles.header_container}>
       <div className={styles.header}>2024 Interns</div>
-      <div>
-        <button className={styles.play_game}>Play Game</button>
-      </div>
+      {showGameBtn ? <button className={styles.play_game}>Play Game</button> : null}
     </div>
   );
 };
