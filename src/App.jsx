@@ -1,17 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// App.js
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import SharedLayout from './pages/sharedLayout/sharedlayout';
+import LandingPage from './pages/LandingPage/index';
+import ErrorPage from './pages/errorPage';
+import InternProfilePage from './pages/internProfile/internProfile';
+import InternsPage from './pages/internsPage/internsPage';
 
 function App() {
   return (
-    <Router>
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="*" element={<ErrorPage />} />
-      <Route path="/:username" element={<InternProfilePage />} />
-    </Routes>
-  </Router>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/interns/2024" element={<SharedLayout />} >
+          <Route index element={<LandingPage />} />
+          <Route path=":username" element={<InternProfilePage />} />
+          <Route path="allinterns" element={<InternsPage />} />
+        </Route>
+        <Route path='' element={<Navigate to='/interns/2024/'/>} />
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

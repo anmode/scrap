@@ -1,7 +1,4 @@
 // errorPage.jsx
-
-import React from 'react';
-
 const ErrorPage = () => {
   return (
     <div style={styles.container}>
