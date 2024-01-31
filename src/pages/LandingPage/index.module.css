@@ -5,7 +5,6 @@
   background-color: #121418;
   height: 100%;
   background-image: url(../../assets/background.svg);
-  background-size: 220%;
   background-repeat: no-repeat;
   overflow: hidden;
   background-position: top center;
@@ -14,17 +13,24 @@
   left: 0;
   right: 0;
   transition: 1.2s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .landingPage_content {
   overflow-y: scroll;
-  display: flex;
-  justify-content: center;
   height: 100%;
+  width: 100%;
 }
 
 .landingPage_Txt_Container {
-  margin-top: 18%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 60px
 }
 
 .landingPage_Txt {
@@ -38,7 +44,7 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 106px;
+  cursor: default;
 }
 
 .spaceTxt {
@@ -47,10 +53,10 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: 'Krona One';
-  font-size: 65px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  cursor: default;
 }
 
 .scroll_txt {
@@ -65,18 +71,20 @@
 }
 
 .landingPage_astronaut {
+  display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 500px;
-  padding-bottom: 250px;
-  margin-left: -60px;
+  flex-direction: column;
+  /* margin-top: 500px;
+  padding-bottom: 250px; */
+  height: 100%;
 }
 
 .intern_hari_wrap {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 77px;
+  /* padding-top: 77px; */
 }
 
 .intern_btn_wrap {
@@ -124,7 +132,14 @@
 .overlay_loader {
   transition: 1.5s ease-out;
   position: relative;
+  height: 100vh;
   z-index: 1000;
+}
+
+.overlay_loader video {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
 }
 
 .landing_page_slide_up {
@@ -133,7 +148,167 @@
 
 .main_wrapper{
   height: 100vh;
-  overflow: hidden;
   position: relative;
   background-color: black;
+  overflow-y: hidden;
+}
+
+@media (max-width: 1440px) {
+  .landingPage_Txt {
+    margin-top: -4%;
+    font-size: 75px;
+  }
+
+  .scroll_txt{
+    margin-top: 14px;
+    font-size: 34px;
+  }
+
+  .scroll_span:hover {
+    font-size: 45px;
+  }
+
+  .intern_hari_wrap svg {
+    width: 450px;
+    height: 450px;
+  }
+
+  .meet_intern_btn {
+    width: 300px;
+    height: 80px;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .landingPage_Txt{
+    margin-top: -14%;
+    font-size: 62px;
+  }
+
+  .intern_hari_wrap svg {
+    width: 380px;
+    height: 380px;
+  }
+
+  .meet_intern_btn {
+    width: 300px;
+    height: 60px;
+    font-size: 22px;
+  }
+}
+
+@media(max-width: 768px) {
+  .header_container {
+    padding: 35px;
+  }
+
+  .header{
+    font-size: 22px;
+  }
+
+  .play_game{
+    width: 208px;
+    padding: 14px 20px;
+    font-size: 22px;
+  }
+
+  .landingPage_Txt{
+    font-size: 50px;
+    letter-spacing: 1.2px;
+    margin-top: -40%;
+  }
+
+  .intern_hari_wrap svg {
+    width: 320px;
+    height: 320px;
+    margin-top: 50%;
+  }
+
+  .meet_intern_btn {
+    width: 300px;
+    height: 70px;
+    font-size: 20px;
+  }
+
+  .intern_btn_wrap{
+    padding-top: 30px;
+  }
+
+  .scroll_span{
+    font-size: 20px;
+  }
+
+  .scroll_span:hover{
+    font-size: 28px;
+  }
+
+  .landingPage_astronaut{
+    justify-content: flex-start;
+  }
+  
+}
+
+@media(max-width: 539px) {
+  .landingPage {
+    background-image: url(../../assets/backgroud_phone.png);
+  }
+
+  .landingPage_Txt{
+    font-size: 38px;
+    letter-spacing: 0.3px;
+    line-height: 45px;
+  }
+
+  .scroll_txt{
+    font-size: 26px;
+  }
+  .scroll_span:hover {
+    font-size: 30px;
+  }
+
+  .intern_hari_wrap svg {
+    width: 320px;
+    height: 320px;
+  }
+
+  .meet_intern_btn {
+    width: 261px;
+    height: 59px;
+    font-size: 20px;
+  }
+
+  .intern_btn_wrap{
+    padding-top: 29px;
+  }
+}
+
+@media(max-width: 375px) {
+  .landingPage_Txt{
+    font-size: 32px;
+  }
+
+  .scroll_txt{
+    font-size: 21px;
+  }
+
+  .scroll_span:hover{
+    font-size: 27px;
+  }
+
+  .intern_hari_wrap {
+    width: 266px;
+    height: 266px;
+    margin-left: -20px;
+  }
+
+  .intern_btn_wrap{
+    padding-left: 0;
+  }
+
+  .meet_intern_btn {
+    width: 223px;
+    height: 55px;
+    font-size: 16px;
+  }
 }
