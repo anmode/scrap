@@ -7,7 +7,7 @@ export const anmol = {
   linkedin: 'https://linkedin.com/in/anmode',
   github: 'https://github.com/anmode',
   website: '',
-  instagram: '',
+  instagram: 'https://www.instagram.com/awless_anmol',
   hobby: 'Basketball'
 };
 
