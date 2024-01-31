@@ -34,7 +34,7 @@ const LandingPage = () => {
   };
 
   const navigateToAllInterns = () => {
-    navigate('/allInterns');
+    navigate('/interns/2024/allInterns');
   };
 
   return (

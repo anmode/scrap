@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './internsPage.module.css';
 import { interns } from '../internProfile/internDetails';
+import { useMediaQuery } from 'react-responsive';
 
 const InternsPage = () => {
   const navigate = useNavigate();
   const [internData, setInternData] = useState([]);
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   const positionConfig = [
     [1, 1],
     [1, -1],
@@ -31,15 +33,19 @@ const InternsPage = () => {
         console.error(`Error loading data: ${error}`);
         navigate('/notFound');
       }
-    };
 
-    importData();
-  }, [navigate]);
+    };
+    if (isMobile) {
+      navigate('interns/2024/anmol');
+    } else {
+      importData();
+    }
+  }, [navigate, isMobile, internData]);
 
   return (
     <div className={styles.landingPage}>
-
-      {internData.map((intern, index) => {
+      {/* Render your interns only if it's not a mobile view */}
+      {!isMobile && internData.map((intern, index) => {
         let positionStyle;
 
         if (index < 4) {

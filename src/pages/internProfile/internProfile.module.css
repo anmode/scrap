@@ -128,7 +128,7 @@
   backdrop-filter: blur(60px);
   background-color: rgba(0, 0, 0, 0.035);
   color: #fff;
-  font-size: 14px;
+  font-size: 30px;
   border: none;
   cursor: pointer;
   outline: none;
@@ -138,7 +138,7 @@
 }
 
 .backButton {
-  margin-right: 4%;
+  margin-right: 54%;
 }
 
 .nextButton {
@@ -148,7 +148,7 @@
 /* Adjust styling for better visibility */
 .backButton:hover,
 .nextButton:hover {
-  background-color: #2980b9;
+  background-color: #11181d3d;
 }
 
 .img_container{

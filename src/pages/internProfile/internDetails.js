@@ -119,7 +119,7 @@ export const akash = {
   name: 'Akash',
   position: 'Product Design Intern',
   city: 'Alappuzha, Kerala',
-  about: 'Hello guys, Myself Akash. I\'m from Alappuzha, Kerala. I\'m a design graduate. I am a highly motivated and versatile Product Designer. My expertise lies in creating exceptional user interfaces (UI), delivering engaging user experiences (UX), and crafting captivating motion designs. I am passionate about pushing creative boundaries and leveraging my diverse skill set to contribute to hackerrank\'s team\'s success. ',
+  about: "Highly motivated Product Designer specializing in UI, UX, and motion design. Passionate about pushing creative boundaries to contribute to HackerRank's success.",
   linkedin: 'https://www.linkedin.com/in/akashchennessery/',
   github: 'N/A',
   website: 'N/A',
