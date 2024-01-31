@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './internsPage.module.css';
 import { interns } from '../internProfile/internDetails';
 import { useMediaQuery } from 'react-responsive';
+import getAssetPath from '../../util/asset';
 
 const InternsPage = () => {
   const navigate = useNavigate();
@@ -14,41 +15,37 @@ const InternsPage = () => {
     [-1, 1],
     [-1, -1]
   ];
+
   const handleClick = (internUsername) => {
     navigate(`/interns/2024/${internUsername}`);
   };
+
+  const importData = () => {
+    try {
+      const data = Object.values(interns).map(intern => ({
+        ...intern,
+        avatar: getAssetPath(`/internAvtar/${intern.username}.svg`)
+      }));
+
+      setInternData(data);
+    } catch (error) {
+      console.error(`Error loading data: ${error}`);
+      navigate('/notFound');
+    }
+  };
+
   useEffect(() => {
-    const importData = async () => {
-      try {
-        const data = await Promise.all(
-          Object.values(interns).map(async (intern) => {
-            const avatar = await import(`../../../src/assets/internAvtar/${intern.username}.svg`);
-            return {
-              ...intern,
-              avatar: avatar.default,
-            };
-          })
-        );
-
-        setInternData(data);
-        console.log(internData);
-      } catch (error) {
-        console.error(`Error loading data: ${error}`);
-        navigate('/notFound');
-      }
-
-    };
     if (isMobile) {
       navigate('interns/2024/anmol');
     } else {
       importData();
     }
-  }, [navigate, isMobile, internData]);
+  }, [navigate, isMobile]);
 
   return (
     <div className={styles.landingPage}>
       {/* Render your interns only if it's not a mobile view */}
-      {!isMobile && internData.map((intern, index) => {
+      {!isMobile && internData.length > 0 && internData.map((intern, index) => {
         let positionStyle;
 
         if (index < 4) {
