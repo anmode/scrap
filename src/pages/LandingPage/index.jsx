@@ -4,8 +4,23 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { HariSVG } from '../../assets/hari';
 import video from '../../assets/loader.mp4';
 
+const getInterpolateToValues = () => {
+  const windowWidth = window.innerWidth;
+  if(windowWidth <= 2560 && windowWidth > 1024){
+    return ['220%', '300%']
+  } else if(windowWidth <= 1024 && windowWidth > 768) {
+    return ['260%', '360%']
+  } else if(windowWidth <= 768 && windowWidth > 539){
+    return ['350%', '480%']
+  } else if(windowWidth <= 539 && windowWidth > 375){
+    return ['110%', '170%']
+  } else {
+    return ['100%', '120%']
+  }
+}
+
 const interpolationStart = [0, 2000];
-const interpolateTo = ['250%', '300%'];
+const interpolateTo = getInterpolateToValues();
 const LandingPage = () => {
   const scrollContent = useRef(null);
   const { scrollY } = useScroll({
@@ -55,9 +70,7 @@ const LandingPage = () => {
         }}>
         <div className={styles.header_container}>
           <div className={styles.header}>2024 Interns</div>
-          <div>
             <button className={styles.play_game}>Play Game</button>
-          </div>
         </div>
         <motion.div className={styles.landingPage_content} ref={scrollContent}>
           <div className={styles.landingPage_Txt_Container}>
