@@ -129,28 +129,28 @@ export const akash = {
 
 export const arshad = {
   username: 'arshad',
-  name: 'Arshad',
+  name: 'Mohamed Arshad',
   position: 'Product Design Intern',
-  city: 'Dummy City',
-  about: 'Dummy about Arshad.',
-  linkedin: 'https://linkedin.com/in/arshad',
-  github: 'https://github.com/arshad',
-  website: '',
-  instagram: '',
-  hobby: 'Bathroom singer'
-};
+  city: 'Chennai',
+  about: 'I\'m Mohamed Arshad, Product Design intern.I have always been a great admirer of how design simplifies users\' interaction with a product. I love to create minimalistic interfaces that make people happy. Apart from design, I play cricket and I\'m a sports aficionado(particularly cricket & football)',
+  linkedin: 'https://www.linkedin.com/in/mohamed-arshad-vaseem-37621b1a4/',
+  github: '',
+  website: 'https://www.mohamedarshad.com/',
+  instagram: 'https://www.instagram.com/mohh_uiux/?igshid=YmMyMTA2M2Y%3D',
+  hobby: 'Watching sports'
+}
 
 export const aaryan = {
   username: 'aaryan',
   name: 'Aaryan Bhatia Ghosh',
-  position: 'Product Ops Intern',
-  city: 'Dummy City',
-  about: 'Dummy about Aaryan.',
-  linkedin: 'https://linkedin.com/in/aaryan',
-  github: 'https://github.com/aaryan',
-  website: '',
-  instagram: '',
-  hobby: 'Bathroom singer'
+  position: 'Operations Specialist Intern',
+  city: 'Delhi',
+  about: 'Dedicated to innovation and excellence',
+  linkedin: 'https://www.linkedin.com/in/aaryanbhatiaghosh/',
+  github: 'https://github.com/METALXRAY',
+  website: 'https://aaryanbg.netlify.app/',
+  instagram: 'https://www.instagram.com/metalxrayy/',
+  hobby: 'Catching Pokemons'
 };
 
 export const interns = {

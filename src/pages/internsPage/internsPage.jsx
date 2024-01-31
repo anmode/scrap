@@ -14,6 +14,9 @@ const InternsPage = () => {
     [-1, 1],
     [-1, -1]
   ];
+  const handleClick = (internUsername) => {
+    navigate(`/interns/2024/${internUsername}`);
+  };
   useEffect(() => {
     const importData = async () => {
       try {
@@ -74,6 +77,8 @@ const InternsPage = () => {
               src={intern.avatar}
               alt={`Profile of Intern ${intern.username}`}
               className={styles.internAvatar}
+              style={{ cursor: 'pointer' }}
+              onClick={() => handleClick(intern.username)}
             />
           </div>
         );
