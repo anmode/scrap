@@ -32,7 +32,7 @@
   justify-content: space-evenly;
   width: 60%;
   height: 65%;
-  margin-top: 20%;
+  margin-top: 12%;
 }
 
 .inten_info_container {
@@ -191,6 +191,12 @@
       margin-top: 19%;
     }
   }
+
+  @media(max-height: 769px) {
+    .user-profile{
+      height: 60%;
+    }
+  }
 }
 
 /* @media screen {
@@ -212,6 +218,7 @@
 
   .user-profile {
     margin-top: 15%;
+    height: 50%;
   }
 }
 
@@ -254,7 +261,7 @@
 
   .user-profile{
     height: 75%;
-    margin-top: 25%;
+    margin-top: 18%;
   }
 }
 
