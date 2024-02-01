@@ -1,20 +1,20 @@
-import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import styles from './internProfile.module.css';
 import { interns } from './internDetails';
 import getAssetPath from '../../util/asset';
+import styles from './internProfile.module.css';
 
 const InternProfilePage = () => {
   const { username } = useParams();
   const internProfile = interns[username];
-  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const allUsernames = Object.keys(interns);
   const currentIndex = allUsernames.indexOf(username);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.key === 'Backspace') {
+      if (event.key === 'Backspace' || event.key === 'Escape') {
         navigate('interns/2024/allInterns');
       } else if (event.key === 'ArrowLeft' && currentIndex > 0) {
         navigate(`/interns/2024/${allUsernames[currentIndex - 1]}`);
@@ -23,29 +23,14 @@ const InternProfilePage = () => {
       }
     };
     document.addEventListener('keydown', handleKeyDown);
-
-    const fetchData = async () => {
-      setTimeout(() => {
-        setLoading(false);
-      }, 200);
-    };
-
-    fetchData();
-
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, [currentIndex, allUsernames, navigate]);
 
-
-  if (loading) {
-    return <div className={styles['user-profile']}>Loading...</div>;
-  }
-
   const determineGroup = (index) => {
     return Math.floor(index / 4) + 1;
   };
-
 
   const navigateToIntern = (index) => {
     if (index >= 0 && index < allUsernames.length) {
@@ -62,71 +47,78 @@ const InternProfilePage = () => {
     navigateToIntern(currentIndex - 1);
   };
 
-
   const internIndex = Object.values(interns).findIndex((intern) => intern.username === username);
   const groupNumber = determineGroup(internIndex);
   const planetBackground = getAssetPath(`planets/planet${groupNumber}.webp`);
 
-  const navigateToAllInterns = () => {
+  const navigateToallInterns = () => {
     navigate('/interns/2024/allInterns');
   };
 
   return (
     <>
-     <div
+      {/* Helmet to add OG meta tags */}
+      <Helmet>
+        <meta property="og:title" content={`${internProfile.name}'s Profile`} />
+        <meta property="og:description" content={`Learn more about ${internProfile.name}`} />
+        <meta property="og:image" content={getAssetPath(`/internAvtar/${username}.svg`)} />
+        <meta property="og:url" content={`${import.meta.env.VITE_URL}/interns/2024/${username}`} />
+        <meta property="og:type" content="profile" />
+      </Helmet>
+      <div
         style={{
-          backgroundImage: `url(${getAssetPath(`planets/planet${groupNumber}.webp`)})`
+          backgroundImage: `url(${planetBackground})`
         }}
         className={styles.landingPage}
         role="banner"
         aria-label="Intern Profile Background"
       >
         <div className={styles['user-profile']}>
-      <button className={styles.backAllButton} onClick={navigateToAllInterns}>
-          Back
-        </button>
-        <div className={styles.img_container}>
-        <img
+          <button className={styles.backAllButton} onClick={navigateToallInterns}>
+            Back
+          </button>
+          <div className={styles.img_container}>
+            <img
               className={styles.internAvtar}
               src={getAssetPath(`/internAvtar/${username}.svg`)}
               alt={`Profile of ${internProfile.name}`}
             />
-        </div>
-        <div className={styles.inten_info_container}>
-          <div className={styles.intern_info}>
-            <div className={styles.intern_label}>
-              <span className={styles.intern_label_head}>Name</span>
-              <span className={styles.intern_label_col}>:</span>
-            </div>
-            <div className={styles.intern_content}>{internProfile.name}</div>
           </div>
-          <div className={styles.intern_info}>
-            <div className={styles.intern_label}>
-              <span className={styles.intern_label_head}>Role</span>
-              <span className={styles.intern_label_col}>:</span>
+          <div className={styles.inten_info_container}>
+            <div className={styles.intern_info}>
+              <div className={styles.intern_label}>
+                <span className={styles.intern_label_head}>Name</span>
+                <span className={styles.intern_label_col}>:</span>
+              </div>
+              <div className={styles.intern_content}>{internProfile.name}</div>
             </div>
-            <div>{internProfile.position}</div>
-          </div>
-          <div className={styles.intern_info}>
-            <div className={styles.intern_label}>
-              <span className={styles.intern_label_head}>Hobby</span>
-              <span className={styles.intern_label_col}>:</span>
+            <div className={styles.intern_info}>
+              <div className={styles.intern_label}>
+                <span className={styles.intern_label_head}>Role</span>
+                <span className={styles.intern_label_col}>:</span>
+              </div>
+              <div>{internProfile.position}</div>
             </div>
-            <div>{internProfile.hobby}</div>
-          </div>
-          <div className={styles.intern_info}>
-            <div className={styles.intern_label}>
-              <span className={styles.intern_label_head}>About</span>
-              <span className={styles.intern_label_col}>:</span>
+            <div className={styles.intern_info}>
+              <div className={styles.intern_label}>
+                <span className={styles.intern_label_head}>Hobby</span>
+                <span className={styles.intern_label_col}>:</span>
+              </div>
+              <div>{internProfile.hobby}</div>
             </div>
-            <div>{internProfile.about}</div>
-          </div>
-          <div className={styles.intern_info}>
-            <div className={styles.intern_label}>
-              <span className={styles.intern_label_head}>Socials</span>
-              <span className={styles.intern_label_col}>:</span>
+            <div className={styles.intern_info}>
+              <div className={styles.intern_label}>
+                <span className={styles.intern_label_head}>About</span>
+                <span className={styles.intern_label_col}>:</span>
+              </div>
+              <div>{internProfile.about}</div>
             </div>
-            <div className={styles.social_container}>
+            <div className={styles.intern_info}>
+              <div className={styles.intern_label}>
+                <span className={styles.intern_label_head}>Socials</span>
+                <span className={styles.intern_label_col}>:</span>
+              </div>
+              <div className={styles.social_container}>
                 <span className={styles.social_btn_wrap}>
                   <a
                     href={internProfile.linkedin}
@@ -146,7 +138,11 @@ const InternProfilePage = () => {
                     rel="noopener noreferrer"
                     aria-label="Instagram"
                   >
-                    <img src={getAssetPath('images/socials/Instagram.png')} className={styles.social_btn} alt="Instagram" />
+                    <img
+                      src={getAssetPath('images/socials/Instagram.png')}
+                      className={styles.social_btn}
+                      alt="Instagram"
+                    />
                   </a>
                   <a
                     href={internProfile.github}
@@ -154,7 +150,11 @@ const InternProfilePage = () => {
                     rel="noopener noreferrer"
                     aria-label="GitHub"
                   >
-                    <img src={getAssetPath('images/socials/Github.png')} className={styles.social_btn} alt="GitHub" />
+                    <img
+                      src={getAssetPath('images/socials/Github.png')}
+                      className={styles.social_btn}
+                      alt="GitHub"
+                    />
                   </a>
                   <a
                     href={internProfile.website}
@@ -162,25 +162,29 @@ const InternProfilePage = () => {
                     rel="noopener noreferrer"
                     aria-label="Website"
                   >
-                    <img src={getAssetPath('images/socials/Website.png')} className={styles.social_btn} alt="Website" />
+                    <img
+                      src={getAssetPath('images/socials/Website.png')}
+                      className={styles.social_btn}
+                      alt="Website"
+                    />
                   </a>
                 </span>
               </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div className={styles.navigationButtons}>
-  {currentIndex > 0 && (
-    <button className={styles.backButton} onClick={navigateToPrevIntern}>
-      &larr;
-    </button>
-  )}
-  {currentIndex < allUsernames.length - 1 && (
-    <button className={styles.nextButton} onClick={navigateToNextIntern}>
-      &rarr;
-    </button>
-  )}
-</div>
+        <div className={styles.navigationButtons}>
+          {currentIndex > 0 && (
+            <button className={styles.backButton} onClick={navigateToPrevIntern}>
+              &larr;
+            </button>
+          )}
+          {currentIndex < allUsernames.length - 1 && (
+            <button className={styles.nextButton} onClick={navigateToNextIntern}>
+              &rarr;
+            </button>
+          )}
+        </div>
       </div>
     </>
   );

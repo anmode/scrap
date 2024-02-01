@@ -1,13 +1,15 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
-import styles from './internsPage.module.css';
-import { interns } from '../internProfile/internDetails';
 import { useMediaQuery } from 'react-responsive';
+import { interns } from '../internProfile/internDetails';
 import getAssetPath from '../../util/asset';
+import styles from './internsPage.module.css';
 
 const InternsPage = () => {
   const navigate = useNavigate();
   const [internData, setInternData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const positionConfig = [
     [1, 1],
@@ -20,67 +22,81 @@ const InternsPage = () => {
     navigate(`/interns/2024/${internUsername}`);
   };
 
-  const importData = () => {
+  const importData = async () => {
     try {
-      const data = Object.values(interns).map(intern => ({
+      const data = Object.values(interns).map((intern) => ({
         ...intern,
         avatar: getAssetPath(`/internAvtar/${intern.username}.svg`)
       }));
 
       setInternData(data);
     } catch (error) {
-      // console.error(`Error loading data: ${error}`);
       navigate('/notFound');
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    if (isMobile) {
-      // Ensure an absolute path with a leading slash
-      navigate(`/interns/2024/anmol`, { replace: true });
-    } else {
-      importData();
-    }
+    const fetchData = async () => {
+      if (isMobile) {
+        navigate(`/interns/2024/anmol`, { replace: true });
+      } else {
+        await importData();
+      }
+    };
+
+    fetchData();
   }, [navigate, isMobile]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className={styles.landingPage}>
-      {/* Render your interns only if it's not a mobile view */}
-      {!isMobile && internData.length > 0 && internData.map((intern, index) => {
-        let positionStyle;
+      <Helmet>
+        <meta property="og:title" content="2024 Interns" />
+        <meta property="og:description" content="Meet the interns of 2024" />
+        <meta property="og:type" content="website" />
+      </Helmet>
 
-        if (index < 4) {
-          positionStyle = {
-            position: 'absolute',
-            top: `${11 + 10*(positionConfig[index%4][0])}%`,
-            left: `${44+ 6.25*(positionConfig[index % 4][1])}%`,
-          };
-        } else if (index < 8) {
-          positionStyle = {
-            position: 'absolute',
-            top: `${60 + 10*(positionConfig[index % 4][0])}%`,
-            left: `${20 + 6.25*(positionConfig[index % 4][1])}%`,
-          };
-        } else {
-          positionStyle = {
-            position: 'absolute',
-            top: `${60 + 10 *(positionConfig[index % 4][0])}%`,
-            left: `${68 + 6.25 * (positionConfig[index % 4][1])}%`,
-          };
-        }
+      {!isMobile &&
+        internData.length > 0 &&
+        internData.map((intern, index) => {
+          let positionStyle;
 
-        return (
-          <div key={index} className={styles.internAvatarContainer} style={positionStyle}>
-            <img
-              src={intern.avatar}
-              alt={`Profile of Intern ${intern.username}`}
-              className={styles.internAvatar}
-              style={{ cursor: 'pointer' }}
-              onClick={() => handleClick(intern.username)}
-            />
-          </div>
-        );
-      })}
+          if (index < 4) {
+            positionStyle = {
+              position: 'absolute',
+              top: `${11 + 10 * positionConfig[index % 4][0]}%`,
+              left: `${44 + 6.25 * positionConfig[index % 4][1]}%`
+            };
+          } else if (index < 8) {
+            positionStyle = {
+              position: 'absolute',
+              top: `${60 + 10 * positionConfig[index % 4][0]}%`,
+              left: `${20 + 6.25 * positionConfig[index % 4][1]}%`
+            };
+          } else {
+            positionStyle = {
+              position: 'absolute',
+              top: `${60 + 10 * positionConfig[index % 4][0]}%`,
+              left: `${68 + 6.25 * positionConfig[index % 4][1]}%`
+            };
+          }
+
+          return (
+            <div key={index} style={positionStyle}>
+              <img
+                src={intern.avatar}
+                alt={`Profile of Intern ${intern.username}`}
+                className={styles.internAvatar}
+                onClick={() => handleClick(intern.username)}
+              />
+            </div>
+          );
+        })}
     </div>
   );
 };

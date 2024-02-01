@@ -30,7 +30,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 60px
+  gap: 60px;
 }
 
 .landingPage_Txt {
@@ -74,9 +74,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  /* margin-top: 500px;
-  padding-bottom: 250px; */
   height: 100%;
 }
 
@@ -115,7 +112,7 @@
   cursor: pointer;
 }
 
-.scroll_span{
+.scroll_span {
   cursor: pointer;
   transition: all 500ms;
   display: inline-block;
@@ -146,7 +143,7 @@
   top: -100%;
 }
 
-.main_wrapper{
+.main_wrapper {
   height: 100vh;
   position: relative;
   background-color: black;
@@ -159,7 +156,7 @@
     font-size: 75px;
   }
 
-  .scroll_txt{
+  .scroll_txt {
     margin-top: 14px;
     font-size: 34px;
   }
@@ -181,7 +178,7 @@
 }
 
 @media (max-width: 1024px) {
-  .landingPage_Txt{
+  .landingPage_Txt {
     margin-top: -14%;
     font-size: 62px;
   }
@@ -198,22 +195,22 @@
   }
 }
 
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   .header_container {
     padding: 35px;
   }
 
-  .header{
+  .header {
     font-size: 22px;
   }
 
-  .play_game{
+  .play_game {
     width: 208px;
     padding: 14px 20px;
     font-size: 22px;
   }
 
-  .landingPage_Txt{
+  .landingPage_Txt {
     font-size: 50px;
     letter-spacing: 1.2px;
     margin-top: -40%;
@@ -231,36 +228,35 @@
     font-size: 20px;
   }
 
-  .intern_btn_wrap{
+  .intern_btn_wrap {
     padding-top: 30px;
   }
 
-  .scroll_span{
+  .scroll_span {
     font-size: 20px;
   }
 
-  .scroll_span:hover{
+  .scroll_span:hover {
     font-size: 28px;
   }
 
-  .landingPage_astronaut{
+  .landingPage_astronaut {
     justify-content: flex-start;
   }
-  
 }
 
-@media(max-width: 539px) {
+@media (max-width: 539px) {
   .landingPage {
     background-image: url(../../assets/backgroud_phone.png);
   }
 
-  .landingPage_Txt{
+  .landingPage_Txt {
     font-size: 38px;
     letter-spacing: 0.3px;
     line-height: 45px;
   }
 
-  .scroll_txt{
+  .scroll_txt {
     font-size: 26px;
   }
   .scroll_span:hover {
@@ -278,21 +274,21 @@
     font-size: 20px;
   }
 
-  .intern_btn_wrap{
+  .intern_btn_wrap {
     padding-top: 29px;
   }
 }
 
-@media(max-width: 375px) {
-  .landingPage_Txt{
+@media (max-width: 375px) {
+  .landingPage_Txt {
     font-size: 32px;
   }
 
-  .scroll_txt{
+  .scroll_txt {
     font-size: 21px;
   }
 
-  .scroll_span:hover{
+  .scroll_span:hover {
     font-size: 27px;
   }
 
@@ -302,7 +298,7 @@
     margin-left: -20px;
   }
 
-  .intern_btn_wrap{
+  .intern_btn_wrap {
     padding-left: 0;
   }
 

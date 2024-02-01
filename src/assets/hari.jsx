@@ -6,7 +6,8 @@ const HariSVG = (props) => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
-    {...props}>
+    {...props}
+  >
     <rect
       x={50.4797}
       y={256.384}
@@ -42,7 +43,8 @@ const HariSVG = (props) => (
         y1={239.114}
         x2={57.1217}
         y2={315.498}
-        gradientUnits="userSpaceOnUse">
+        gradientUnits="userSpaceOnUse"
+      >
         <stop stopColor="#67F6FB" />
         <stop offset={1} stopColor="#1D8FCB" />
       </linearGradient>
@@ -52,7 +54,8 @@ const HariSVG = (props) => (
         y1={255.055}
         x2={202.583}
         y2={326.789}
-        gradientUnits="userSpaceOnUse">
+        gradientUnits="userSpaceOnUse"
+      >
         <stop stopColor="white" />
         <stop offset={1} stopColor="white" stopOpacity={0} />
       </linearGradient>

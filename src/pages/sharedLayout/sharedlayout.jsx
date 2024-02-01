@@ -1,13 +1,12 @@
-// SharedLayout.js
 import React from 'react';
-import Navbar from '../navbar/navbar';
 import { Outlet } from 'react-router-dom';
+import Navbar from '../navbar/navbar';
 
 const SharedLayout = () => {
   return (
     <>
       <Navbar />
-      <section className='section'>
+      <section className="section">
         <Outlet />
       </section>
     </>

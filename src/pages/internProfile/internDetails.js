@@ -16,7 +16,8 @@ export const mahak = {
   name: 'Mahak Porwal',
   position: 'SDE Intern',
   city: 'Indore',
-  about: 'Software engineer keen to design, build, solve, and democratize technology for the next billion internet users one commit at a time.',
+  about:
+    'Software engineer keen to design, build, solve, and democratize technology for the next billion internet users one commit at a time.',
   linkedin: 'https://www.linkedin.com/in/mahak-porwal/',
   github: 'https://github.com/mahakporwal02',
   website: 'https://mahakporwal02.github.io/',
@@ -42,12 +43,12 @@ export const sumit = {
   name: 'Sumit Maithani',
   position: 'SDE Intern',
   city: 'Srinagar City',
-  about: 'Dummy about me.',
+  about: 'I believe in pushing boundaries not only in code but also in the great outdoors.',
   linkedin: 'https://www.linkedin.com/in/sumit-maithani-103119228/',
   github: 'https://github.com/Sumitmaithani',
   website: 'https://sumitmaithani.onrender.com',
   instagram: 'https://www.instagram.com/sumitmaithani1',
-  hobby: 'hobby'
+  hobby: 'Treking'
 };
 
 export const suyash = {
@@ -55,11 +56,12 @@ export const suyash = {
   name: 'Suyash Purwar',
   position: 'SDE Intern',
   city: 'Etawah',
-  about: "I'm the kind of backend engineer she tells you not to worry about. I build systems that scale to the moon and make your database question their limits.",
+  about:
+    "I'm the kind of backend engineer she tells you not to worry about. I build systems that scale to the moon and make your database question their limits.",
   linkedin: 'https://www.linkedin.com/in/suyash-purwar/',
   github: 'https://github.com/suyash-purwar',
   twitter: 'https://twitter.com/suyashpurwar06',
-  hobby: 'low level engineering'
+  hobby: 'Low level engineering'
 };
 
 export const khushboo = {
@@ -67,7 +69,8 @@ export const khushboo = {
   name: 'Khushboo Chaturvedi',
   position: 'SDE Intern',
   city: 'Katni',
-  about: 'I am a Front-end Developer with a passion for crafting stunning and fluid user interactions.',
+  about:
+    'I am a Front-end Developer with a passion for crafting stunning and fluid user interactions.',
   linkedin: 'https://linkedin.com/in/khush2706',
   github: 'https://github.com/khush2706',
   website: 'https://sabkhush.tech',
@@ -93,7 +96,8 @@ export const sindhu = {
   name: 'Sindhu Inti',
   position: 'SDE Intern',
   city: 'Tanuku',
-  about: 'Hello, I\'m Sindhu  full stack web developer.I say myself as a stargrazer, loves to read both sci- fi and non-fiction books and a huge fan of MCU ',
+  about:
+    "Hello, I'm Sindhu  full stack web developer.I say myself as a stargrazer, loves to read both sci- fi and non-fiction books and a huge fan of MCU ",
   linkedin: 'https://linkedin.com/in/sindhuinti',
   github: 'https://github.com/sindhuinti',
   website: '',
@@ -119,12 +123,13 @@ export const akash = {
   name: 'Akash',
   position: 'Product Design Intern',
   city: 'Alappuzha, Kerala',
-  about: "Highly motivated Product Designer specializing in UI, UX, and motion design. Passionate about pushing creative boundaries to contribute to HackerRank's success.",
+  about:
+    "Highly motivated Product Designer specializing in UI, UX, and motion design. Passionate about pushing creative boundaries to contribute to HackerRank's success.",
   linkedin: 'https://www.linkedin.com/in/akashchennessery/',
   github: 'N/A',
   website: 'N/A',
   instagram: 'https://www.instagram.com/dooddler/',
-  hobby: 'Sakteboarding',
+  hobby: 'Skateboarding'
 };
 
 export const arshad = {
@@ -132,13 +137,14 @@ export const arshad = {
   name: 'Mohamed Arshad',
   position: 'Product Design Intern',
   city: 'Chennai',
-  about: 'I have always been a great admirer of how design simplifies users\' interaction with a product. I love to create minimalistic interfaces that make people happy.',
+  about:
+    "I have always been a great admirer of how design simplifies users' interaction with a product. I love to create minimalistic interfaces that make people happy.",
   linkedin: 'https://www.linkedin.com/in/mohamed-arshad-vaseem-37621b1a4/',
   github: '',
   website: 'https://www.mohamedarshad.com/',
   instagram: 'https://www.instagram.com/mohh_uiux/?igshid=YmMyMTA2M2Y%3D',
   hobby: 'Watching sports'
-}
+};
 
 export const aaryan = {
   username: 'aaryan',
@@ -165,5 +171,5 @@ export const interns = {
   shreya,
   sindhu,
   akash,
-  arshad,
+  arshad
 };
