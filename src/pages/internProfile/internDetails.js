@@ -132,7 +132,7 @@ export const arshad = {
   name: 'Mohamed Arshad',
   position: 'Product Design Intern',
   city: 'Chennai',
-  about: 'I\'m Mohamed Arshad, Product Design intern.I have always been a great admirer of how design simplifies users\' interaction with a product. I love to create minimalistic interfaces that make people happy. Apart from design, I play cricket and I\'m a sports aficionado(particularly cricket & football)',
+  about: 'I have always been a great admirer of how design simplifies users\' interaction with a product. I love to create minimalistic interfaces that make people happy.',
   linkedin: 'https://www.linkedin.com/in/mohamed-arshad-vaseem-37621b1a4/',
   github: '',
   website: 'https://www.mohamedarshad.com/',
