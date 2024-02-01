@@ -36,7 +36,8 @@ const InternsPage = () => {
 
   useEffect(() => {
     if (isMobile) {
-      navigate('interns/2024/anmol');
+      // Ensure an absolute path with a leading slash
+      navigate(`/interns/2024/anmol`, { replace: true });
     } else {
       importData();
     }
