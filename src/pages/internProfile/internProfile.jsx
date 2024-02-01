@@ -15,7 +15,7 @@ const InternProfilePage = () => {
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === 'Backspace' || event.key === 'Escape') {
-        navigate('interns/2024/allInterns');
+        navigate(`/interns/2024/allInterns`, { replace: true });
       } else if (event.key === 'ArrowLeft' && currentIndex > 0) {
         navigate(`/interns/2024/${allUsernames[currentIndex - 1]}`);
       } else if (event.key === 'ArrowRight' && currentIndex < allUsernames.length - 1) {

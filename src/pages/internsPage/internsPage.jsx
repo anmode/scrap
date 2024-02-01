@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
-import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async'; // Import Link from react-router-dom
+import { useNavigate, Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import { interns } from '../internProfile/internDetails';
 import getAssetPath from '../../util/asset';
@@ -10,6 +10,7 @@ const InternsPage = () => {
   const navigate = useNavigate();
   const [internData, setInternData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedInternIndex, setSelectedInternIndex] = useState(0);
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const positionConfig = [
     [1, 1],
@@ -20,6 +21,24 @@ const InternsPage = () => {
 
   const handleClick = (internUsername) => {
     navigate(`/interns/2024/${internUsername}`);
+  };
+
+  const handleInternClick = (internUsername) => {
+    navigate(`/interns/2024/${internUsername}`);
+  };
+
+  const handleArrowNavigation = (event) => {
+    if (event.key === 'Enter' || event.key === 'Tab' || event.key === ' ') {
+      if (selectedInternIndex !== null) {
+        handleInternClick(internData[selectedInternIndex].username);
+      }
+    } else if (event.key === 'Escape') {
+      navigate(`/interns/2024`, { replace: true });
+    } else if (event.key === 'ArrowLeft' && selectedInternIndex > 0) {
+      setSelectedInternIndex(selectedInternIndex - 1);
+    } else if (event.key === 'ArrowRight' && selectedInternIndex < internData.length - 1) {
+      setSelectedInternIndex(selectedInternIndex + 1);
+    }
   };
 
   const importData = async () => {
@@ -49,12 +68,24 @@ const InternsPage = () => {
     fetchData();
   }, [navigate, isMobile]);
 
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      handleArrowNavigation(event);
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [handleArrowNavigation]);
+
   if (loading) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div className={styles.landingPage}>
+    <div className={styles.landingPage} onKeyDown={handleArrowNavigation} tabIndex={0}>
       <Helmet>
         <meta property="og:title" content="2024 Interns" />
         <meta property="og:description" content="Meet the interns of 2024" />
@@ -65,6 +96,7 @@ const InternsPage = () => {
         internData.length > 0 &&
         internData.map((intern, index) => {
           let positionStyle;
+          const isSelected = index === selectedInternIndex;
 
           if (index < 4) {
             positionStyle = {
@@ -87,13 +119,15 @@ const InternsPage = () => {
           }
 
           return (
-            <div key={index} style={positionStyle}>
-              <img
-                src={intern.avatar}
-                alt={`Profile of Intern ${intern.username}`}
-                className={styles.internAvatar}
-                onClick={() => handleClick(intern.username)}
-              />
+            <div key={index} className={isSelected ? styles.shake : ''} style={positionStyle}>
+              <Link to={`/interns/2024/${intern.username}`}>
+                <img
+                  src={intern.avatar}
+                  alt={`Profile of Intern ${intern.username}`}
+                  className={styles.internAvatar}
+                  onClick={() => handleClick(intern.username)}
+                />
+              </Link>
             </div>
           );
         })}
