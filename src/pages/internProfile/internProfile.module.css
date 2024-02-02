@@ -86,11 +86,7 @@
 }
 
 .social_btn {
-  background-color: none;
-  outline: none;
-  border: none;
   width: 25px;
-  height: 25px;
   cursor: pointer;
 }
 
@@ -186,11 +182,22 @@
 
 @media (max-width: 1024px) {
   .card {
+    width: 80%;
     padding: 25px 0;
   }
 
-  .intern_info_container {
-    font-size: 14px;
+  .intern_info {
+    width: 85%;
+  }
+
+  .intern_info:not(.intern_info:last-child) {
+    margin-bottom: 10px;
+  }
+
+  .intern_label_head,
+  .intern_label_col,
+  .intern_content {
+    font-size: 17px;
   }
 
   .user-profile {
@@ -199,17 +206,46 @@
     margin-top: 19%;
   }
 
-  @media (max-height: 1366px) {
-    .user-profile {
-      height: 35%;
-      margin-top: 19%;
-    }
+  .social_btn {
+    width: 19px;
+  }
+}
+
+@media (max-width: 760px) {
+  .intern_label_head,
+  .intern_label_col,
+  .intern_content {
+    font-size: 14px;
   }
 
-  @media (max-height: 769px) {
-    .user-profile {
-      height: 60%;
-    }
+  .social_btn {
+    width: 15px;
+  }
+}
+
+@media (max-width: 650px) {
+  .nextButton,
+  .backButton {
+    font-size: 15px;
+    width: 25px;
+    height: 25px;
+  }
+  .cardContent {
+    grid-template-columns: none;
+  }
+
+  .img_container {
+    width: 100%;
+    text-align: center;
+  }
+
+  .img_container img {
+    width: 50%;
+  }
+
+  .intern_info {
+    width: 100%;
+    padding: 0 20px;
   }
 }
 
@@ -219,7 +255,7 @@
   }
 } */
 
-@media (max-width: 820px) {
+/* @media (max-width: 820px) {
   .user-profile {
     height: 45%;
   }
@@ -291,4 +327,4 @@
   .user-profile {
     margin-top: 10%;
   }
-}
+} */

@@ -91,28 +91,28 @@ const InternProfilePage = () => {
                   <span className={styles.intern_label_head}>Name</span>
                   <span className={styles.intern_label_col}>:</span>
                 </div>
-                <div className={styles.intern_content}>{internProfile.name}</div>
+                <p className={styles.intern_content}>{internProfile.name}</p>
               </div>
               <div className={styles.intern_info}>
                 <div className={styles.intern_label}>
                   <span className={styles.intern_label_head}>Role</span>
                   <span className={styles.intern_label_col}>:</span>
                 </div>
-                <div>{internProfile.position}</div>
+                <p className={styles.intern_content}>{internProfile.position}</p>
               </div>
               <div className={styles.intern_info}>
                 <div className={styles.intern_label}>
                   <span className={styles.intern_label_head}>Hobby</span>
                   <span className={styles.intern_label_col}>:</span>
                 </div>
-                <div>{internProfile.hobby}</div>
+                <p className={styles.intern_content}>{internProfile.hobby}</p>
               </div>
               <div className={styles.intern_info}>
                 <div className={styles.intern_label}>
                   <span className={styles.intern_label_head}>About</span>
                   <span className={styles.intern_label_col}>:</span>
                 </div>
-                <div>{internProfile.about}</div>
+                <p className={styles.intern_content}>{internProfile.about}</p>
               </div>
               <div className={styles.intern_info}>
                 <div className={styles.intern_label}>
