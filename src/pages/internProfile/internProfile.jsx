@@ -1,9 +1,9 @@
-import { Helmet } from 'react-helmet-async';
-import { useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { interns } from './internDetails';
-import getAssetPath from '../../util/asset';
-import styles from './internProfile.module.css';
+import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { interns } from "./internDetails";
+import getAssetPath from "../../util/asset";
+import styles from "./internProfile.module.css";
 
 const InternProfilePage = () => {
   const { username } = useParams();
@@ -14,17 +14,17 @@ const InternProfilePage = () => {
 
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.key === 'Backspace' || event.key === 'Escape') {
+      if (event.key === "Backspace" || event.key === "Escape") {
         navigate(`/interns/2024/allInterns`, { replace: true });
-      } else if (event.key === 'ArrowLeft' && currentIndex > 0) {
+      } else if (event.key === "ArrowLeft" && currentIndex > 0) {
         navigate(`/interns/2024/${allUsernames[currentIndex - 1]}`);
-      } else if (event.key === 'ArrowRight' && currentIndex < allUsernames.length - 1) {
+      } else if (event.key === "ArrowRight" && currentIndex < allUsernames.length - 1) {
         navigate(`/interns/2024/${allUsernames[currentIndex + 1]}`);
       }
     };
-    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener("keydown", handleKeyDown);
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener("keydown", handleKeyDown);
     };
   }, [currentIndex, allUsernames, navigate]);
 
@@ -52,9 +52,8 @@ const InternProfilePage = () => {
   const planetBackground = getAssetPath(`planets/planet${groupNumber}.webp`);
 
   const navigateToallInterns = () => {
-    navigate('/interns/2024/allInterns');
+    navigate("/interns/2024/allInterns");
   };
-
   return (
     <>
       {/* Helmet to add OG meta tags */}
@@ -62,7 +61,10 @@ const InternProfilePage = () => {
         <meta property="og:title" content={`${internProfile.name}'s Profile`} />
         <meta property="og:description" content={`Learn more about ${internProfile.name}`} />
         <meta property="og:image" content={getAssetPath(`/internAvtar/${username}.svg`)} />
-        <meta property="og:url" content={`${import.meta.env.VITE_URL}/interns/2024/${username}`} />
+        <meta
+          property="og:url"
+          content={`https://interns2024.pages.dev/interns/2024/${username}`}
+        />
         <meta property="og:type" content="profile" />
       </Helmet>
       <div
@@ -75,8 +77,9 @@ const InternProfilePage = () => {
       >
         <div className={styles.card}>
           <button className={styles.backAllButton} onClick={navigateToallInterns}>
-            Back
+            <span>Back</span>
           </button>
+
           <div className={styles.cardContent}>
             <div className={styles.img_container}>
               <img
@@ -128,7 +131,7 @@ const InternProfilePage = () => {
                       aria-label="LinkedIn"
                     >
                       <img
-                        src={getAssetPath('images/socials/linkedin.png')}
+                        src={getAssetPath("images/socials/linkedin.png")}
                         className={styles.social_btn}
                         alt="LinkedIn"
                       />
@@ -140,7 +143,7 @@ const InternProfilePage = () => {
                       aria-label="Instagram"
                     >
                       <img
-                        src={getAssetPath('images/socials/Instagram.png')}
+                        src={getAssetPath("images/socials/Instagram.png")}
                         className={styles.social_btn}
                         alt="Instagram"
                       />
@@ -152,7 +155,7 @@ const InternProfilePage = () => {
                       aria-label="GitHub"
                     >
                       <img
-                        src={getAssetPath('images/socials/Github.png')}
+                        src={getAssetPath("images/socials/Github.png")}
                         className={styles.social_btn}
                         alt="GitHub"
                       />
@@ -164,7 +167,7 @@ const InternProfilePage = () => {
                       aria-label="Website"
                     >
                       <img
-                        src={getAssetPath('images/socials/Website.png')}
+                        src={getAssetPath("images/socials/Website.png")}
                         className={styles.social_btn}
                         alt="Website"
                       />

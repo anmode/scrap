@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Krona+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap");
 
 .landingPage {
   background-color: #121418;
@@ -35,7 +35,7 @@
 
 .landingPage_Txt {
   text-align: center;
-  font-family: 'Krona One';
+  font-family: "Krona One";
   font-size: 65px;
   font-style: normal;
   font-weight: 400;
@@ -52,7 +52,7 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: 'Krona One';
+  font-family: "Krona One";
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -62,7 +62,7 @@
 .scroll_txt {
   color: #fff;
   text-align: center;
-  font-family: 'Goldman';
+  font-family: "Goldman";
   font-size: 26px;
   font-style: normal;
   font-weight: 400;

@@ -1,7 +1,7 @@
 .landingPage {
   background-color: #121418;
   height: 100vh;
-  background-image: url('../../assets/planets/allPlanet.webp');
+  background-image: url("../../assets/planets/allPlanet.webp");
   background-size: 90% 130%;
   background-repeat: no-repeat;
   overflow: hidden;

@@ -1,25 +1,49 @@
-import React, { useRef, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
-import { HariSVG } from '../../assets/hari';
-import video from '../../assets/loader.mp4';
-import styles from './index.module.css';
+import React, { useRef, useState } from "react";
+import clsx from "clsx";
+import { Helmet } from "react-helmet-async";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { HariSVG } from "../../assets/hari";
+import video from "../../assets/loader.mp4";
+import styles from "./index.module.css";
+
+// Constants for window width breakpoints
+const WINDOW_BREAKPOINTS = {
+  XL: 2560,
+  LG: 1440,
+  MD: 1024,
+  SM: 768,
+  XS: 539,
+  XXS: 375
+};
+
+// Constants for interpolation values
+const INTERPOLATION_VALUES = {
+  XL: ["220%", "300%"],
+  LG: ["240%", "320%"],
+  MD: ["300%", "350%"],
+  SM: ["350%", "420%"],
+  XS: ["110%", "170%"],
+  XXS: ["100%", "120%"]
+};
 
 const getInterpolateToValues = () => {
   const windowWidth = window.innerWidth;
-  if (windowWidth <= 2560 && windowWidth > 1440) {
-    return ['220%', '300%'];
-  } else if (windowWidth <= 1440 && windowWidth > 1024) {
-    return ['240%', '320%'];
-  } else if (windowWidth <= 1024 && windowWidth > 768) {
-    return ['300%', '350%'];
-  } else if (windowWidth <= 768 && windowWidth > 539) {
-    return ['350%', '420%'];
-  } else if (windowWidth <= 539 && windowWidth > 375) {
-    return ['110%', '170%'];
-  } else {
-    return ['100%', '120%'];
+
+  // Using switch-case for better readability
+  switch (true) {
+    case windowWidth <= WINDOW_BREAKPOINTS.XL && windowWidth > WINDOW_BREAKPOINTS.LG:
+      return INTERPOLATION_VALUES.XL;
+    case windowWidth <= WINDOW_BREAKPOINTS.LG && windowWidth > WINDOW_BREAKPOINTS.MD:
+      return INTERPOLATION_VALUES.LG;
+    case windowWidth <= WINDOW_BREAKPOINTS.MD && windowWidth > WINDOW_BREAKPOINTS.SM:
+      return INTERPOLATION_VALUES.MD;
+    case windowWidth <= WINDOW_BREAKPOINTS.SM && windowWidth > WINDOW_BREAKPOINTS.XS:
+      return INTERPOLATION_VALUES.SM;
+    case windowWidth <= WINDOW_BREAKPOINTS.XS && windowWidth > WINDOW_BREAKPOINTS.XXS:
+      return INTERPOLATION_VALUES.XS;
+    default:
+      return INTERPOLATION_VALUES.XXS;
   }
 };
 
@@ -38,22 +62,29 @@ const LandingPage = () => {
 
   const scrollAstronautFunction = () => {
     scrollAstronaut.current?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'end',
-      inline: 'nearest'
+      behavior: "smooth",
+      block: "end",
+      inline: "nearest"
     });
   };
 
+  // Constants for video duration and slide loader threshold
+  const VIDEO_DURATION_THRESHOLD = 2.879;
   const [slideLoader, setSlideLoader] = useState(false);
 
   const timeUpdate = (e) => {
-    if (e.target.currentTime >= 2.879) {
+    if (e.target.currentTime >= VIDEO_DURATION_THRESHOLD) {
       setSlideLoader(true);
     }
   };
 
+  // Conditional classes
+  const landingPageClasses = clsx(styles.landingPage, slideLoader && styles.landing_page_slide_up);
+
+  const overlayLoaderClasses = clsx(styles.overlay_loader, slideLoader && styles.video_ended);
+
   const navigateToallInterns = () => {
-    navigate('/interns/2024/allInterns');
+    navigate("/interns/2024/allInterns");
   };
 
   return (
@@ -65,26 +96,16 @@ const LandingPage = () => {
           content="Welcome to HackerSpace - Meet the interns of 2024"
         />
       </Helmet>
-      <div
-        className={
-          slideLoader
-            ? `${styles.overlay_loader} ${styles.video_ended}`
-            : `${styles.overlay_loader}`
-        }
-      >
+      <div className={overlayLoaderClasses}>
         <video src={video} autoPlay muted onTimeUpdate={timeUpdate}>
           Your browser does not support the video tag.
         </video>
       </div>
       <motion.div
-        className={
-          slideLoader
-            ? `${styles.landingPage} ${styles.landing_page_slide_up}`
-            : `${styles.landingPage}`
-        }
+        className={landingPageClasses}
         style={{ backgroundSize }}
         transition={{
-          ease: 'linear'
+          ease: "linear"
         }}
       >
         <motion.div className={styles.landingPage_content} ref={scrollContent}>
@@ -95,10 +116,10 @@ const LandingPage = () => {
               Hacker<span className={styles.spaceTxt}>Space</span>
             </h1>
             <h2 className={styles.scroll_txt}>
-              .{' '}
+              .{" "}
               <span className={styles.scroll_span} onClick={scrollAstronautFunction}>
                 scroll
-              </span>{' '}
+              </span>{" "}
               .
             </h2>
           </div>
