@@ -46,3 +46,9 @@
     font-size: 18px;
   }
 }
+
+@media (max-width: 1300px) {
+  .play_game {
+    display: none;
+  }
+}

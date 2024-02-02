@@ -75,6 +75,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  /* margin-top: 500px;
+  padding-bottom: 250px; */
   height: 100%;
 }
 
@@ -82,6 +84,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  /* padding-top: 77px; */
 }
 
 .intern_btn_wrap {
@@ -293,6 +296,7 @@
   }
 
   .intern_hari_wrap {
+    margin-top: 100px;
     width: 266px;
     height: 266px;
     margin-left: -20px;
@@ -300,6 +304,7 @@
 
   .intern_btn_wrap {
     padding-left: 0;
+    margin-top: 50px;
   }
 
   .meet_intern_btn {

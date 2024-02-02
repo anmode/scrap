@@ -1,13 +1,12 @@
 /* UserProfile.module.css */
 
 .landingPage {
-  width: 100%;
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
-  /* justify-content: center; */
+  justify-content: center;
   flex-direction: column;
 }
 
@@ -19,33 +18,33 @@
   width: 100%;
 }
 
-.user-profile {
+.card {
   background: rgba(25.88, 25.88, 25.88, 0.25);
   box-shadow: 0px 10px 80px rgba(0, 0, 0, 0.75);
   border-radius: 20px;
   border: 2px white solid;
   backdrop-filter: blur(65px);
   padding: 20px;
+  position: relative;
   color: white;
-  display: flex;
+  width: 60%;
+  /* margin-top: 12%; */
+}
+
+.cardContent {
+  display: grid;
   align-items: center;
   justify-content: space-evenly;
-  width: 60%;
-  height: 65%;
-  margin-top: 12%;
+  grid-template-columns: 1fr 2fr;
 }
 
-.inten_info_container {
-  padding: 37px 27px;
+/* .intern_info_container {
   width: 70%;
-}
-
-.img_container {
-  width: 30%;
-}
+} */
 
 .intern_info {
   display: flex;
+  width: 85%;
   gap: 52px;
   color: #fff;
   font-family: Goldman;
@@ -53,7 +52,10 @@
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0.2px;
-  padding-bottom: 23px;
+}
+
+.intern_info:not(.intern_info:last-child) {
+  margin-bottom: 20px;
 }
 
 .intern_label {
@@ -106,10 +108,6 @@
   background-color: rgba(0, 0, 0, 0.035);
 }
 
-.backButton:hover {
-  background-color: rgba(0, 0, 0, 0.129);
-}
-
 /* Styles for navigation buttons */
 .navigationButtons {
   display: flex;
@@ -121,12 +119,10 @@
 
 .backButton,
 .nextButton {
-  width: 48%;
+  width: 40px;
   height: 40px;
-  transition: background-color 0.3s ease-in-out;
-  backdrop-filter: blur(60px);
-  background-color: rgba(0, 0, 0, 0.035);
-  color: #fff;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   font-size: 30px;
   border: none;
   cursor: pointer;
@@ -134,20 +130,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  line-height: 1;
+  border-radius: 100%;
+  top: 50%;
+  font-weight: 600;
+  padding: 20px;
+  font-size: 30px;
+  transition: 0.5s;
+}
+
+.backButton:hover {
+  transform: translate(-50%, -50%) rotate(180deg) scale(1.3);
+}
+.nextButton:hover {
+  transform: translate(50%, -50%) scale(1.3);
 }
 
 .backButton {
-  margin-right: 54%;
+  left: 0;
+  transform: translate(-50%, -50%) rotate(180deg);
 }
 
 .nextButton {
-  margin-left: 4%;
-}
-
-/* Adjust styling for better visibility */
-.backButton:hover,
-.nextButton:hover {
-  background-color: #11181d3d;
+  right: 0;
+  transform: translate(50%, -50%);
 }
 
 .img_container {
@@ -157,12 +164,12 @@
 }
 
 /* Only display arrows on mobile devices */
-@media only screen and (min-width: 768px) {
+/* @media only screen and (min-width: 768px) {
   .backButton,
   .nextButton {
     display: none;
   }
-}
+} */
 
 /* ... (other styles) */
 
@@ -171,10 +178,18 @@
     margin-top: 10%;
     height: 60%;
   }
+
+  .intern_info_container {
+    /* font-size: 10px; */
+  }
 }
 
 @media (max-width: 1024px) {
-  .inten_info_container {
+  .card {
+    padding: 25px 0;
+  }
+
+  .intern_info_container {
     font-size: 14px;
   }
 
@@ -233,11 +248,12 @@
     height: 42%;
   }
 
-  .inten_info_container {
+  .intern_info_container {
     width: 100%;
     height: 70%;
     padding: 6px;
     padding-top: 3px;
+    position: relative;
   }
 
   .social_btn_wrap {
