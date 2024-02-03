@@ -6,7 +6,7 @@ import { interns } from "../internProfile/internDetails";
 import getAssetPath from "../../util/asset";
 import styles from "./internsPage.module.css";
 import calculatePositionStyle from "../../util/positionInterns";
-import type { Intern } from '../../types/intern';
+import type { Intern } from "../../types/intern";
 
 const InternsPage = () => {
   const navigate = useNavigate();
@@ -30,20 +30,27 @@ const InternsPage = () => {
       }
     } else if (event.key === "Escape") {
       navigate(`/interns/2024`, { replace: true });
-    } else if (event.key === "ArrowLeft" && selectedInternIndex !== null && selectedInternIndex > 0) {
+    } else if (
+      event.key === "ArrowLeft" &&
+      selectedInternIndex !== null &&
+      selectedInternIndex > 0
+    ) {
       setSelectedInternIndex(selectedInternIndex - 1);
-    } else if (event.key === "ArrowRight" && selectedInternIndex !== null && selectedInternIndex < internData.length - 1) {
+    } else if (
+      event.key === "ArrowRight" &&
+      selectedInternIndex !== null &&
+      selectedInternIndex < internData.length - 1
+    ) {
       setSelectedInternIndex(selectedInternIndex + 1);
     }
   };
-  
 
   const importData = async () => {
     try {
       const data: Intern[] = Object.values(interns).map((intern) => ({
-        ...intern,
+        ...intern
       }));
-  
+
       setInternData(data);
     } catch (error) {
       navigate("/notFound");
@@ -51,7 +58,6 @@ const InternsPage = () => {
       setLoading(false);
     }
   };
-  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -83,7 +89,11 @@ const InternsPage = () => {
   }
 
   return (
-    <div className={styles.landingPage} onKeyDown={(event: React.KeyboardEvent<HTMLDivElement>) => handleArrowNavigation(event)} tabIndex={0}>
+    <div
+      className={styles.landingPage}
+      onKeyDown={(event: React.KeyboardEvent<HTMLDivElement>) => handleArrowNavigation(event)}
+      tabIndex={0}
+    >
       <Helmet>
         <meta property="og:title" content="2024 Interns" />
         <meta property="og:description" content="Meet the interns of 2024" />

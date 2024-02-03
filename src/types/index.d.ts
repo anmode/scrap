@@ -1,1 +1,1 @@
-export { Intern, InternData} from './intern';
+export { Intern, InternData } from "./intern";

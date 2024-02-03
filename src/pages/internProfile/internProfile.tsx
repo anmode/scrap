@@ -5,7 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { interns } from "./internDetails";
 import getAssetPath from "../../util/asset";
 import styles from "./internProfile.module.css";
-import type { Intern } from '../../types/intern';
+import type { Intern } from "../../types/intern";
 
 const InternProfilePage: React.FC = () => {
   const { username } = useParams<{ username?: string }>();
@@ -66,12 +66,15 @@ const InternProfilePage: React.FC = () => {
         <meta property="og:title" content={`${internProfile?.name}'s Profile`} />
         <meta property="og:description" content={`Learn more about ${internProfile?.name}`} />
         <meta property="og:image" content={getAssetPath(`/internAvtar/${username}.svg`)} />
-        <meta property="og:url" content={`https://interns2024.pages.dev/interns/2024/${username}`} />
+        <meta
+          property="og:url"
+          content={`https://interns2024.pages.dev/interns/2024/${username}`}
+        />
         <meta property="og:type" content="profile" />
       </Helmet>
       <div
         style={{
-          backgroundImage: `url(${planetBackground})`,
+          backgroundImage: `url(${planetBackground})`
         }}
         className={styles.landingPage}
         role="banner"
