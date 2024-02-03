@@ -2,8 +2,8 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import styles from "./navbar.module.css";
 
-const Navbar = () => {
-  const showGameBtn = window.innerHeight < window.innerWidth && window.innerWidth >= 1024;
+const Navbar: React.FC = () => {
+  const showGameBtn: boolean = window.innerHeight < window.innerWidth && window.innerWidth >= 1024;
 
   const handlePlayGameClick = () => {
     // we will redirect to game route

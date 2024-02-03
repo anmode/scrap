@@ -1,19 +1,22 @@
+import React from "react";
 import { Helmet } from "react-helmet-async";
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { interns } from "./internDetails";
 import getAssetPath from "../../util/asset";
 import styles from "./internProfile.module.css";
+import type { Intern } from '../../types/intern';
 
-const InternProfilePage = () => {
-  const { username } = useParams();
-  const internProfile = interns[username];
+const InternProfilePage: React.FC = () => {
+  const { username } = useParams<{ username?: string }>();
+  //@ts-ignore
+  const internProfile: Intern | undefined = username ? interns[username] : undefined;
   const navigate = useNavigate();
   const allUsernames = Object.keys(interns);
-  const currentIndex = allUsernames.indexOf(username);
+  const currentIndex = allUsernames.indexOf(username!);
 
   useEffect(() => {
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Backspace" || event.key === "Escape") {
         navigate(`/interns/2024/allInterns`, { replace: true });
       } else if (event.key === "ArrowLeft" && currentIndex > 0) {
@@ -22,17 +25,19 @@ const InternProfilePage = () => {
         navigate(`/interns/2024/${allUsernames[currentIndex + 1]}`);
       }
     };
+
     document.addEventListener("keydown", handleKeyDown);
+
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [currentIndex, allUsernames, navigate]);
 
-  const determineGroup = (index) => {
+  const determineGroup = (index: number) => {
     return Math.floor(index / 4) + 1;
   };
 
-  const navigateToIntern = (index) => {
+  const navigateToIntern = (index: number) => {
     if (index >= 0 && index < allUsernames.length) {
       const nextUsername = allUsernames[index];
       navigate(`/interns/2024/${nextUsername}`);
@@ -54,22 +59,19 @@ const InternProfilePage = () => {
   const navigateToallInterns = () => {
     navigate("/interns/2024/allInterns");
   };
+
   return (
     <>
-      {/* Helmet to add OG meta tags */}
       <Helmet>
-        <meta property="og:title" content={`${internProfile.name}'s Profile`} />
-        <meta property="og:description" content={`Learn more about ${internProfile.name}`} />
+        <meta property="og:title" content={`${internProfile?.name}'s Profile`} />
+        <meta property="og:description" content={`Learn more about ${internProfile?.name}`} />
         <meta property="og:image" content={getAssetPath(`/internAvtar/${username}.svg`)} />
-        <meta
-          property="og:url"
-          content={`https://interns2024.pages.dev/interns/2024/${username}`}
-        />
+        <meta property="og:url" content={`https://interns2024.pages.dev/interns/2024/${username}`} />
         <meta property="og:type" content="profile" />
       </Helmet>
       <div
         style={{
-          backgroundImage: `url(${planetBackground})`
+          backgroundImage: `url(${planetBackground})`,
         }}
         className={styles.landingPage}
         role="banner"
@@ -85,7 +87,7 @@ const InternProfilePage = () => {
               <img
                 className={styles.internAvtar}
                 src={getAssetPath(`/internAvtar/${username}.svg`)}
-                alt={`Profile of ${internProfile.name}`}
+                alt={`Profile of ${internProfile?.name}`}
               />
             </div>
             <div className={styles.intern_info_container}>
@@ -94,28 +96,28 @@ const InternProfilePage = () => {
                   <span className={styles.intern_label_head}>Name</span>
                   <span className={styles.intern_label_col}>:</span>
                 </div>
-                <p className={styles.intern_content}>{internProfile.name}</p>
+                <p className={styles.intern_content}>{internProfile?.name}</p>
               </div>
               <div className={styles.intern_info}>
                 <div className={styles.intern_label}>
                   <span className={styles.intern_label_head}>Role</span>
                   <span className={styles.intern_label_col}>:</span>
                 </div>
-                <p className={styles.intern_content}>{internProfile.position}</p>
+                <p className={styles.intern_content}>{internProfile?.position}</p>
               </div>
               <div className={styles.intern_info}>
                 <div className={styles.intern_label}>
                   <span className={styles.intern_label_head}>Hobby</span>
                   <span className={styles.intern_label_col}>:</span>
                 </div>
-                <p className={styles.intern_content}>{internProfile.hobby}</p>
+                <p className={styles.intern_content}>{internProfile?.hobby}</p>
               </div>
               <div className={styles.intern_info}>
                 <div className={styles.intern_label}>
                   <span className={styles.intern_label_head}>About</span>
                   <span className={styles.intern_label_col}>:</span>
                 </div>
-                <p className={styles.intern_content}>{internProfile.about}</p>
+                <p className={styles.intern_content}>{internProfile?.about}</p>
               </div>
               <div className={styles.intern_info}>
                 <div className={styles.intern_label}>
@@ -125,7 +127,7 @@ const InternProfilePage = () => {
                 <div className={styles.social_container}>
                   <span className={styles.social_btn_wrap}>
                     <a
-                      href={internProfile.linkedin}
+                      href={internProfile?.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="LinkedIn"
@@ -137,7 +139,7 @@ const InternProfilePage = () => {
                       />
                     </a>
                     <a
-                      href={internProfile.instagram}
+                      href={internProfile?.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Instagram"
@@ -149,7 +151,7 @@ const InternProfilePage = () => {
                       />
                     </a>
                     <a
-                      href={internProfile.github}
+                      href={internProfile?.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="GitHub"
@@ -161,7 +163,7 @@ const InternProfilePage = () => {
                       />
                     </a>
                     <a
-                      href={internProfile.website}
+                      href={internProfile?.website}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Website"

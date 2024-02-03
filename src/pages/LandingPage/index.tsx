@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { HariSVG } from "../../assets/hari";
+//@ts-ignore
 import video from "../../assets/loader.mp4";
 import styles from "./index.module.css";
 
@@ -50,15 +51,15 @@ const getInterpolateToValues = () => {
 const interpolationStart = [0, 2000];
 const interpolateTo = getInterpolateToValues();
 
-const LandingPage = () => {
-  const scrollContent = useRef(null);
+const LandingPage: React.FC = () => {
+  const scrollContent = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const { scrollY } = useScroll({
     container: scrollContent
   });
   const backgroundSize = useTransform(scrollY, interpolationStart, interpolateTo);
 
-  const scrollAstronaut = useRef(null);
+  const scrollAstronaut = useRef<HTMLDivElement>(null);
 
   const scrollAstronautFunction = () => {
     scrollAstronaut.current?.scrollIntoView({
@@ -72,8 +73,8 @@ const LandingPage = () => {
   const VIDEO_DURATION_THRESHOLD = 2.879;
   const [slideLoader, setSlideLoader] = useState(false);
 
-  const timeUpdate = (e) => {
-    if (e.target.currentTime >= VIDEO_DURATION_THRESHOLD) {
+  const timeUpdate = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
+    if (e.currentTarget.currentTime >= VIDEO_DURATION_THRESHOLD) {
       setSlideLoader(true);
     }
   };

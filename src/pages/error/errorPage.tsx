@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./errorPage.module.css";
 
-const ErrorPage = () => {
+const ErrorPage: React.FC = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.heading}>Oops! Something went wrong.</h1>

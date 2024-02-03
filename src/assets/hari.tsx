@@ -1,4 +1,6 @@
-const HariSVG = (props) => (
+import React, { SVGProps } from "react";
+
+const HariSVG: React.FC<SVGProps<SVGSVGElement>> = (props) => (
   <svg
     width={360}
     height={327}

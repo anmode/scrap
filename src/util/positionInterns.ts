@@ -1,4 +1,12 @@
-export const calculatePositionStyle = (index) => {
+type Position = "absolute";
+
+interface PositionStyle {
+  position: Position;
+  top: string;
+  left: string;
+}
+
+export const calculatePositionStyle = (index: number): PositionStyle => {
   const positionConfig = [
     [1, 1],
     [1, -1],
@@ -6,7 +14,7 @@ export const calculatePositionStyle = (index) => {
     [-1, -1]
   ];
 
-  let positionStyle;
+  let positionStyle: PositionStyle;
 
   if (index < 4) {
     positionStyle = {

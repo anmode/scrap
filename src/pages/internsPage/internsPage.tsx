@@ -6,43 +6,44 @@ import { interns } from "../internProfile/internDetails";
 import getAssetPath from "../../util/asset";
 import styles from "./internsPage.module.css";
 import calculatePositionStyle from "../../util/positionInterns";
+import type { Intern } from '../../types/intern';
 
 const InternsPage = () => {
   const navigate = useNavigate();
-  const [internData, setInternData] = useState([]);
+  const [internData, setInternData] = useState<Intern[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedInternIndex, setSelectedInternIndex] = useState(0);
+  const [selectedInternIndex, setSelectedInternIndex] = useState<number | null>(0);
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
-  const handleClick = (internUsername) => {
+  const handleClick = (internUsername: string) => {
     navigate(`/interns/2024/${internUsername}`);
   };
 
-  const handleInternClick = (internUsername) => {
+  const handleInternClick = (internUsername: string) => {
     navigate(`/interns/2024/${internUsername}`);
   };
 
-  const handleArrowNavigation = (event) => {
+  const handleArrowNavigation = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (event.key === "Enter" || event.key === "Tab" || event.key === " ") {
       if (selectedInternIndex !== null) {
         handleInternClick(internData[selectedInternIndex].username);
       }
     } else if (event.key === "Escape") {
       navigate(`/interns/2024`, { replace: true });
-    } else if (event.key === "ArrowLeft" && selectedInternIndex > 0) {
+    } else if (event.key === "ArrowLeft" && selectedInternIndex !== null && selectedInternIndex > 0) {
       setSelectedInternIndex(selectedInternIndex - 1);
-    } else if (event.key === "ArrowRight" && selectedInternIndex < internData.length - 1) {
+    } else if (event.key === "ArrowRight" && selectedInternIndex !== null && selectedInternIndex < internData.length - 1) {
       setSelectedInternIndex(selectedInternIndex + 1);
     }
   };
+  
 
   const importData = async () => {
     try {
-      const data = Object.values(interns).map((intern) => ({
+      const data: Intern[] = Object.values(interns).map((intern) => ({
         ...intern,
-        avatar: getAssetPath(`/internAvtar/${intern.username}.svg`)
       }));
-
+  
       setInternData(data);
     } catch (error) {
       navigate("/notFound");
@@ -50,6 +51,7 @@ const InternsPage = () => {
       setLoading(false);
     }
   };
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -64,7 +66,8 @@ const InternsPage = () => {
   }, [navigate, isMobile]);
 
   useEffect(() => {
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      //@ts-ignore
       handleArrowNavigation(event);
     };
 
@@ -80,7 +83,7 @@ const InternsPage = () => {
   }
 
   return (
-    <div className={styles.landingPage} onKeyDown={handleArrowNavigation} tabIndex={0}>
+    <div className={styles.landingPage} onKeyDown={(event: React.KeyboardEvent<HTMLDivElement>) => handleArrowNavigation(event)} tabIndex={0}>
       <Helmet>
         <meta property="og:title" content="2024 Interns" />
         <meta property="og:description" content="Meet the interns of 2024" />
@@ -90,14 +93,14 @@ const InternsPage = () => {
       {!isMobile &&
         internData.length > 0 &&
         internData.map((intern, index) => {
-          const isSelected = index === selectedInternIndex;
+          const isSelected = index === selectedInternIndex!;
           const positionStyle = calculatePositionStyle(index);
 
           return (
             <div key={index} className={isSelected ? styles.shake : ""} style={positionStyle}>
               <Link to={`/interns/2024/${intern.username}`}>
                 <img
-                  src={intern.avatar}
+                  src={getAssetPath(`/internAvtar/${intern.username}.svg`)}
                   alt={`Profile of Intern ${intern.username}`}
                   className={styles.internAvatar}
                   onClick={() => handleClick(intern.username)}
