@@ -80,7 +80,7 @@
 .meet_intern_btn {
   color: #1d8fcb;
   text-align: center;
-  font-family: 'Goldman';
+  font-family: "Goldman";
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
@@ -149,7 +149,7 @@
     font-size: 1.125rem;
   }
 
-  .scroll_span{
+  .scroll_span {
     font-size: 1.5rem;
   }
 
@@ -242,7 +242,7 @@
 
   .intern_btn_wrap {
     margin-top: 3.125rem;
-    margin-left: 5.5%
+    margin-left: 5.5%;
   }
 
   .meet_intern_btn {

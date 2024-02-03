@@ -37,7 +37,6 @@ const INTERPOLATION_VALUES = {
 
 // changing the background size according to the screen size
 const getInterpolateToValues = (windowWidth: number) => {
-
   // Using switch-case for better readability
   switch (true) {
     case windowWidth <= WINDOW_BREAKPOINTS.XXL && windowWidth > WINDOW_BREAKPOINTS.XL:
@@ -45,21 +44,21 @@ const getInterpolateToValues = (windowWidth: number) => {
     case windowWidth <= WINDOW_BREAKPOINTS.XL && windowWidth > WINDOW_BREAKPOINTS.LG:
       return INTERPOLATION_VALUES.XL;
     case windowWidth <= WINDOW_BREAKPOINTS.LG && windowWidth > WINDOW_BREAKPOINTS.MD:
-      switch(screen.orientation.type) {
+      switch (screen.orientation.type) {
         case "portrait-secondary":
         case "portrait-primary":
-        return INTERPOLATION_VALUES.LGP;
+          return INTERPOLATION_VALUES.LGP;
       }
       return INTERPOLATION_VALUES.LG;
     case windowWidth <= WINDOW_BREAKPOINTS.MD && windowWidth > WINDOW_BREAKPOINTS.SM:
-      switch(screen.orientation.type) {
+      switch (screen.orientation.type) {
         case "portrait-secondary":
         case "portrait-primary":
-        return INTERPOLATION_VALUES.MDP;
+          return INTERPOLATION_VALUES.MDP;
       }
       return INTERPOLATION_VALUES.MD;
     case windowWidth <= WINDOW_BREAKPOINTS.SM && windowWidth > WINDOW_BREAKPOINTS.XS:
-      return INTERPOLATION_VALUES.SM
+      return INTERPOLATION_VALUES.SM;
     case windowWidth <= WINDOW_BREAKPOINTS.XS && windowWidth >= WINDOW_BREAKPOINTS.XXS:
       return INTERPOLATION_VALUES.XS;
     default:
@@ -75,9 +74,9 @@ function useWindowSize() {
     function updateSize() {
       setSize([window.innerWidth, window.innerHeight]);
     }
-    window.addEventListener('resize', updateSize);
+    window.addEventListener("resize", updateSize);
     updateSize();
-    return () => window.removeEventListener('resize', updateSize);
+    return () => window.removeEventListener("resize", updateSize);
   }, []);
   return size;
 }
@@ -87,11 +86,11 @@ const LandingPage: React.FC = () => {
   const navigate = useNavigate();
 
   const [width, height] = useWindowSize();
-  const [interpolateTo, setInterpolateTo] = useState(getInterpolateToValues(width))
+  const [interpolateTo, setInterpolateTo] = useState(getInterpolateToValues(width));
 
   useEffect(() => {
-    setInterpolateTo(getInterpolateToValues(width))
-  }, [width, height])
+    setInterpolateTo(getInterpolateToValues(width));
+  }, [width, height]);
 
   const { scrollY } = useScroll({
     container: scrollContent

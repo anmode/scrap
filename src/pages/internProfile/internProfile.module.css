@@ -35,7 +35,7 @@
   width: 85%;
   gap: 3.8rem;
   color: #fff;
-  font-family: 'Goldman';
+  font-family: "Goldman";
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
@@ -226,7 +226,7 @@
     padding-left: 0;
   }
 
-  .social_btn_wrap{
+  .social_btn_wrap {
     gap: 1.2rem;
   }
 }
