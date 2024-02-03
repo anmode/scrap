@@ -1,4 +1,4 @@
-.landingPage {
+.landing_page {
   background-color: #121418;
   height: 100vh;
   background-image: url("../../assets/planets/allPlanet.webp");
@@ -6,13 +6,6 @@
   background-repeat: no-repeat;
   overflow: hidden;
   background-position: center -70px;
-}
-
-body {
-  background-size: 100% auto;
-  background-repeat: no-repeat;
-}
-.landingPage {
   width: 100%;
   height: 100vh;
   background-size: cover;
@@ -20,7 +13,12 @@ body {
   z-index: -1;
 }
 
-.internAvatar {
+body {
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+.intern_avatar {
   cursor: pointer;
 }
 

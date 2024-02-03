@@ -57,7 +57,9 @@ const InternProfilePage: React.FC = () => {
   const planetBackground = getAssetPath(`planets/planet${groupNumber}.webp`);
 
   const navigateToallInterns = () => {
-    navigate("/interns/2024/allInterns");
+    localStorage.setItem("shake_intern", internProfile?.username || "");
+    console.log(internProfile?.name);
+    navigate("/interns/2024/allInterns", { replace: true });
   };
 
   return (
@@ -137,7 +139,7 @@ const InternProfilePage: React.FC = () => {
                     >
                       <img
                         src={getAssetPath("images/socials/linkedin.png")}
-                        className={`${styles.social_btn} flex_center`}
+                        className={`${styles.social_btn}`}
                         alt="LinkedIn"
                       />
                     </a>

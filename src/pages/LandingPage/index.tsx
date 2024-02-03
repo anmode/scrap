@@ -4,36 +4,15 @@ import { Helmet } from "react-helmet-async";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { HariSVG } from "../../assets/hari";
+import {
+  WINDOW_BREAKPOINTS,
+  INTERPOLATION_VALUES,
+  VIDEO_DURATION_THRESHOLD
+} from "../../util/constant";
 
 //@ts-ignore
 import video from "../../assets/loader.mp4";
 import styles from "./index.module.css";
-
-// Constants for window width breakpoints
-const WINDOW_BREAKPOINTS = {
-  XXL: 2560,
-  XL: 1440,
-  LG: 1024,
-  MD: 768,
-  SM: 695,
-  XS: 539,
-  XXS: 375,
-  XXXS: 320
-};
-
-// Constants for interpolation values
-const INTERPOLATION_VALUES = {
-  XXL: ["220%", "300%"],
-  XL: ["240%", "320%"],
-  LG: ["300%", "370%"],
-  LGP: ["460%", "540%"],
-  MD: ["350%", "420%"],
-  MDP: ["412%", "520%"],
-  SM: ["410%", "500%"],
-  XS: ["110%", "170%"],
-  XXS: ["100%", "120%"],
-  XXXS: ["122%", "160%"]
-};
 
 // changing the background size according to the screen size
 const getInterpolateToValues = (windowWidth: number) => {
@@ -87,10 +66,25 @@ const LandingPage: React.FC = () => {
 
   const [width, height] = useWindowSize();
   const [interpolateTo, setInterpolateTo] = useState(getInterpolateToValues(width));
+  const [skipLoader, setSkipLoader] = useState(false);
 
   useEffect(() => {
     setInterpolateTo(getInterpolateToValues(width));
   }, [width, height]);
+
+  const handleSpaceBarPress = (e: KeyboardEvent) => {
+    if (e.key === " " || e.key === "Enter" || e.key === "Escape") {
+      setSkipLoader(true);
+      scrollAstronautFunction();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleSpaceBarPress);
+    return () => {
+      document.removeEventListener("keydown", handleSpaceBarPress);
+    };
+  }, []);
 
   const { scrollY } = useScroll({
     container: scrollContent
@@ -108,7 +102,6 @@ const LandingPage: React.FC = () => {
   };
 
   // Constants for video duration and slide loader threshold
-  const VIDEO_DURATION_THRESHOLD = 2.879;
   const [slideLoader, setSlideLoader] = useState(false);
 
   const timeUpdate = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {

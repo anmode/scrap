@@ -68,7 +68,6 @@
 
 .social_btn_wrap {
   display: flex;
-  align-items: center;
   justify-content: space-evenly;
   gap: 1.8rem;
 }
@@ -76,6 +75,7 @@
 .social_btn {
   width: 1.6rem;
   cursor: pointer;
+  flex-direction: center;
 }
 
 .backAllButton {
