@@ -6,6 +6,7 @@ import { interns } from "../internProfile/internDetails";
 import getAssetPath from "../../util/asset";
 import styles from "./internsPage.module.css";
 import calculatePositionStyle from "../../util/positionInterns";
+
 import type { Intern } from "../../types/intern";
 
 const InternsPage = () => {

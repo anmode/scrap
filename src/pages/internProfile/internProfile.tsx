@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { interns } from "./internDetails";
-import getAssetPath from "../../util/asset";
-import styles from "./internProfile.module.css";
 import type { Intern } from "../../types/intern";
+import getAssetPath from "../../util/asset";
+
+import styles from "./internProfile.module.css";
 
 const InternProfilePage: React.FC = () => {
   const { username } = useParams<{ username?: string }>();

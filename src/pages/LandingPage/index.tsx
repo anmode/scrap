@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { HariSVG } from "../../assets/hari";
+
 //@ts-ignore
 import video from "../../assets/loader.mp4";
 import styles from "./index.module.css";
