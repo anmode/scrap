@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useLayoutEffect, useEffect } from "react";
 import clsx from "clsx";
 import { Helmet } from "react-helmet-async";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -11,50 +11,88 @@ import styles from "./index.module.css";
 
 // Constants for window width breakpoints
 const WINDOW_BREAKPOINTS = {
-  XL: 2560,
-  LG: 1440,
-  MD: 1024,
-  SM: 768,
+  XXL: 2560,
+  XL: 1440,
+  LG: 1024,
+  MD: 768,
+  SM: 695,
   XS: 539,
-  XXS: 375
+  XXS: 375,
+  XXXS: 320
 };
 
 // Constants for interpolation values
 const INTERPOLATION_VALUES = {
-  XL: ["220%", "300%"],
-  LG: ["240%", "320%"],
-  MD: ["300%", "350%"],
-  SM: ["350%", "420%"],
+  XXL: ["220%", "300%"],
+  XL: ["240%", "320%"],
+  LG: ["300%", "370%"],
+  LGP: ["460%", "540%"],
+  MD: ["350%", "420%"],
+  MDP: ["412%", "520%"],
+  SM: ["410%", "500%"],
   XS: ["110%", "170%"],
-  XXS: ["100%", "120%"]
+  XXS: ["100%", "120%"],
+  XXXS: ["122%", "160%"]
 };
 
-const getInterpolateToValues = () => {
-  const windowWidth = window.innerWidth;
+// changing the background size according to the screen size
+const getInterpolateToValues = (windowWidth: number) => {
 
   // Using switch-case for better readability
   switch (true) {
+    case windowWidth <= WINDOW_BREAKPOINTS.XXL && windowWidth > WINDOW_BREAKPOINTS.XL:
+      return INTERPOLATION_VALUES.XXL;
     case windowWidth <= WINDOW_BREAKPOINTS.XL && windowWidth > WINDOW_BREAKPOINTS.LG:
       return INTERPOLATION_VALUES.XL;
     case windowWidth <= WINDOW_BREAKPOINTS.LG && windowWidth > WINDOW_BREAKPOINTS.MD:
+      switch(screen.orientation.type) {
+        case "portrait-secondary":
+        case "portrait-primary":
+        return INTERPOLATION_VALUES.LGP;
+      }
       return INTERPOLATION_VALUES.LG;
     case windowWidth <= WINDOW_BREAKPOINTS.MD && windowWidth > WINDOW_BREAKPOINTS.SM:
+      switch(screen.orientation.type) {
+        case "portrait-secondary":
+        case "portrait-primary":
+        return INTERPOLATION_VALUES.MDP;
+      }
       return INTERPOLATION_VALUES.MD;
     case windowWidth <= WINDOW_BREAKPOINTS.SM && windowWidth > WINDOW_BREAKPOINTS.XS:
-      return INTERPOLATION_VALUES.SM;
-    case windowWidth <= WINDOW_BREAKPOINTS.XS && windowWidth > WINDOW_BREAKPOINTS.XXS:
+      return INTERPOLATION_VALUES.SM
+    case windowWidth <= WINDOW_BREAKPOINTS.XS && windowWidth >= WINDOW_BREAKPOINTS.XXS:
       return INTERPOLATION_VALUES.XS;
     default:
-      return INTERPOLATION_VALUES.XXS;
+      return INTERPOLATION_VALUES.XXXS;
   }
 };
 
 const interpolationStart = [0, 2000];
-const interpolateTo = getInterpolateToValues();
+
+function useWindowSize() {
+  const [size, setSize] = useState([0, 0]);
+  useLayoutEffect(() => {
+    function updateSize() {
+      setSize([window.innerWidth, window.innerHeight]);
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+  return size;
+}
 
 const LandingPage: React.FC = () => {
   const scrollContent = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+
+  const [width, height] = useWindowSize();
+  const [interpolateTo, setInterpolateTo] = useState(getInterpolateToValues(width))
+
+  useEffect(() => {
+    setInterpolateTo(getInterpolateToValues(width))
+  }, [width, height])
+
   const { scrollY } = useScroll({
     container: scrollContent
   });
@@ -111,7 +149,7 @@ const LandingPage: React.FC = () => {
         }}
       >
         <motion.div className={styles.landingPage_content} ref={scrollContent}>
-          <div className={styles.landingPage_Txt_Container}>
+          <div className={`${styles.landingPage_Txt_Container} flex_center`}>
             <h1 className={styles.landingPage_Txt}>
               Welcome to
               <br />
@@ -125,11 +163,11 @@ const LandingPage: React.FC = () => {
               .
             </h2>
           </div>
-          <div ref={scrollAstronaut} className={styles.landingPage_astronaut}>
-            <div className={styles.intern_hari_wrap}>
+          <div ref={scrollAstronaut} className={`${styles.landingPage_astronaut} flex_center`}>
+            <div className={`${styles.intern_hari_wrap} flex_center`}>
               <HariSVG />
             </div>
-            <div className={styles.intern_btn_wrap}>
+            <div className={`${styles.intern_btn_wrap} flex_center`}>
               <button className={styles.meet_intern_btn} onClick={navigateToallInterns}>
                 Meet my Interns
               </button>

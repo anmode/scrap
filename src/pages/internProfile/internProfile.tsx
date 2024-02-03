@@ -76,7 +76,7 @@ const InternProfilePage: React.FC = () => {
         style={{
           backgroundImage: `url(${planetBackground})`
         }}
-        className={styles.landingPage}
+        className={`${styles.landingPage} flex_center`}
         role="banner"
         aria-label="Intern Profile Background"
       >
@@ -137,7 +137,7 @@ const InternProfilePage: React.FC = () => {
                     >
                       <img
                         src={getAssetPath("images/socials/linkedin.png")}
-                        className={styles.social_btn}
+                        className={`${styles.social_btn} flex_center`}
                         alt="LinkedIn"
                       />
                     </a>
@@ -183,12 +183,12 @@ const InternProfilePage: React.FC = () => {
             </div>
           </div>
           {currentIndex > 0 && (
-            <button className={styles.backButton} onClick={navigateToPrevIntern}>
+            <button className={`${styles.backButton} flex_center`} onClick={navigateToPrevIntern}>
               &#10140;
             </button>
           )}
           {currentIndex < allUsernames.length - 1 && (
-            <button className={styles.nextButton} onClick={navigateToNextIntern}>
+            <button className={`${styles.nextButton} flex_center`} onClick={navigateToNextIntern}>
               &#10140;
             </button>
           )}

@@ -26,11 +26,8 @@
 
 .landingPage_Txt_Container {
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  gap: 60px;
+  gap: 5rem;
 }
 
 .landingPage_Txt {
@@ -63,55 +60,38 @@
   color: #fff;
   text-align: center;
   font-family: "Goldman";
-  font-size: 26px;
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  letter-spacing: 13px;
+  letter-spacing: 0.8rem;
 }
 
 .landingPage_astronaut {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  /* margin-top: 500px;
-  padding-bottom: 250px; */
   height: 100%;
 }
 
-.intern_hari_wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* padding-top: 77px; */
-}
-
 .intern_btn_wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 77px;
-  padding-left: 40px;
+  margin-top: 3rem;
+  margin-left: 2rem;
 }
 
 .meet_intern_btn {
   color: #1d8fcb;
   text-align: center;
-  font-family: Goldman;
-  font-size: 18px;
+  font-family: 'Goldman';
+  font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  letter-spacing: 0.18px;
+  letter-spacing: 0.01rem;
   border-radius: 50px;
   border: 2px solid #fff;
   background: #fff;
-  width: 231px;
-  padding: 16px 20px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+  width: 14rem;
+  padding: 1rem 1.5rem;
+  gap: 0.8rem;
   cursor: pointer;
 }
 
@@ -122,7 +102,7 @@
 }
 
 .scroll_span:hover {
-  font-size: 35px;
+  font-size: 2rem;
 }
 
 .video_ended {
@@ -153,94 +133,60 @@
   overflow-y: hidden;
 }
 
-@media (max-width: 1440px) {
-  .landingPage_Txt {
-    margin-top: -4%;
-    font-size: 75px;
-  }
-
-  .scroll_txt {
-    margin-top: 14px;
-    font-size: 34px;
-  }
-
-  .scroll_span:hover {
-    font-size: 45px;
-  }
-
-  .intern_hari_wrap svg {
-    width: 450px;
-    height: 450px;
-  }
-
-  .meet_intern_btn {
-    width: 300px;
-    height: 80px;
-    font-size: 22px;
-  }
-}
-
 @media (max-width: 1024px) {
   .landingPage_Txt {
     margin-top: -14%;
-    font-size: 62px;
+    font-size: 4rem;
   }
 
   .intern_hari_wrap svg {
-    width: 380px;
-    height: 380px;
+    width: 22rem;
+    height: 22rem;
   }
 
   .meet_intern_btn {
-    width: 300px;
-    height: 60px;
-    font-size: 22px;
+    width: 16rem;
+    font-size: 1.125rem;
+  }
+
+  .scroll_span{
+    font-size: 1.5rem;
+  }
+
+  .scroll_span:hover {
+    font-size: 1.8rem;
   }
 }
 
 @media (max-width: 768px) {
-  .header_container {
-    padding: 35px;
-  }
-
-  .header {
-    font-size: 22px;
-  }
-
-  .play_game {
-    width: 208px;
-    padding: 14px 20px;
-    font-size: 22px;
-  }
-
   .landingPage_Txt {
-    font-size: 50px;
-    letter-spacing: 1.2px;
-    margin-top: -40%;
+    font-size: 3.125rem;
+    letter-spacing: 0.1rem;
+    margin-top: -38%;
   }
 
   .intern_hari_wrap svg {
-    width: 320px;
-    height: 320px;
+    width: 20rem;
+    height: 20rem;
     margin-top: 50%;
   }
 
   .meet_intern_btn {
-    width: 300px;
-    height: 70px;
-    font-size: 20px;
+    width: 19.125rem;
+    height: 4.125rem;
+    font-size: 1.375rem;
   }
 
   .intern_btn_wrap {
-    padding-top: 30px;
+    margin-top: 2rem;
   }
 
   .scroll_span {
-    font-size: 20px;
+    font-size: 2rem;
   }
 
   .scroll_span:hover {
-    font-size: 28px;
+    font-size: 2.375px;
   }
 
   .landingPage_astronaut {
@@ -254,31 +200,24 @@
   }
 
   .landingPage_Txt {
-    font-size: 38px;
-    letter-spacing: 0.3px;
-    line-height: 45px;
+    font-size: 2.375rem;
+    letter-spacing: 0.05rem;
   }
 
-  .scroll_txt {
-    font-size: 26px;
+  .scroll_span {
+    font-size: 2rem;
   }
   .scroll_span:hover {
-    font-size: 30px;
-  }
-
-  .intern_hari_wrap svg {
-    width: 320px;
-    height: 320px;
+    font-size: 2.5rem;
   }
 
   .meet_intern_btn {
-    width: 261px;
-    height: 59px;
-    font-size: 20px;
+    width: 16rem;
+    height: 3.8rem;
   }
 
   .intern_btn_wrap {
-    padding-top: 29px;
+    padding-top: 2rem;
   }
 }
 
@@ -287,29 +226,28 @@
     font-size: 32px;
   }
 
-  .scroll_txt {
-    font-size: 21px;
+  .scroll_span {
+    font-size: 1.375rem;
   }
 
   .scroll_span:hover {
-    font-size: 27px;
+    font-size: 1.5rem;
   }
 
   .intern_hari_wrap {
-    margin-top: 100px;
-    width: 266px;
-    height: 266px;
-    margin-left: -20px;
+    width: 16rem;
+    height: 16rem;
+    margin-left: -1.5rem;
   }
 
   .intern_btn_wrap {
-    padding-left: 0;
-    margin-top: 50px;
+    margin-top: 3.125rem;
+    margin-left: 5.5%
   }
 
   .meet_intern_btn {
-    width: 223px;
-    height: 55px;
-    font-size: 16px;
+    width: 14rem;
+    height: 3.5rem;
+    font-size: 1rem;
   }
 }

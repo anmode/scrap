@@ -68,9 +68,9 @@ export const khushboo = {
   username: "khushboo",
   name: "Khushboo Chaturvedi",
   position: "SDE Intern",
-  city: "Katni",
+  city: "Katni, Madhya Pradesh",
   about:
-    "I am a Front-end Developer with a passion for crafting stunning and fluid user interactions.",
+    "Passionate about everything frontend. Making the world a better place, one div at a time.",
   linkedin: "https://linkedin.com/in/khush2706",
   github: "https://github.com/khush2706",
   website: "https://sabkhush.tech",
