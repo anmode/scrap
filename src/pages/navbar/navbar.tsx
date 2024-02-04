@@ -18,7 +18,7 @@ const Navbar: React.FC = () => {
         <meta property="og:description" content="Meet the interns of 2024" />
       </Helmet>
       <div className={styles.header__container}>
-        <a href="/interns/2024" className={styles.header__left} style={{ textDecoration: "none" }}>
+        <a href="/interns/2024" className={styles.header__left}>
           2024 Interns
         </a>
         {showGameBtn ? (
