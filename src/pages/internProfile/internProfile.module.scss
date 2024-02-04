@@ -18,6 +18,7 @@
     position: relative;
     color: white;
     width: 60%;
+    margin-top: 30px;
 
     @media (max-width: 1024px) {
       width: 80%;
@@ -38,6 +39,10 @@
     backdrop-filter: blur(60px);
     background-color: rgba(0, 0, 0, 0.035);
     z-index: 100;
+
+    @media (max-width: 650px){
+      display: none;
+    }
   }
 
   &__internAvatar {

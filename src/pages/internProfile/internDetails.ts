@@ -17,7 +17,7 @@ export const mahak = {
   position: "SDE Intern",
   city: "Indore",
   about:
-    "Software engineer keen to design, build, solve, and democratize technology for the next billion internet users one commit at a time.",
+    "Software engineer keen to design, build, solve.",
   linkedin: "https://www.linkedin.com/in/mahak-porwal/",
   github: "https://github.com/mahakporwal02",
   website: "https://mahakporwal02.github.io/",
@@ -57,7 +57,7 @@ export const suyash = {
   position: "SDE Intern",
   city: "Etawah",
   about:
-    "I'm the kind of backend engineer she tells you not to worry about. I build systems that scale to the moon and make your database question their limits.",
+    "I'm the kind of backend engineer she tells you not to worry about.",
   linkedin: "https://www.linkedin.com/in/suyash-purwar/",
   github: "https://github.com/suyash-purwar",
   twitter: "https://twitter.com/suyashpurwar06",
@@ -70,7 +70,7 @@ export const khushboo = {
   position: "SDE Intern",
   city: "Katni, Madhya Pradesh",
   about:
-    "Passionate about everything frontend. Making the world a better place, one div at a time.",
+    "Passionate about everything frontend. but when stuck use chatgpt.",
   linkedin: "https://linkedin.com/in/khush2706",
   github: "https://github.com/khush2706",
   website: "https://sabkhush.tech",
@@ -97,7 +97,7 @@ export const sindhu = {
   position: "SDE Intern",
   city: "Tanuku",
   about:
-    "Hello, I'm Sindhu  full stack web developer.I say myself as a stargrazer, loves to read both sci- fi and non-fiction books and a huge fan of MCU ",
+    "Hello, I'm Sindhu  full stack web developer.I say myself as a stargrazer. ",
   linkedin: "https://linkedin.com/in/sindhuinti",
   github: "https://github.com/sindhuinti",
   website: "",
@@ -124,7 +124,7 @@ export const akash = {
   position: "Product Design Intern",
   city: "Alappuzha, Kerala",
   about:
-    "Highly motivated Product Designer specializing in UI, UX, and motion design. Passionate about pushing creative boundaries to contribute to HackerRank's success.",
+    "Highly motivated Product Designer specializing in UI, UX, and motion design.",
   linkedin: "https://www.linkedin.com/in/akashchennessery/",
   github: "N/A",
   website: "N/A",
@@ -138,7 +138,7 @@ export const arshad = {
   position: "Product Design Intern",
   city: "Chennai",
   about:
-    "I have always been a great admirer of how design simplifies users' interaction with a product. I love to create minimalistic interfaces that make people happy.",
+    "I have always been a great admirer of how design works.",
   linkedin: "https://www.linkedin.com/in/mohamed-arshad-vaseem-37621b1a4/",
   github: "",
   website: "https://www.mohamedarshad.com/",
