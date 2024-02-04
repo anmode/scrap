@@ -6,8 +6,8 @@ interface PositionStyle {
   left: string;
 }
 
-const BASE_TOP_SMALL = 11;
-const BASE_LEFT_SMALL = 44;
+const BASE_TOP_SMALL = 18;
+const BASE_LEFT_SMALL = 46;
 const BASE_TOP_LARGE = 60;
 const BASE_LEFT_LARGE = 20;
 const BASE_LEFT_LARGE_EXTRA = 68;
@@ -16,10 +16,10 @@ const STEP_HORIZONTAL = 6.25;
 
 export const calculatePositionStyle = (index: number): PositionStyle => {
   const positionConfig = [
-    [1, 1],
-    [1, -1],
+    [-1, -1],
     [-1, 1],
-    [-1, -1]
+    [1, -1],
+    [1, 1]
   ];
 
   let positionStyle: PositionStyle;

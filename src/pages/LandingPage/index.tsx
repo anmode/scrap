@@ -109,6 +109,7 @@ const LandingPage: React.FC = () => {
 
   const landingPageClasses = clsx(
     styles.landingPage,
+    styles.flex_center,
     slideLoader && styles.landingPage__landing_page_slide_up
   );
 
@@ -121,6 +122,28 @@ const LandingPage: React.FC = () => {
     navigate("/interns/2024/allInterns");
   };
 
+  const handleScroll = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: "smooth"
+    });
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e: any) => {
+      // Check if the pressed key is the down arrow key (key code 40)
+      if (e.keyCode === 40) {
+        handleScroll();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []); // Empty dependency array ensures the effect runs only once on mount
+
   return (
     <div className={styles.main_wrapper}>
       <Helmet>
@@ -129,6 +152,7 @@ const LandingPage: React.FC = () => {
           property="og:description"
           content="Welcome to HackerSpace - Meet the interns of 2024"
         />
+        <title>Hackerspace</title>
       </Helmet>
       <div className={overlayLoaderClasses}>
         <video src={video} autoPlay muted onTimeUpdate={timeUpdate}>

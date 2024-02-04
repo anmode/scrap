@@ -18,6 +18,7 @@ const InternProfilePage: React.FC = () => {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Backspace" || event.key === "Escape") {
+        localStorage.setItem("shake_intern", internProfile?.username || "");
         navigate(`/interns/2024/allInterns`, { replace: true });
       } else if (event.key === "ArrowLeft" && currentIndex > 0) {
         navigate(`/interns/2024/${allUsernames[currentIndex - 1]}`);
@@ -58,8 +59,11 @@ const InternProfilePage: React.FC = () => {
 
   const navigateToallInterns = () => {
     localStorage.setItem("shake_intern", internProfile?.username || "");
-    console.log(internProfile?.name);
     navigate("/interns/2024/allInterns", { replace: true });
+  };
+
+  const capitalizeFirstLetter = (string: string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
   return (
@@ -67,7 +71,8 @@ const InternProfilePage: React.FC = () => {
       <Helmet>
         <meta property="og:title" content={`${internProfile?.name}'s Profile`} />
         <meta property="og:description" content={`Learn more about ${internProfile?.name}`} />
-        <meta property="og:image" content={getAssetPath(`/internAvatar/${username}.svg`)} />
+        <meta property="og:image" content={getAssetPath(`internProfileAvatar/${username}.svg`)} />
+        <title>{capitalizeFirstLetter(username || "")}'s Profile</title>
         <meta
           property="og:url"
           content={`https://interns2024.pages.dev/interns/2024/${username}`}
@@ -91,7 +96,7 @@ const InternProfilePage: React.FC = () => {
             <div className={styles.img_container}>
               <img
                 className={styles.internprofile__internAvatar}
-                src={getAssetPath(`/internAvatar/${username}.svg`)}
+                src={getAssetPath(`internProfileAvatar/${username}.svg`)}
                 alt={`Profile of ${internProfile?.name}`}
               />
             </div>
@@ -101,28 +106,28 @@ const InternProfilePage: React.FC = () => {
                   <span className={styles.intern_label_head}>Name</span>
                   <span className={styles.intern_label_col}>:</span>
                 </div>
-                <p className={styles.intern_content}>{internProfile?.name}</p>
+                <p className="flex_center">{internProfile?.name}</p>
               </div>
               <div className={styles.intern_info}>
                 <div className={styles.intern_label}>
                   <span className={styles.intern_label_head}>Role</span>
                   <span className={styles.intern_label_col}>:</span>
                 </div>
-                <p className={styles.intern_content}>{internProfile?.position}</p>
+                <p className="flex_center">{internProfile?.position}</p>
               </div>
               <div className={styles.intern_info}>
                 <div className={styles.intern_label}>
                   <span className={styles.intern_label_head}>Hobby</span>
                   <span className={styles.intern_label_col}>:</span>
                 </div>
-                <p className={styles.intern_content}>{internProfile?.hobby}</p>
+                <p className="flex_center">{internProfile?.hobby}</p>
               </div>
               <div className={styles.intern_info}>
                 <div className={styles.intern_label}>
                   <span className={styles.intern_label_head}>About</span>
                   <span className={styles.intern_label_col}>:</span>
                 </div>
-                <p className={styles.intern_content}>{internProfile?.about}</p>
+                <p className="flex_center">{internProfile?.about}</p>
               </div>
               <div className={styles.intern_info}>
                 <div className={styles.intern_label}>

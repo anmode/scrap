@@ -21,7 +21,6 @@ const InternsPage = () => {
     navigate(`/interns/2024/${internUsername}`);
   };
 
-  // Function to handle arrow key navigation
   const handleArrowNavigation = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (event.key === "Enter" || event.key === "Tab" || event.key === " ") {
       if (selectedInternIndex !== null) {
@@ -29,18 +28,37 @@ const InternsPage = () => {
       }
     } else if (event.key === "Escape") {
       navigate(`/interns/2024`, { replace: true });
-    } else if (
-      event.key === "ArrowLeft" &&
-      selectedInternIndex !== null &&
-      selectedInternIndex > 0
-    ) {
-      setSelectedInternIndex(selectedInternIndex - 1);
-    } else if (
-      event.key === "ArrowRight" &&
-      selectedInternIndex !== null &&
-      selectedInternIndex < internData.length - 1
-    ) {
-      setSelectedInternIndex(selectedInternIndex + 1);
+    } else if (event.key === "ArrowLeft") {
+      if (selectedInternIndex !== null && selectedInternIndex > 0) {
+        setSelectedInternIndex(selectedInternIndex - 1);
+      }
+    } else if (event.key === "ArrowRight") {
+      if (selectedInternIndex !== null && selectedInternIndex < internData.length - 1) {
+        setSelectedInternIndex(selectedInternIndex + 1);
+      }
+    } else if (event.key === "ArrowUp" || event.key === "ArrowDown") {
+      // Assuming 4 interns per planet
+      const internsPerPlanet = 4;
+      const currentPlanetIndex = Math.floor(selectedInternIndex! / internsPerPlanet);
+
+      // Calculate the next index based on vertical navigation within the current planet
+      let nextIndex;
+      if (
+        event.key === "ArrowUp" &&
+        selectedInternIndex! - 1 > currentPlanetIndex * internsPerPlanet
+      ) {
+        nextIndex = selectedInternIndex! - 2;
+      } else if (
+        event.key === "ArrowDown" &&
+        selectedInternIndex! + 1 < (currentPlanetIndex + 1) * internsPerPlanet
+      ) {
+        nextIndex = selectedInternIndex! + 2;
+      }
+
+      // Check if the next index is within the bounds of the total interns
+      if (nextIndex !== undefined && nextIndex >= 0 && nextIndex < internData.length) {
+        setSelectedInternIndex(nextIndex);
+      }
     }
   };
 
@@ -114,6 +132,7 @@ const InternsPage = () => {
         <meta property="og:title" content="2024 Interns" />
         <meta property="og:description" content="Meet the interns of 2024" />
         <meta property="og:type" content="website" />
+        <title>All Interns Of 2024</title>
       </Helmet>
 
       {!isMobile &&
