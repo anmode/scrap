@@ -16,8 +16,7 @@ export const mahak = {
   name: "Mahak Porwal",
   position: "SDE Intern",
   city: "Indore",
-  about:
-    "Software engineer keen to design, build, solve.",
+  about: "Software engineer keen to design, build, solve.",
   linkedin: "https://www.linkedin.com/in/mahak-porwal/",
   github: "https://github.com/mahakporwal02",
   website: "https://mahakporwal02.github.io/",
@@ -56,8 +55,7 @@ export const suyash = {
   name: "Suyash Purwar",
   position: "SDE Intern",
   city: "Etawah",
-  about:
-    "I'm the kind of backend engineer she tells you not to worry about.",
+  about: "I'm the kind of backend engineer she tells you not to worry about.",
   linkedin: "https://www.linkedin.com/in/suyash-purwar/",
   github: "https://github.com/suyash-purwar",
   twitter: "https://twitter.com/suyashpurwar06",
@@ -69,8 +67,7 @@ export const khushboo = {
   name: "Khushboo Chaturvedi",
   position: "SDE Intern",
   city: "Katni, Madhya Pradesh",
-  about:
-    "Passionate about everything frontend. but when stuck use chatgpt.",
+  about: "Passionate about everything frontend. but when stuck use chatgpt.",
   linkedin: "https://linkedin.com/in/khush2706",
   github: "https://github.com/khush2706",
   website: "https://sabkhush.tech",
@@ -96,8 +93,7 @@ export const sindhu = {
   name: "Sindhu Inti",
   position: "SDE Intern",
   city: "Tanuku",
-  about:
-    "Hello, I'm Sindhu  full stack web developer.I say myself as a stargrazer. ",
+  about: "Hello, I'm Sindhu  full stack web developer.I say myself as a stargrazer. ",
   linkedin: "https://linkedin.com/in/sindhuinti",
   github: "https://github.com/sindhuinti",
   website: "",
@@ -123,8 +119,7 @@ export const akash = {
   name: "Akash",
   position: "Product Design Intern",
   city: "Alappuzha, Kerala",
-  about:
-    "Highly motivated Product Designer specializing in UI, UX, and motion design.",
+  about: "Highly motivated Product Designer specializing in UI, UX, and motion design.",
   linkedin: "https://www.linkedin.com/in/akashchennessery/",
   github: "N/A",
   website: "N/A",
@@ -137,8 +132,7 @@ export const arshad = {
   name: "Mohamed Arshad",
   position: "Product Design Intern",
   city: "Chennai",
-  about:
-    "I have always been a great admirer of how design works.",
+  about: "I have always been a great admirer of how design works.",
   linkedin: "https://www.linkedin.com/in/mohamed-arshad-vaseem-37621b1a4/",
   github: "",
   website: "https://www.mohamedarshad.com/",
