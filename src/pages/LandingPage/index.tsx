@@ -164,7 +164,8 @@ const LandingPage: React.FC = () => {
         style={{ backgroundSize }}
         transition={{
           ease: "linear"
-        }}>
+        }}
+      >
         <motion.div className={styles.landingPage__content} ref={scrollContent}>
           <div className={`${styles.landingPage__Txt_Container} flex_center`}>
             <h1 className={styles.landingPage__Txt}>
@@ -187,7 +188,8 @@ const LandingPage: React.FC = () => {
             <div className={`${styles.landingPage__intern_btn_wrap} flex_center`}>
               <button
                 className={styles.landingPage__meet_intern_btn}
-                onClick={navigateToallInterns}>
+                onClick={navigateToallInterns}
+              >
                 Meet my Interns
               </button>
             </div>

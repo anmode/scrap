@@ -16,10 +16,10 @@ const STEP_HORIZONTAL = 6.25;
 
 export const calculatePositionStyle = (index: number): PositionStyle => {
   const positionConfig = [
-    [1, 1],
-    [1, -1],
+    [-1, -1],
     [-1, 1],
-    [-1, -1]
+    [1, -1],
+    [1, 1]
   ];
 
   let positionStyle: PositionStyle;

@@ -85,7 +85,8 @@ const InternProfilePage: React.FC = () => {
         }}
         className={`${styles.internprofile} flex_center`}
         role="banner"
-        aria-label="Intern Profile Background">
+        aria-label="Intern Profile Background"
+      >
         <div className={styles.internprofile__card}>
           <button className={styles.internprofile__backAllButton} onClick={navigateToallInterns}>
             <span>Back</span>
@@ -105,28 +106,28 @@ const InternProfilePage: React.FC = () => {
                   <span className={styles.intern_label_head}>Name</span>
                   <span className={styles.intern_label_col}>:</span>
                 </div>
-                <p className='flex_center'>{internProfile?.name}</p>
+                <p className="flex_center">{internProfile?.name}</p>
               </div>
               <div className={styles.intern_info}>
                 <div className={styles.intern_label}>
                   <span className={styles.intern_label_head}>Role</span>
                   <span className={styles.intern_label_col}>:</span>
                 </div>
-                <p className='flex_center'>{internProfile?.position}</p>
+                <p className="flex_center">{internProfile?.position}</p>
               </div>
               <div className={styles.intern_info}>
                 <div className={styles.intern_label}>
                   <span className={styles.intern_label_head}>Hobby</span>
                   <span className={styles.intern_label_col}>:</span>
                 </div>
-                <p className='flex_center'>{internProfile?.hobby}</p>
+                <p className="flex_center">{internProfile?.hobby}</p>
               </div>
               <div className={styles.intern_info}>
                 <div className={styles.intern_label}>
                   <span className={styles.intern_label_head}>About</span>
                   <span className={styles.intern_label_col}>:</span>
                 </div>
-                <p className='flex_center'>{internProfile?.about}</p>
+                <p className="flex_center">{internProfile?.about}</p>
               </div>
               <div className={styles.intern_info}>
                 <div className={styles.intern_label}>
@@ -139,7 +140,8 @@ const InternProfilePage: React.FC = () => {
                       href={internProfile?.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="LinkedIn">
+                      aria-label="LinkedIn"
+                    >
                       <img
                         src={getAssetPath("images/socials/linkedin.png")}
                         className={`${styles.social_btn}`}
@@ -150,7 +152,8 @@ const InternProfilePage: React.FC = () => {
                       href={internProfile?.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="Instagram">
+                      aria-label="Instagram"
+                    >
                       <img
                         src={getAssetPath("images/socials/Instagram.png")}
                         className={styles.social_btn}
@@ -161,7 +164,8 @@ const InternProfilePage: React.FC = () => {
                       href={internProfile?.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="GitHub">
+                      aria-label="GitHub"
+                    >
                       <img
                         src={getAssetPath("images/socials/Github.png")}
                         className={styles.social_btn}
@@ -172,7 +176,8 @@ const InternProfilePage: React.FC = () => {
                       href={internProfile?.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="Website">
+                      aria-label="Website"
+                    >
                       <img
                         src={getAssetPath("images/socials/Website.png")}
                         className={styles.social_btn}
