@@ -6,7 +6,7 @@ interface PositionStyle {
   left: string;
 }
 
-const BASE_TOP_SMALL = 11;
+const BASE_TOP_SMALL = 18;
 const BASE_LEFT_SMALL = 44;
 const BASE_TOP_LARGE = 60;
 const BASE_LEFT_LARGE = 20;

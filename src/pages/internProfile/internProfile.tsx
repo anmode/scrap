@@ -62,12 +62,17 @@ const InternProfilePage: React.FC = () => {
     navigate("/interns/2024/allInterns", { replace: true });
   };
 
+  const capitalizeFirstLetter = (string: string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
   return (
     <>
       <Helmet>
         <meta property="og:title" content={`${internProfile?.name}'s Profile`} />
         <meta property="og:description" content={`Learn more about ${internProfile?.name}`} />
         <meta property="og:image" content={getAssetPath(`internProfileAvatar/${username}.svg`)} />
+        <title>{capitalizeFirstLetter(username || "")}'s Profile</title>
         <meta
           property="og:url"
           content={`https://interns2024.pages.dev/interns/2024/${username}`}
@@ -80,8 +85,7 @@ const InternProfilePage: React.FC = () => {
         }}
         className={`${styles.internprofile} flex_center`}
         role="banner"
-        aria-label="Intern Profile Background"
-      >
+        aria-label="Intern Profile Background">
         <div className={styles.internprofile__card}>
           <button className={styles.internprofile__backAllButton} onClick={navigateToallInterns}>
             <span>Back</span>
@@ -135,8 +139,7 @@ const InternProfilePage: React.FC = () => {
                       href={internProfile?.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="LinkedIn"
-                    >
+                      aria-label="LinkedIn">
                       <img
                         src={getAssetPath("images/socials/linkedin.png")}
                         className={`${styles.social_btn}`}
@@ -147,8 +150,7 @@ const InternProfilePage: React.FC = () => {
                       href={internProfile?.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="Instagram"
-                    >
+                      aria-label="Instagram">
                       <img
                         src={getAssetPath("images/socials/Instagram.png")}
                         className={styles.social_btn}
@@ -159,8 +161,7 @@ const InternProfilePage: React.FC = () => {
                       href={internProfile?.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="GitHub"
-                    >
+                      aria-label="GitHub">
                       <img
                         src={getAssetPath("images/socials/Github.png")}
                         className={styles.social_btn}
@@ -171,8 +172,7 @@ const InternProfilePage: React.FC = () => {
                       href={internProfile?.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="Website"
-                    >
+                      aria-label="Website">
                       <img
                         src={getAssetPath("images/socials/Website.png")}
                         className={styles.social_btn}

@@ -108,12 +108,12 @@ const InternsPage = () => {
     <div
       className={styles.internspage}
       onKeyDown={(event: React.KeyboardEvent<HTMLDivElement>) => handleArrowNavigation(event)}
-      tabIndex={0}
-    >
+      tabIndex={0}>
       <Helmet>
         <meta property="og:title" content="2024 Interns" />
         <meta property="og:description" content="Meet the interns of 2024" />
         <meta property="og:type" content="website" />
+        <title>All Interns Of 2024</title>
       </Helmet>
 
       {!isMobile &&
@@ -126,8 +126,7 @@ const InternsPage = () => {
             <div
               key={index}
               className={isSelected ? styles.internspage__shake : ""}
-              style={{ ...positionStyle, zIndex: 200 }}
-            >
+              style={{ ...positionStyle, zIndex: 200 }}>
               <Link to={`/interns/2024/${intern.username}`}>
                 <img
                   src={getAssetPath(`internAvatar/${intern.username}.svg`)}
