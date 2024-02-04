@@ -43,12 +43,12 @@ export const sumit = {
   name: "Sumit Maithani",
   position: "SDE Intern",
   city: "Srinagar",
-  about: "I live.... I am a LIVER.",
+  about: "I believe in pushing boundaries not only in code but also in the great outdoors.",
   linkedin: "https://www.linkedin.com/in/sumit-maithani-103119228/",
   github: "https://github.com/Sumitmaithani",
   website: "https://sumitmaithani.onrender.com",
   instagram: "https://www.instagram.com/sumitmaithani1",
-  hobby: "Watching reality TV shows where reality takes a vacation!"
+  hobby: "Treking"
 };
 
 export const suyash = {

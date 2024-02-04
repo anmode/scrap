@@ -90,7 +90,7 @@ const InternProfilePage: React.FC = () => {
           <div className={styles.cardContent}>
             <div className={styles.img_container}>
               <img
-                className={styles.internAvtar}
+                className={styles.internprofile__internAvtar}
                 src={getAssetPath(`/internAvtar/${username}.svg`)}
                 alt={`Profile of ${internProfile?.name}`}
               />

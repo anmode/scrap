@@ -37,12 +37,12 @@
     background-color: rgba(0, 0, 0, 0.035);
     z-index: 100;
   }
-}
 
-.internAvtar {
-  z-index: 20;
-  height: 100%;
-  width: 100%;
+  &__internAvtar {
+    z-index: 20;
+    height: 100%;
+    width: 100%;
+  }
 }
 
 .cardContent {
@@ -160,11 +160,6 @@
 }
 
 @media (max-width: 1024px) {
-  .card {
-    width: 80%;
-    padding: 1.6rem 0;
-  }
-
   .intern_info {
     width: 85%;
   }
