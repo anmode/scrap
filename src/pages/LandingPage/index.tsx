@@ -3,7 +3,6 @@ import clsx from "clsx";
 import { Helmet } from "react-helmet-async";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { HariSVG } from "../../assets/hari";
 import {
   WINDOW_BREAKPOINTS,
   INTERPOLATION_VALUES,
@@ -205,7 +204,7 @@ const LandingPage: React.FC = () => {
           </div>
           <div ref={scrollAstronaut} className={`${styles.landingPage__astronaut} flex_center`}>
             <div className={`${styles.landingPage__intern_hari_wrap} flex_center`}>
-              <HariSVG />
+              <img src={getAssetPath("hari.png")} />
             </div>
             <div className={`${styles.landingPage__intern_btn_wrap} flex_center`}>
               <button
