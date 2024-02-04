@@ -1,8 +1,8 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import Navbar from '../navbar/navbar';
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Navbar from "../navbar/navbar";
 
-const SharedLayout = () => {
+const SharedLayout: React.FC = () => {
   return (
     <>
       <Navbar />

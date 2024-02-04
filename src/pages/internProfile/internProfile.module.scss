@@ -1,0 +1,234 @@
+.internprofile {
+  & {
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex-direction: column;
+  }
+
+  &__card {
+    background: rgba(25.88, 25.88, 25.88, 0.25);
+    box-shadow: 0px 10px 80px rgba(0, 0, 0, 0.75);
+    border-radius: 20px;
+    border: 2px white solid;
+    backdrop-filter: blur(65px);
+    padding: 1.125rem;
+    position: relative;
+    color: white;
+    width: 60%;
+
+    @media (max-width: 1024px) {
+      width: 80%;
+      padding: 1.6rem 0;
+    }
+  }
+
+  &__backAllButton {
+    position: absolute;
+    top: 0.8rem;
+    left: 0.8rem;
+    padding: 0.6rem;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+    backdrop-filter: blur(60px);
+    background-color: rgba(0, 0, 0, 0.035);
+    z-index: 100;
+  }
+
+  &__internAvtar {
+    z-index: 20;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.cardContent {
+  display: grid;
+  align-items: center;
+  justify-content: space-evenly;
+  grid-template-columns: 1fr 2fr;
+}
+
+.intern_info {
+  display: flex;
+  width: 85%;
+  gap: 3.8rem;
+  color: #fff;
+  font-family: "Goldman";
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+}
+
+.intern_info:not(.intern_info:last-child) {
+  margin-bottom: 1.125rem;
+}
+
+.intern_label {
+  display: flex;
+}
+
+.intern_label_head {
+  box-sizing: border-box;
+  width: 4.8rem;
+  display: flex;
+}
+
+.intern_label_col {
+  padding-left: 2rem;
+}
+
+.intern_content {
+  display: flex;
+  justify-content: start;
+  text-align: start;
+}
+
+.social_btn_wrap {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1.8rem;
+}
+
+.social_btn {
+  width: 1.6rem;
+  cursor: pointer;
+  flex-direction: center;
+}
+
+/* Styles for navigation buttons */
+.navigationButtons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.backButton,
+.nextButton {
+  width: 2.8rem;
+  height: 2.8rem;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  position: absolute;
+  line-height: 1;
+  border-radius: 100%;
+  top: 50%;
+  font-weight: 600;
+  padding: 1rem;
+  font-size: 1.8rem;
+  transition: 0.5s;
+}
+
+.backButton:hover {
+  transform: translate(-50%, -50%) rotate(180deg) scale(1.3);
+}
+.nextButton:hover {
+  transform: translate(50%, -50%) scale(1.3);
+}
+
+.backButton {
+  left: 0;
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.nextButton {
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.img_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1366px) {
+  .user-profile {
+    margin-top: 10%;
+    height: 60%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .intern_info {
+    width: 85%;
+  }
+
+  .intern_info:not(.intern_info:last-child) {
+    margin-bottom: 0.8rem;
+  }
+
+  .intern_label_head,
+  .intern_label_col,
+  .intern_content {
+    font-size: 1.125rem;
+  }
+
+  .user-profile {
+    width: 85%;
+    height: 60%;
+    margin-top: 19%;
+  }
+
+  .social_btn {
+    width: 1.375rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .intern_label_head,
+  .intern_label_col,
+  .intern_content {
+    font-size: 0.8rem;
+  }
+
+  .social_btn {
+    width: 1rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .nextButton,
+  .backButton {
+    font-size: 1rem;
+    width: 1.375rem;
+    height: 1.375rem;
+  }
+  .cardContent {
+    grid-template-columns: none;
+  }
+
+  .img_container {
+    width: 100%;
+    text-align: center;
+  }
+
+  .img_container img {
+    width: 50%;
+  }
+
+  .intern_info {
+    width: 100%;
+    padding: 0 1.4rem;
+  }
+}
+
+@media (max-width: 475px) {
+  .intern_label_col {
+    padding-left: 0;
+  }
+
+  .social_btn_wrap {
+    gap: 1.2rem;
+  }
+}

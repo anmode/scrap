@@ -5,7 +5,7 @@
 }
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   background-color: #f8f8f8;
 }
 
@@ -34,4 +34,10 @@ body {
 .image {
   max-width: 100%;
   height: auto;
+}
+
+.flex_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
