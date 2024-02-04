@@ -67,7 +67,7 @@ const InternProfilePage: React.FC = () => {
       <Helmet>
         <meta property="og:title" content={`${internProfile?.name}'s Profile`} />
         <meta property="og:description" content={`Learn more about ${internProfile?.name}`} />
-        <meta property="og:image" content={getAssetPath(`/internAvtar/${username}.svg`)} />
+        <meta property="og:image" content={getAssetPath(`/internAvatar/${username}.svg`)} />
         <meta
           property="og:url"
           content={`https://interns2024.pages.dev/interns/2024/${username}`}
@@ -90,8 +90,8 @@ const InternProfilePage: React.FC = () => {
           <div className={styles.cardContent}>
             <div className={styles.img_container}>
               <img
-                className={styles.internprofile__internAvtar}
-                src={getAssetPath(`/internAvtar/${username}.svg`)}
+                className={styles.internprofile__internAvatar}
+                src={getAssetPath(`/internAvatar/${username}.svg`)}
                 alt={`Profile of ${internProfile?.name}`}
               />
             </div>

@@ -4,16 +4,16 @@ import { useNavigate, Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import { interns } from "../internProfile/internDetails";
 import getAssetPath from "../../util/asset";
-import styles from "./internsPage.module.scss";
 import calculatePositionStyle from "../../util/positionInterns";
-
 import type { Intern } from "../../types/intern";
+
+import styles from "./internsPage.module.scss";
 
 const InternsPage = () => {
   const navigate = useNavigate();
   const [internData, setInternData] = useState<Intern[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedInternIndex, setSelectedInternIndex] = useState<number | null>(null);
+  const [selectedInternIndex, setSelectedInternIndex] = useState<number | null>(0);
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   // Function to navigate to intern details page
