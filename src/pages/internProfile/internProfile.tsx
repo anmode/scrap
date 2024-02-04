@@ -18,6 +18,7 @@ const InternProfilePage: React.FC = () => {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Backspace" || event.key === "Escape") {
+        localStorage.setItem("shake_intern", internProfile?.username || "");
         navigate(`/interns/2024/allInterns`, { replace: true });
       } else if (event.key === "ArrowLeft" && currentIndex > 0) {
         navigate(`/interns/2024/${allUsernames[currentIndex - 1]}`);
@@ -58,7 +59,6 @@ const InternProfilePage: React.FC = () => {
 
   const navigateToallInterns = () => {
     localStorage.setItem("shake_intern", internProfile?.username || "");
-    console.log(internProfile?.name);
     navigate("/interns/2024/allInterns", { replace: true });
   };
 
