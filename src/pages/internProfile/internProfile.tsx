@@ -78,12 +78,12 @@ const InternProfilePage: React.FC = () => {
         style={{
           backgroundImage: `url(${planetBackground})`
         }}
-        className={`${styles.landingPage} flex_center`}
+        className={`${styles.internprofile} flex_center`}
         role="banner"
         aria-label="Intern Profile Background"
       >
-        <div className={styles.card}>
-          <button className={styles.backAllButton} onClick={navigateToallInterns}>
+        <div className={styles.internprofile__card}>
+          <button className={styles.internprofile__backAllButton} onClick={navigateToallInterns}>
             <span>Back</span>
           </button>
 
