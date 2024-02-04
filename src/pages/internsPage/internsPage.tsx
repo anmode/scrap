@@ -15,6 +15,7 @@ const InternsPage = () => {
   const [loading, setLoading] = useState(true);
   const [selectedInternIndex, setSelectedInternIndex] = useState<number | null>(0);
   const isMobile = useMediaQuery({ maxWidth: 767 });
+  const planetsBackground = getAssetPath(`planets/allPlanet.webp`);
 
   // Function to navigate to intern details page
   const handleInternClick = (internUsername: string) => {
@@ -125,6 +126,9 @@ const InternsPage = () => {
   return (
     <div
       className={styles.internspage}
+      style={{
+        backgroundImage: `url(${planetsBackground})`
+      }}
       onKeyDown={(event: React.KeyboardEvent<HTMLDivElement>) => handleArrowNavigation(event)}
       tabIndex={0}
     >

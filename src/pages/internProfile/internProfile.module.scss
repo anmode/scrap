@@ -62,10 +62,6 @@
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0.2px;
-
-  @media (max-width: 400px) {
-    gap: 0;
-  }
 }
 
 .intern_info:not(.intern_info:last-child) {
@@ -84,6 +80,12 @@
 
 .intern_label_col {
   padding-left: 2rem;
+}
+
+.intern_content {
+  display: flex;
+  justify-content: start;
+  text-align: start;
 }
 
 .social_btn_wrap {

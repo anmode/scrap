@@ -8,13 +8,20 @@ import getAssetPath from "../../util/asset";
 import styles from "./internProfile.module.scss";
 
 const InternProfilePage: React.FC = () => {
+  // Extracting username from route parameters
   const { username } = useParams<{ username?: string }>();
-  //@ts-ignore
+
+  // Retrieving intern profile based on the username
   const internProfile: Intern | undefined = username ? interns[username] : undefined;
+
+  // Navigation hook for programmatic navigation
   const navigate = useNavigate();
+
+  // Fetching all usernames and current index
   const allUsernames = Object.keys(interns);
   const currentIndex = allUsernames.indexOf(username!);
 
+  // Handling keyboard events
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Backspace" || event.key === "Escape") {
@@ -27,17 +34,19 @@ const InternProfilePage: React.FC = () => {
       }
     };
 
+    // Adding event listener for keydown
     document.addEventListener("keydown", handleKeyDown);
 
+    // Cleaning up the event listener
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [currentIndex, allUsernames, navigate]);
 
-  const determineGroup = (index: number) => {
-    return Math.floor(index / 4) + 1;
-  };
+  // Determine group number for the planet background
+  const determineGroup = (index: number) => Math.floor(index / 4) + 1;
 
+  // Navigate to a specific intern based on index
   const navigateToIntern = (index: number) => {
     if (index >= 0 && index < allUsernames.length) {
       const nextUsername = allUsernames[index];
@@ -45,27 +54,26 @@ const InternProfilePage: React.FC = () => {
     }
   };
 
-  const navigateToNextIntern = () => {
-    navigateToIntern(currentIndex + 1);
-  };
+  // Navigate to the next and previous interns
+  const navigateToNextIntern = () => navigateToIntern(currentIndex + 1);
+  const navigateToPrevIntern = () => navigateToIntern(currentIndex - 1);
 
-  const navigateToPrevIntern = () => {
-    navigateToIntern(currentIndex - 1);
-  };
-
+  // Extracting intern index and determining group number for planet background
   const internIndex = Object.values(interns).findIndex((intern) => intern.username === username);
   const groupNumber = determineGroup(internIndex);
   const planetBackground = getAssetPath(`planets/planet${groupNumber}.webp`);
 
+  // Navigate back to all interns page
   const navigateToallInterns = () => {
     localStorage.setItem("shake_intern", internProfile?.username || "");
     navigate("/interns/2024/allInterns", { replace: true });
   };
 
-  const capitalizeFirstLetter = (string: string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  };
+  // Capitalize the first letter of a string
+  const capitalizeFirstLetter = (string: string) =>
+    string.charAt(0).toUpperCase() + string.slice(1);
 
+  // Render the component
   return (
     <>
       <Helmet>
