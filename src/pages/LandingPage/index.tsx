@@ -12,11 +12,9 @@ import {
 
 //@ts-ignore
 import video from "../../assets/loader.mp4";
-import styles from "./index.module.css";
+import styles from "./index.module.scss";
 
-// changing the background size according to the screen size
 const getInterpolateToValues = (windowWidth: number) => {
-  // Using switch-case for better readability
   switch (true) {
     case windowWidth <= WINDOW_BREAKPOINTS.XXL && windowWidth > WINDOW_BREAKPOINTS.XL:
       return INTERPOLATION_VALUES.XXL;
@@ -101,7 +99,6 @@ const LandingPage: React.FC = () => {
     });
   };
 
-  // Constants for video duration and slide loader threshold
   const [slideLoader, setSlideLoader] = useState(false);
 
   const timeUpdate = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
@@ -110,10 +107,15 @@ const LandingPage: React.FC = () => {
     }
   };
 
-  // Conditional classes
-  const landingPageClasses = clsx(styles.landingPage, slideLoader && styles.landing_page_slide_up);
+  const landingPageClasses = clsx(
+    styles.landingPage,
+    slideLoader && styles.landingPage__landing_page_slide_up
+  );
 
-  const overlayLoaderClasses = clsx(styles.overlay_loader, slideLoader && styles.video_ended);
+  const overlayLoaderClasses = clsx(
+    styles.landingPage__overlay_loader,
+    slideLoader && styles.landingPage__video_ended
+  );
 
   const navigateToallInterns = () => {
     navigate("/interns/2024/allInterns");
@@ -138,29 +140,30 @@ const LandingPage: React.FC = () => {
         style={{ backgroundSize }}
         transition={{
           ease: "linear"
-        }}
-      >
-        <motion.div className={styles.landingPage_content} ref={scrollContent}>
-          <div className={`${styles.landingPage_Txt_Container} flex_center`}>
-            <h1 className={styles.landingPage_Txt}>
+        }}>
+        <motion.div className={styles.landingPage__content} ref={scrollContent}>
+          <div className={`${styles.landingPage__Txt_Container} flex_center`}>
+            <h1 className={styles.landingPage__Txt}>
               Welcome to
               <br />
-              Hacker<span className={styles.spaceTxt}>Space</span>
+              Hacker<span className={styles.landingPage__spaceTxt}>Space</span>
             </h1>
-            <h2 className={styles.scroll_txt}>
+            <h2 className={styles.landingPage__scroll_txt}>
               .{" "}
-              <span className={styles.scroll_span} onClick={scrollAstronautFunction}>
+              <span className={styles.landingPage__scroll_span} onClick={scrollAstronautFunction}>
                 scroll
               </span>{" "}
               .
             </h2>
           </div>
-          <div ref={scrollAstronaut} className={`${styles.landingPage_astronaut} flex_center`}>
-            <div className={`${styles.intern_hari_wrap} flex_center`}>
+          <div ref={scrollAstronaut} className={`${styles.landingPage__astronaut} flex_center`}>
+            <div className={`${styles.landingPage__intern_hari_wrap} flex_center`}>
               <HariSVG />
             </div>
-            <div className={`${styles.intern_btn_wrap} flex_center`}>
-              <button className={styles.meet_intern_btn} onClick={navigateToallInterns}>
+            <div className={`${styles.landingPage__intern_btn_wrap} flex_center`}>
+              <button
+                className={styles.landingPage__meet_intern_btn}
+                onClick={navigateToallInterns}>
                 Meet my Interns
               </button>
             </div>

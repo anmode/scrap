@@ -5,7 +5,7 @@ import { interns } from "./internDetails";
 import type { Intern } from "../../types/intern";
 import getAssetPath from "../../util/asset";
 
-import styles from "./internProfile.module.css";
+import styles from "./internProfile.module.scss";
 
 const InternProfilePage: React.FC = () => {
   const { username } = useParams<{ username?: string }>();

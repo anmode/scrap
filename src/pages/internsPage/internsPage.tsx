@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import { interns } from "../internProfile/internDetails";
 import getAssetPath from "../../util/asset";
-import styles from "./internsPage.module.css";
+import styles from "./internsPage.module.scss";
 import calculatePositionStyle from "../../util/positionInterns";
 
 import type { Intern } from "../../types/intern";
@@ -13,7 +13,7 @@ const InternsPage = () => {
   const navigate = useNavigate();
   const [internData, setInternData] = useState<Intern[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedInternIndex, setSelectedInternIndex] = useState<number | null>(0);
+  const [selectedInternIndex, setSelectedInternIndex] = useState<number | null>(null);
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   // Function to navigate to intern details page
@@ -106,7 +106,7 @@ const InternsPage = () => {
 
   return (
     <div
-      className={styles.landing_page}
+      className={styles.internspage}
       onKeyDown={(event: React.KeyboardEvent<HTMLDivElement>) => handleArrowNavigation(event)}
       tabIndex={0}
     >
@@ -125,14 +125,14 @@ const InternsPage = () => {
           return (
             <div
               key={index}
-              className={isSelected ? styles.shake : ""}
+              className={isSelected ? styles.internspage__shake : ""}
               style={{ ...positionStyle, zIndex: 200 }}
             >
               <Link to={`/interns/2024/${intern.username}`}>
                 <img
                   src={getAssetPath(`/internAvtar/${intern.username}.svg`)}
                   alt={`Profile of Intern ${intern.username}`}
-                  className={styles.intern_avatar}
+                  className={styles.internspage__internavatar}
                   onClick={() => handleInternClick(intern.username)}
                   style={{ zIndex: 200, cursor: "pointer" }}
                 />
