@@ -149,7 +149,7 @@ const InternsPage = () => {
             <div
               key={index}
               className={isSelected ? styles.internspage__shake : ""}
-              style={{ ...positionStyle, zIndex: 200 }}
+              style={positionStyle}
             >
               <Link to={`/interns/2024/${intern.username}`}>
                 <img
@@ -157,7 +157,6 @@ const InternsPage = () => {
                   alt={`Profile of Intern ${intern.username}`}
                   className={styles.internspage__internavatar}
                   onClick={() => handleInternClick(intern.username)}
-                  style={{ zIndex: 200, cursor: "pointer" }}
                 />
               </Link>
             </div>
