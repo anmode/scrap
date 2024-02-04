@@ -130,7 +130,7 @@ const InternsPage = () => {
             >
               <Link to={`/interns/2024/${intern.username}`}>
                 <img
-                  src={getAssetPath(`/internAvtar/${intern.username}.svg`)}
+                  src={getAssetPath(`internAvatar/${intern.username}.svg`)}
                   alt={`Profile of Intern ${intern.username}`}
                   className={styles.internspage__internavatar}
                   onClick={() => handleInternClick(intern.username)}
