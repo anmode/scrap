@@ -47,7 +47,6 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-family: "Krona One";
-      font-size: 65px;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
@@ -211,6 +210,10 @@
       &__intern_btn_wrap {
         padding-top: 2rem;
       }
+
+      &__hari_img {
+        width: 70vw;
+      }
     }
 
     @media (max-width: 375px) {
@@ -241,6 +244,10 @@
         width: 14rem;
         height: 3.5rem;
         font-size: 1rem;
+      }
+
+      &__hari_img {
+        width: 80vw;
       }
     }
   }

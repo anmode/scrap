@@ -204,7 +204,7 @@ const LandingPage: React.FC = () => {
           </div>
           <div ref={scrollAstronaut} className={`${styles.landingPage__astronaut} flex_center`}>
             <div className={`${styles.landingPage__intern_hari_wrap} flex_center`}>
-              <img src={getAssetPath("hari.png")} />
+              <img src={getAssetPath("hari.png")} className={styles.landingPage__hari_img} />
             </div>
             <div className={`${styles.landingPage__intern_btn_wrap} flex_center`}>
               <button
