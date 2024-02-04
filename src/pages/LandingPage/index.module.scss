@@ -34,7 +34,7 @@
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      background: linear-gradient(90deg, #fff 24.54%, rgba(255, 255, 255, 0) 102.64%);
+      background: linear-gradient(90deg, #fff 24.54%, rgba(255, 255, 255, 0.63) 102.64%);
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -42,15 +42,15 @@
     }
 
     &__spaceTxt {
-      background: linear-gradient(93deg, #6bffff 52.5%, #2265b3 92.26%);
+      background: linear-gradient(93deg, #6bffff 52.5%, #7bb6fb 92.26%);
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-family: "Krona One";
+      font-size: 65px;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      cursor: default;
     }
 
     &__scroll_txt {
@@ -75,7 +75,8 @@
     }
 
     &__meet_intern_btn {
-      color: #1d8fcb;
+      color: #0b6797;
+      letter-spacing: 0.18px;
       text-align: center;
       font-family: "Goldman";
       font-size: 1.125rem;
