@@ -105,28 +105,28 @@ const InternProfilePage: React.FC = () => {
                   <span className={styles.intern_label_head}>Name</span>
                   <span className={styles.intern_label_col}>:</span>
                 </div>
-                <p className={styles.intern_content}>{internProfile?.name}</p>
+                <p className='flex_center'>{internProfile?.name}</p>
               </div>
               <div className={styles.intern_info}>
                 <div className={styles.intern_label}>
                   <span className={styles.intern_label_head}>Role</span>
                   <span className={styles.intern_label_col}>:</span>
                 </div>
-                <p className={styles.intern_content}>{internProfile?.position}</p>
+                <p className='flex_center'>{internProfile?.position}</p>
               </div>
               <div className={styles.intern_info}>
                 <div className={styles.intern_label}>
                   <span className={styles.intern_label_head}>Hobby</span>
                   <span className={styles.intern_label_col}>:</span>
                 </div>
-                <p className={styles.intern_content}>{internProfile?.hobby}</p>
+                <p className='flex_center'>{internProfile?.hobby}</p>
               </div>
               <div className={styles.intern_info}>
                 <div className={styles.intern_label}>
                   <span className={styles.intern_label_head}>About</span>
                   <span className={styles.intern_label_col}>:</span>
                 </div>
-                <p className={styles.intern_content}>{internProfile?.about}</p>
+                <p className='flex_center'>{internProfile?.about}</p>
               </div>
               <div className={styles.intern_info}>
                 <div className={styles.intern_label}>

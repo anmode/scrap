@@ -109,6 +109,7 @@ const LandingPage: React.FC = () => {
 
   const landingPageClasses = clsx(
     styles.landingPage,
+    styles.flex_center,
     slideLoader && styles.landingPage__landing_page_slide_up
   );
 

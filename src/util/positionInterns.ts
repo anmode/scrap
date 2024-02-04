@@ -7,7 +7,7 @@ interface PositionStyle {
 }
 
 const BASE_TOP_SMALL = 18;
-const BASE_LEFT_SMALL = 44;
+const BASE_LEFT_SMALL = 46;
 const BASE_TOP_LARGE = 60;
 const BASE_LEFT_LARGE = 20;
 const BASE_LEFT_LARGE_EXTRA = 68;
