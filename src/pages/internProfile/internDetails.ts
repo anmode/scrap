@@ -21,7 +21,7 @@ export const mahak = {
   github: "https://github.com/mahakporwal02",
   website: "https://mahakporwal02.github.io/",
   instagram: "https://www.instagram.com/_mahakporwal_/",
-  hobby: "Swimming, Travelling"
+  hobby: "Swimming, Traveling"
 };
 
 export const atul = {
@@ -47,7 +47,7 @@ export const sumit = {
   github: "https://github.com/Sumitmaithani",
   website: "https://sumitmaithani.onrender.com",
   instagram: "https://www.instagram.com/sumitmaithani1",
-  hobby: "Treking"
+  hobby: "Trekking"
 };
 
 export const suyash = {
@@ -93,7 +93,7 @@ export const sindhu = {
   name: "Sindhu Inti",
   position: "SDE Intern",
   city: "Tanuku",
-  about: "Hello, I'm Sindhu  full stack web developer.I say myself as a stargrazer. ",
+  about: "Hello, I'm Sindhu  full stack web developer.I say myself as a stargazer. ",
   linkedin: "https://linkedin.com/in/sindhuinti",
   github: "https://github.com/sindhuinti",
   website: "",

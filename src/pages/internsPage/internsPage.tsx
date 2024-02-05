@@ -161,7 +161,6 @@ const InternsPage = () => {
                   onClick={() => handleInternClick(intern.username)}
                 />
               </Link>
-              {/* Define tooltip for each intern */}
               <Tooltip id={intern.name} style={{ marginTop: `-20px` }}>
                 {intern.name}
               </Tooltip>

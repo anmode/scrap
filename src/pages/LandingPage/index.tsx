@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 import {
   WINDOW_BREAKPOINTS,
   INTERPOLATION_VALUES,
-  VIDEO_DURATION_THRESHOLD
+  VIDEO_DURATION_THRESHOLD,
+  SCREEN_ORIENTATION
 } from "../../util/constant";
 import getAssetPath from "../../util/asset";
 
@@ -22,15 +23,15 @@ const getInterpolateToValues = (windowWidth: number) => {
       return INTERPOLATION_VALUES.XL;
     case windowWidth <= WINDOW_BREAKPOINTS.LG && windowWidth > WINDOW_BREAKPOINTS.MD:
       switch (screen.orientation.type) {
-        case "portrait-secondary":
-        case "portrait-primary":
+        case SCREEN_ORIENTATION.SECONDARY:
+        case SCREEN_ORIENTATION.PRIMARY:
           return INTERPOLATION_VALUES.LGP;
       }
       return INTERPOLATION_VALUES.LG;
     case windowWidth <= WINDOW_BREAKPOINTS.MD && windowWidth > WINDOW_BREAKPOINTS.SM:
       switch (screen.orientation.type) {
-        case "portrait-secondary":
-        case "portrait-primary":
+        case SCREEN_ORIENTATION.SECONDARY:
+        case SCREEN_ORIENTATION.PRIMARY:
           return INTERPOLATION_VALUES.MDP;
       }
       return INTERPOLATION_VALUES.MD;
