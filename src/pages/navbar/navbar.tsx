@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
       </Helmet>
       <div className={styles.header__container}>
         <a href="/interns/2024" className={styles.header__left}>
-          2024 Interns
+          <h2>2024 Interns</h2>
         </a>
         {showGameBtn ? (
           <button className={styles.header__right} onClick={handlePlayGameClick}>
