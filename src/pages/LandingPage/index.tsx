@@ -10,6 +10,7 @@ import {
   SCREEN_ORIENTATION
 } from "../../util/constant";
 import getAssetPath from "../../util/asset";
+import hari from "../../assets/hariastro.png";
 
 //@ts-ignore
 import styles from "./index.module.scss";
@@ -186,14 +187,13 @@ const LandingPage: React.FC = () => {
         style={{ backgroundSize }}
         transition={{
           ease: "linear"
-        }}
-      >
+        }}>
         <motion.div className={styles.landingpage__content} ref={scrollContent}>
-          <div className={`${styles.landingpage__Txt_Container} flex_center`}>
-            <h1 className={styles.landingpage__Txt}>
+          <div className={`${styles.landingpage__txt_container} flex_center`}>
+            <h1 className={styles.landingpage__txt}>
               Welcome to
               <br />
-              Hacker<span className={styles.landingpage__spaceTxt}>Space</span>
+              Hacker<span className={styles.landingpage__spacetxt}>Space</span>
             </h1>
             <h2 className={styles.landingpage__scroll_txt}>
               .{" "}
@@ -204,14 +204,16 @@ const LandingPage: React.FC = () => {
             </h2>
           </div>
           <div ref={scrollAstronaut} className={`${styles.landingpage__astronaut} flex_center`}>
-            <div className={`${styles.landingpage__intern_hari_wrap} flex_center`}>
-              <img src={getAssetPath("hari.png")} className={styles.landingpage__hari_img} />
+            <div className={`${styles.landingpage__intern_hari_wrap}`}>
+              <img src={hari} alt="hari" className={styles.landingpage__hari_img} />
+              <div className={styles.landingpage__hari_wave}>
+                <h3 className={styles.landingpage__hari_hi}>Hi! I’m Hari</h3>
+              </div>
             </div>
             <div className={`${styles.landingpage__intern_btn_wrap} flex_center`}>
               <button
                 className={styles.landingpage__meet_intern_btn}
-                onClick={navigateToallInterns}
-              >
+                onClick={navigateToallInterns}>
                 Meet my Interns
               </button>
             </div>
