@@ -14,7 +14,6 @@ import {
   INTERPOLATION_START
 } from "../../util/constant";
 import getAssetPath from "../../util/asset";
-import hari from "../../assets/hariastro.png";
 
 import styles from "./index.module.scss";
 
@@ -221,7 +220,7 @@ const LandingPage: React.FC = () => {
           </div>
           <div ref={scrollAstronaut} className={`${styles.landingpage__astronaut} flex_center`}>
             <div className={`${styles.landingpage__intern_hari_wrap}`}>
-              <img src={hari} alt="hari" className={styles.landingpage__hari_img} />
+              <img src={getAssetPath("hariastro.png")} alt="hari" className={styles.landingpage__hari_img} />
               <div className={styles.landingpage__hari_wave}>
                 <h3 className={styles.landingpage__hari_hi}>Hi! I’m Hari</h3>
               </div>
