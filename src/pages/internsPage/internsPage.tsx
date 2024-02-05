@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+
 import { Helmet } from "react-helmet-async";
 import { useNavigate, Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import { Tooltip } from "react-tooltip";
+
 import { interns } from "../internProfile/internDetails";
 import getAssetPath from "../../util/asset";
 import calculatePositionStyle from "../../util/positionInterns";
@@ -161,7 +163,6 @@ const InternsPage = () => {
                   onClick={() => handleInternClick(intern.username)}
                 />
               </Link>
-              {/* Define tooltip for each intern */}
               <Tooltip id={intern.name} style={{ marginTop: `-20px` }}>
                 {intern.name}
               </Tooltip>

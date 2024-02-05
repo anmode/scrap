@@ -1,49 +1,65 @@
 import React, { useRef, useState, useLayoutEffect, useEffect } from "react";
+
 import clsx from "clsx";
 import { Helmet } from "react-helmet-async";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+
 import {
   WINDOW_BREAKPOINTS,
   INTERPOLATION_VALUES,
-  VIDEO_DURATION_THRESHOLD
+  VIDEO_DURATION_THRESHOLD,
+  SCREEN_ORIENTATION,
+  DOWN_ARROW_KEY_CODE,
+  INTERPOLATION_START
 } from "../../util/constant";
 import getAssetPath from "../../util/asset";
 
-//@ts-ignore
 import styles from "./index.module.scss";
 
 // Function to determine interpolation values based on window width
 const getInterpolateToValues = (windowWidth: number) => {
+  let result;
+
   switch (true) {
     case windowWidth <= WINDOW_BREAKPOINTS.XXL && windowWidth > WINDOW_BREAKPOINTS.XL:
-      return INTERPOLATION_VALUES.XXL;
+      result = INTERPOLATION_VALUES.XXL;
+      break;
     case windowWidth <= WINDOW_BREAKPOINTS.XL && windowWidth > WINDOW_BREAKPOINTS.LG:
-      return INTERPOLATION_VALUES.XL;
+      result = INTERPOLATION_VALUES.XL;
+      break;
     case windowWidth <= WINDOW_BREAKPOINTS.LG && windowWidth > WINDOW_BREAKPOINTS.MD:
       switch (screen.orientation.type) {
-        case "portrait-secondary":
-        case "portrait-primary":
-          return INTERPOLATION_VALUES.LGP;
+        case SCREEN_ORIENTATION.SECONDARY:
+        case SCREEN_ORIENTATION.PRIMARY:
+          result = INTERPOLATION_VALUES.LGP;
+          break;
+        default:
+          result = INTERPOLATION_VALUES.LG;
       }
-      return INTERPOLATION_VALUES.LG;
+      break;
     case windowWidth <= WINDOW_BREAKPOINTS.MD && windowWidth > WINDOW_BREAKPOINTS.SM:
       switch (screen.orientation.type) {
-        case "portrait-secondary":
-        case "portrait-primary":
-          return INTERPOLATION_VALUES.MDP;
+        case SCREEN_ORIENTATION.SECONDARY:
+        case SCREEN_ORIENTATION.PRIMARY:
+          result = INTERPOLATION_VALUES.MDP;
+          break;
+        default:
+          result = INTERPOLATION_VALUES.MD;
       }
-      return INTERPOLATION_VALUES.MD;
+      break;
     case windowWidth <= WINDOW_BREAKPOINTS.SM && windowWidth > WINDOW_BREAKPOINTS.XS:
-      return INTERPOLATION_VALUES.SM;
+      result = INTERPOLATION_VALUES.SM;
+      break;
     case windowWidth <= WINDOW_BREAKPOINTS.XS && windowWidth >= WINDOW_BREAKPOINTS.XXS:
-      return INTERPOLATION_VALUES.XS;
+      result = INTERPOLATION_VALUES.XS;
+      break;
     default:
-      return INTERPOLATION_VALUES.XXXS;
+      result = INTERPOLATION_VALUES.XXXS;
   }
-};
 
-const interpolationStart = [0, 2000];
+  return result;
+};
 
 // Hook to get window size
 function useWindowSize() {
@@ -81,7 +97,7 @@ const LandingPage: React.FC = () => {
 
   // Handler for space bar press
   const handleSpaceBarPress = (e: KeyboardEvent) => {
-    if (e.key === " " || e.key === "Enter" || e.key === "Escape") {
+    if ([" ", "Enter", "Escape"].includes(e.key)) {
       setSkipLoader(true);
       scrollAstronautFunction();
     }
@@ -102,7 +118,7 @@ const LandingPage: React.FC = () => {
   });
 
   // Framer Motion hook for background size interpolation
-  const backgroundSize = useTransform(scrollY, interpolationStart, interpolateTo);
+  const backgroundSize = useTransform(scrollY, INTERPOLATION_START, interpolateTo);
 
   const scrollAstronaut = useRef<HTMLDivElement>(null);
 
@@ -127,14 +143,14 @@ const LandingPage: React.FC = () => {
 
   // Class names for the landing page and overlay loader
   const landingPageClasses = clsx(
-    styles.landingPage,
+    styles.landingpage,
     styles.flex_center,
-    slideLoader && styles.landingPage__landing_page_slide_up
+    slideLoader && styles.landingpage__landing_page_slide_up
   );
 
   const overlayLoaderClasses = clsx(
-    styles.landingPage__overlay_loader,
-    slideLoader && styles.landingPage__video_ended
+    styles.landingpage__overlay_loader,
+    slideLoader && styles.landingpage__video_ended
   );
 
   // Navigation function to all interns page
@@ -153,7 +169,7 @@ const LandingPage: React.FC = () => {
   // Add event listener for down arrow key press
   useEffect(() => {
     const handleKeyDown = (e: any) => {
-      if (e.keyCode === 40) {
+      if (e.code === DOWN_ARROW_KEY_CODE) {
         handleScroll();
       }
     };
@@ -166,7 +182,7 @@ const LandingPage: React.FC = () => {
   }, []); // Empty dependency array ensures the effect runs only once on mount
 
   return (
-    <div className={styles.main_wrapper}>
+    <div className={styles.landingpage__wrapper}>
       <Helmet>
         <meta property="og:title" content="HackerSpace" />
         <meta
@@ -187,28 +203,31 @@ const LandingPage: React.FC = () => {
           ease: "linear"
         }}
       >
-        <motion.div className={styles.landingPage__content} ref={scrollContent}>
-          <div className={`${styles.landingPage__Txt_Container} flex_center`}>
-            <h1 className={styles.landingPage__Txt}>
+        <motion.div className={styles.landingpage__content} ref={scrollContent}>
+          <div className={`${styles.landingpage__txt_container} flex_center`}>
+            <h1 className={styles.landingpage__txt}>
               Welcome to
               <br />
-              Hacker<span className={styles.landingPage__spaceTxt}>Space</span>
+              Hacker<span className={styles.landingpage__spacetxt}>Space</span>
             </h1>
-            <h2 className={styles.landingPage__scroll_txt}>
+            <h2 className={styles.landingpage__scroll_txt}>
               .{" "}
-              <span className={styles.landingPage__scroll_span} onClick={scrollAstronautFunction}>
+              <span className={styles.landingpage__scroll_span} onClick={scrollAstronautFunction}>
                 scroll
               </span>{" "}
               .
             </h2>
           </div>
-          <div ref={scrollAstronaut} className={`${styles.landingPage__astronaut} flex_center`}>
-            <div className={`${styles.landingPage__intern_hari_wrap} flex_center`}>
-              <img src={getAssetPath("hari.png")} className={styles.landingPage__hari_img} />
+          <div ref={scrollAstronaut} className={`${styles.landingpage__astronaut} flex_center`}>
+            <div className={`${styles.landingpage__intern_hari_wrap}`}>
+              <img src={getAssetPath("hariastro.png")} alt="hari" className={styles.landingpage__hari_img} />
+              <div className={styles.landingpage__hari_wave}>
+                <h3 className={styles.landingpage__hari_hi}>Hi! I’m Hari</h3>
+              </div>
             </div>
-            <div className={`${styles.landingPage__intern_btn_wrap} flex_center`}>
+            <div className={`${styles.landingpage__intern_btn_wrap} flex_center`}>
               <button
-                className={styles.landingPage__meet_intern_btn}
+                className={styles.landingpage__meet_intern_btn}
                 onClick={navigateToallInterns}
               >
                 Meet my Interns

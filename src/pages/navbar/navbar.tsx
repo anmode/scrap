@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Helmet } from "react-helmet-async";
 
 import styles from "./navbar.module.scss";
@@ -7,8 +8,7 @@ const Navbar: React.FC = () => {
   const showGameBtn: boolean = window.innerHeight < window.innerWidth && window.innerWidth >= 1024;
 
   const handlePlayGameClick = () => {
-    // we will redirect to game route
-    console.log("Play Game button clicked!");
+    window.location.href = "/interns/2024/game/play";
   };
 
   return (
