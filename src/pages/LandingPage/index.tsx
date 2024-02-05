@@ -176,7 +176,7 @@ const LandingPage: React.FC = () => {
         <title>Hackerspace</title>
       </Helmet>
       <div className={overlayLoaderClasses}>
-        <video src={getAssetPath("loader.mp4")} autoPlay muted onTimeUpdate={timeUpdate}>
+        <video src={getAssetPath("loader.mp4")} autoPlay muted playsInline onTimeUpdate={timeUpdate}>
           Your browser does not support the video tag.
         </video>
       </div>
