@@ -67,7 +67,7 @@ export const khushboo = {
   name: "Khushboo Chaturvedi",
   position: "SDE Intern",
   city: "Katni, Madhya Pradesh",
-  about: "Passionate about everything frontend. but when stuck use chatgpt.",
+  about: "Passionate about everything frontend. Changing the world, one div at a time.",
   linkedin: "https://linkedin.com/in/khush2706",
   github: "https://github.com/khush2706",
   website: "https://sabkhush.tech",
