@@ -16,7 +16,6 @@ import {
 import getAssetPath from "../../util/asset";
 import hari from "../../assets/hariastro.png";
 
-// @ts-ignore
 import styles from "./index.module.scss";
 
 // Function to determine interpolation values based on window width
