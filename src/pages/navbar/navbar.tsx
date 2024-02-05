@@ -7,7 +7,7 @@ const Navbar: React.FC = () => {
   const showGameBtn: boolean = window.innerHeight < window.innerWidth && window.innerWidth >= 1024;
 
   const handlePlayGameClick = () => {
-    window.location.replace("https://hackerrank.com/interns/2024/game")
+    window.location.href = "/interns/2024/game/play"
   };
 
   return (

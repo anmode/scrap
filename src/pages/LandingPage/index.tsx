@@ -17,32 +17,46 @@ import styles from "./index.module.scss";
 
 // Function to determine interpolation values based on window width
 const getInterpolateToValues = (windowWidth: number) => {
+  let result;
+
   switch (true) {
     case windowWidth <= WINDOW_BREAKPOINTS.XXL && windowWidth > WINDOW_BREAKPOINTS.XL:
-      return INTERPOLATION_VALUES.XXL;
+      result = INTERPOLATION_VALUES.XXL;
+      break;
     case windowWidth <= WINDOW_BREAKPOINTS.XL && windowWidth > WINDOW_BREAKPOINTS.LG:
-      return INTERPOLATION_VALUES.XL;
+      result = INTERPOLATION_VALUES.XL;
+      break;
     case windowWidth <= WINDOW_BREAKPOINTS.LG && windowWidth > WINDOW_BREAKPOINTS.MD:
       switch (screen.orientation.type) {
         case SCREEN_ORIENTATION.SECONDARY:
         case SCREEN_ORIENTATION.PRIMARY:
-          return INTERPOLATION_VALUES.LGP;
+          result = INTERPOLATION_VALUES.LGP;
+          break;
+        default:
+          result = INTERPOLATION_VALUES.LG;
       }
-      return INTERPOLATION_VALUES.LG;
+      break;
     case windowWidth <= WINDOW_BREAKPOINTS.MD && windowWidth > WINDOW_BREAKPOINTS.SM:
       switch (screen.orientation.type) {
         case SCREEN_ORIENTATION.SECONDARY:
         case SCREEN_ORIENTATION.PRIMARY:
-          return INTERPOLATION_VALUES.MDP;
+          result = INTERPOLATION_VALUES.MDP;
+          break;
+        default:
+          result = INTERPOLATION_VALUES.MD;
       }
-      return INTERPOLATION_VALUES.MD;
+      break;
     case windowWidth <= WINDOW_BREAKPOINTS.SM && windowWidth > WINDOW_BREAKPOINTS.XS:
-      return INTERPOLATION_VALUES.SM;
+      result = INTERPOLATION_VALUES.SM;
+      break;
     case windowWidth <= WINDOW_BREAKPOINTS.XS && windowWidth >= WINDOW_BREAKPOINTS.XXS:
-      return INTERPOLATION_VALUES.XS;
+      result = INTERPOLATION_VALUES.XS;
+      break;
     default:
-      return INTERPOLATION_VALUES.XXXS;
+      result = INTERPOLATION_VALUES.XXXS;
   }
+
+  return result;
 };
 
 const interpolationStart = [0, 2000];
@@ -83,7 +97,7 @@ const LandingPage: React.FC = () => {
 
   // Handler for space bar press
   const handleSpaceBarPress = (e: KeyboardEvent) => {
-    if (e.key === " " || e.key === "Enter" || e.key === "Escape") {
+    if ([" ", "Enter", "Escape"].includes(e.key)) {
       setSkipLoader(true);
       scrollAstronautFunction();
     }
@@ -155,7 +169,7 @@ const LandingPage: React.FC = () => {
   // Add event listener for down arrow key press
   useEffect(() => {
     const handleKeyDown = (e: any) => {
-      if (e.keyCode === 40) {
+      if (e.code === 40) {
         handleScroll();
       }
     };
