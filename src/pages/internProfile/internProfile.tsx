@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
+
 import { Helmet } from "react-helmet-async";
 import { useParams, useNavigate } from "react-router-dom";
+
 import { interns } from "./internDetails";
 import type { Intern } from "../../types/intern";
 import getAssetPath from "../../util/asset";
@@ -92,7 +94,8 @@ const InternProfilePage: React.FC = () => {
         }}
         className={`${styles.internprofile} flex_center`}
         role="banner"
-        aria-label="Intern Profile Background">
+        aria-label="Intern Profile Background"
+      >
         <div className={styles.internprofile__card}>
           <button className={styles.internprofile__back_all_button} onClick={navigateToallInterns}>
             <span>Back</span>
@@ -146,7 +149,8 @@ const InternProfilePage: React.FC = () => {
                       href={internProfile?.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="LinkedIn">
+                      aria-label="LinkedIn"
+                    >
                       <img
                         src={getAssetPath("images/socials/linkedin.png")}
                         className={`${styles.internprofile__social_btn}`}
@@ -157,7 +161,8 @@ const InternProfilePage: React.FC = () => {
                       href={internProfile?.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="Instagram">
+                      aria-label="Instagram"
+                    >
                       <img
                         src={getAssetPath("images/socials/Instagram.png")}
                         className={styles.internprofile__social_btn}
@@ -168,7 +173,8 @@ const InternProfilePage: React.FC = () => {
                       href={internProfile?.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="GitHub">
+                      aria-label="GitHub"
+                    >
                       <img
                         src={getAssetPath("images/socials/Github.png")}
                         className={styles.internprofile__social_btn}
@@ -179,7 +185,8 @@ const InternProfilePage: React.FC = () => {
                       href={internProfile?.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="Website">
+                      aria-label="Website"
+                    >
                       <img
                         src={getAssetPath("images/socials/Website.png")}
                         className={styles.internprofile__social_btn}
@@ -194,14 +201,16 @@ const InternProfilePage: React.FC = () => {
           {currentIndex > 0 && (
             <button
               className={`${styles.internprofile__back_button} flex_center`}
-              onClick={navigateToPrevIntern}>
+              onClick={navigateToPrevIntern}
+            >
               &#10140;
             </button>
           )}
           {currentIndex < allUsernames.length - 1 && (
             <button
               className={`${styles.internprofile__next_button} flex_center`}
-              onClick={navigateToNextIntern}>
+              onClick={navigateToNextIntern}
+            >
               &#10140;
             </button>
           )}

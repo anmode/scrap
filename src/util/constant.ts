@@ -27,8 +27,8 @@ export const VIDEO_DURATION_THRESHOLD = 2.879;
 export const SCREEN_ORIENTATION = {
   PRIMARY: "portrait-primary",
   SECONDARY: "portrait-secondary"
-}
+};
 
-export const DOWN_ARROW_KEY_CODE = 40
+export const DOWN_ARROW_KEY_CODE = 40;
 
-export const INTERPOLATION_START = [0,2000]
+export const INTERPOLATION_START = [0, 2000];

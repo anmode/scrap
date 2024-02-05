@@ -1,8 +1,10 @@
 import React, { useRef, useState, useLayoutEffect, useEffect } from "react";
+
 import clsx from "clsx";
 import { Helmet } from "react-helmet-async";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+
 import {
   WINDOW_BREAKPOINTS,
   INTERPOLATION_VALUES,
@@ -14,7 +16,7 @@ import {
 import getAssetPath from "../../util/asset";
 import hari from "../../assets/hariastro.png";
 
-//@ts-ignore
+// @ts-ignore
 import styles from "./index.module.scss";
 
 // Function to determine interpolation values based on window width
@@ -201,7 +203,8 @@ const LandingPage: React.FC = () => {
         style={{ backgroundSize }}
         transition={{
           ease: "linear"
-        }}>
+        }}
+      >
         <motion.div className={styles.landingpage__content} ref={scrollContent}>
           <div className={`${styles.landingpage__txt_container} flex_center`}>
             <h1 className={styles.landingpage__txt}>
@@ -227,7 +230,8 @@ const LandingPage: React.FC = () => {
             <div className={`${styles.landingpage__intern_btn_wrap} flex_center`}>
               <button
                 className={styles.landingpage__meet_intern_btn}
-                onClick={navigateToallInterns}>
+                onClick={navigateToallInterns}
+              >
                 Meet my Interns
               </button>
             </div>
