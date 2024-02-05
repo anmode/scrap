@@ -7,7 +7,9 @@ import {
   WINDOW_BREAKPOINTS,
   INTERPOLATION_VALUES,
   VIDEO_DURATION_THRESHOLD,
-  SCREEN_ORIENTATION
+  SCREEN_ORIENTATION,
+  DOWN_ARROW_KEY_CODE,
+  INTERPOLATION_START
 } from "../../util/constant";
 import getAssetPath from "../../util/asset";
 import hari from "../../assets/hariastro.png";
@@ -57,8 +59,6 @@ const getInterpolateToValues = (windowWidth: number) => {
 
   return result;
 };
-
-const interpolationStart = [0, 2000];
 
 // Hook to get window size
 function useWindowSize() {
@@ -117,7 +117,7 @@ const LandingPage: React.FC = () => {
   });
 
   // Framer Motion hook for background size interpolation
-  const backgroundSize = useTransform(scrollY, interpolationStart, interpolateTo);
+  const backgroundSize = useTransform(scrollY, INTERPOLATION_START, interpolateTo);
 
   const scrollAstronaut = useRef<HTMLDivElement>(null);
 
@@ -168,7 +168,7 @@ const LandingPage: React.FC = () => {
   // Add event listener for down arrow key press
   useEffect(() => {
     const handleKeyDown = (e: any) => {
-      if (e.code === 40) {
+      if (e.code === DOWN_ARROW_KEY_CODE) {
         handleScroll();
       }
     };
