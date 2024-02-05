@@ -27,4 +27,4 @@ export const VIDEO_DURATION_THRESHOLD = 2.879;
 export const SCREEN_ORIENTATION = {
   PRIMARY: "portrait-primary",
   SECONDARY: "portrait-secondary"
-}
+};

@@ -86,127 +86,148 @@ const InternProfilePage: React.FC = () => {
         />
         <meta property="og:type" content="profile" />
       </Helmet>
-      <div
-        style={{
-          backgroundImage: `url(${planetBackground})`
-        }}
-        className={`${styles.internprofile} flex_center`}
-        role="banner"
-        aria-label="Intern Profile Background">
-        <div className={styles.internprofile__card}>
-          <button className={styles.internprofile__back_all_button} onClick={navigateToallInterns}>
-            <span>Back</span>
-          </button>
+      {internProfile ? (
+        <div
+          style={{
+            backgroundImage: `url(${planetBackground})`
+          }}
+          className={`${styles.internprofile} flex_center`}
+          role="banner"
+          aria-label="Intern Profile Background"
+        >
+          <div className={styles.internprofile__card}>
+            <button
+              className={styles.internprofile__back_all_button}
+              onClick={navigateToallInterns}
+            >
+              <span>Back</span>
+            </button>
 
-          <div className={styles.internprofile__card_content}>
-            <div className={styles.internprofile__img_container}>
-              <img
-                className={styles.internprofile__intern_avatar}
-                src={getAssetPath(`internProfileAvatar/${username}.svg`)}
-                alt={`Profile of ${internProfile?.name}`}
-              />
+            <div className={styles.internprofile__card_content}>
+              <div className={styles.internprofile__img_container}>
+                <img
+                  className={styles.internprofile__intern_avatar}
+                  src={getAssetPath(`internProfileAvatar/${username}.svg`)}
+                  alt={`Profile of ${internProfile?.name}`}
+                />
+              </div>
+              <div className={styles.internprofile__intern_info_container}>
+                <div className={styles.internprofile__intern_info}>
+                  <div className={styles.internprofile__intern_label}>
+                    <span className={styles.internprofile__intern_label_head}>Name</span>
+                    <span className={styles.internprofile__intern_label_col}>:</span>
+                  </div>
+                  <p className="flex_center">{internProfile?.name}</p>
+                </div>
+                <div className={styles.internprofile__intern_info}>
+                  <div className={styles.internprofile__intern_label}>
+                    <span className={styles.internprofile__intern_label_head}>Role</span>
+                    <span className={styles.internprofile__intern_label_col}>:</span>
+                  </div>
+                  <p className="flex_center">{internProfile?.position}</p>
+                </div>
+                <div className={styles.internprofile__intern_info}>
+                  <div className={styles.internprofile__intern_label}>
+                    <span className={styles.internprofile__intern_label_head}>Hobby</span>
+                    <span className={styles.internprofile__intern_label_col}>:</span>
+                  </div>
+                  <p className="flex_center">{internProfile?.hobby}</p>
+                </div>
+                <div className={styles.internprofile__intern_info}>
+                  <div className={styles.internprofile__intern_label}>
+                    <span className={styles.internprofile__intern_label_head}>About</span>
+                    <span className={styles.internprofile__intern_label_col}>:</span>
+                  </div>
+                  <p className="flex_center">{internProfile?.about}</p>
+                </div>
+                <div className={styles.internprofile__intern_info}>
+                  <div className={styles.internprofile__intern_label}>
+                    <span className={styles.internprofile__intern_label_head}>Socials</span>
+                    <span className={styles.internprofile__intern_label_col}>:</span>
+                  </div>
+                  <div className={styles.internprofile__social_container}>
+                    <span className={styles.internprofile__social_btn_wrap}>
+                      <a
+                        href={internProfile?.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="LinkedIn"
+                      >
+                        <img
+                          src={getAssetPath("images/socials/linkedin.png")}
+                          className={`${styles.internprofile__social_btn}`}
+                          alt="LinkedIn"
+                        />
+                      </a>
+                      <a
+                        href={internProfile?.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Instagram"
+                      >
+                        <img
+                          src={getAssetPath("images/socials/Instagram.png")}
+                          className={styles.internprofile__social_btn}
+                          alt="Instagram"
+                        />
+                      </a>
+                      <a
+                        href={internProfile?.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="GitHub"
+                      >
+                        <img
+                          src={getAssetPath("images/socials/Github.png")}
+                          className={styles.internprofile__social_btn}
+                          alt="GitHub"
+                        />
+                      </a>
+                      <a
+                        href={internProfile?.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Website"
+                      >
+                        <img
+                          src={getAssetPath("images/socials/Website.png")}
+                          className={styles.internprofile__social_btn}
+                          alt="Website"
+                        />
+                      </a>
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className={styles.internprofile__intern_info_container}>
-              <div className={styles.internprofile__intern_info}>
-                <div className={styles.internprofile__intern_label}>
-                  <span className={styles.internprofile__intern_label_head}>Name</span>
-                  <span className={styles.internprofile__intern_label_col}>:</span>
-                </div>
-                <p className="flex_center">{internProfile?.name}</p>
-              </div>
-              <div className={styles.internprofile__intern_info}>
-                <div className={styles.internprofile__intern_label}>
-                  <span className={styles.internprofile__intern_label_head}>Role</span>
-                  <span className={styles.internprofile__intern_label_col}>:</span>
-                </div>
-                <p className="flex_center">{internProfile?.position}</p>
-              </div>
-              <div className={styles.internprofile__intern_info}>
-                <div className={styles.internprofile__intern_label}>
-                  <span className={styles.internprofile__intern_label_head}>Hobby</span>
-                  <span className={styles.internprofile__intern_label_col}>:</span>
-                </div>
-                <p className="flex_center">{internProfile?.hobby}</p>
-              </div>
-              <div className={styles.internprofile__intern_info}>
-                <div className={styles.internprofile__intern_label}>
-                  <span className={styles.internprofile__intern_label_head}>About</span>
-                  <span className={styles.internprofile__intern_label_col}>:</span>
-                </div>
-                <p className="flex_center">{internProfile?.about}</p>
-              </div>
-              <div className={styles.internprofile__intern_info}>
-                <div className={styles.internprofile__intern_label}>
-                  <span className={styles.internprofile__intern_label_head}>Socials</span>
-                  <span className={styles.internprofile__intern_label_col}>:</span>
-                </div>
-                <div className={styles.internprofile__social_container}>
-                  <span className={styles.internprofile__social_btn_wrap}>
-                    <a
-                      href={internProfile?.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="LinkedIn">
-                      <img
-                        src={getAssetPath("images/socials/linkedin.png")}
-                        className={`${styles.internprofile__social_btn}`}
-                        alt="LinkedIn"
-                      />
-                    </a>
-                    <a
-                      href={internProfile?.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Instagram">
-                      <img
-                        src={getAssetPath("images/socials/Instagram.png")}
-                        className={styles.internprofile__social_btn}
-                        alt="Instagram"
-                      />
-                    </a>
-                    <a
-                      href={internProfile?.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="GitHub">
-                      <img
-                        src={getAssetPath("images/socials/Github.png")}
-                        className={styles.internprofile__social_btn}
-                        alt="GitHub"
-                      />
-                    </a>
-                    <a
-                      href={internProfile?.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Website">
-                      <img
-                        src={getAssetPath("images/socials/Website.png")}
-                        className={styles.internprofile__social_btn}
-                        alt="Website"
-                      />
-                    </a>
-                  </span>
-                </div>
-              </div>
-            </div>
+            {currentIndex > 0 && (
+              <button
+                className={`${styles.internprofile__back_button} flex_center`}
+                onClick={navigateToPrevIntern}
+              >
+                &#10140;
+              </button>
+            )}
+            {currentIndex < allUsernames.length - 1 && (
+              <button
+                className={`${styles.internprofile__next_button} flex_center`}
+                onClick={navigateToNextIntern}
+              >
+                &#10140;
+              </button>
+            )}
           </div>
-          {currentIndex > 0 && (
-            <button
-              className={`${styles.internprofile__back_button} flex_center`}
-              onClick={navigateToPrevIntern}>
-              &#10140;
-            </button>
-          )}
-          {currentIndex < allUsernames.length - 1 && (
-            <button
-              className={`${styles.internprofile__next_button} flex_center`}
-              onClick={navigateToNextIntern}>
-              &#10140;
-            </button>
-          )}
         </div>
-      </div>
+      ) : (
+        <div className={`${styles.noInternFoundContainer} flex_center`}>
+          <div className={styles.noInternFoundContent}>
+            <p className={styles.noInternFoundText}>No intern found named as "{username}".</p>
+            <button className={styles.backButton} onClick={navigateToallInterns}>
+              Back
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 };
