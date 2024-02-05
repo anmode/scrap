@@ -36,7 +36,7 @@
   &__txt {
     text-align: center;
     font-family: "Krona One";
-    font-size: 65px;
+    font-size: 4.125rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -75,30 +75,30 @@
   }
 
   &__hari_wave {
-    border-radius: 13.284px;
+    border-radius: 0.8rem;
     border-top: 2.657px solid #fff;
     background: linear-gradient(271deg, #3b7ad8 1%, #0d6492 104.28%);
     display: block;
-    width: 306.863px;
-    height: 71.734px;
-    padding: 21.255px 26.568px;
+    width: 19.125rem;
+    height: 4.4rem;
+    padding: 1.3rem 1.6rem;
     justify-content: center;
     align-items: center;
-    gap: 13.284px;
+    gap: 0.8rem;
     flex-shrink: 0;
-    margin-top: -40px;
-    margin-left: 40px;
+    margin-top: -2.5rem;
+    margin-left: 2.5rem;
   }
 
   &__hari_hi {
     color: #fff;
     text-align: center;
     font-family: Goldman;
-    font-size: 23.911px;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    letter-spacing: 0.239px;
+    letter-spacing: 0.0125rem;
   }
 
   &__intern_btn_wrap {
@@ -245,7 +245,18 @@
     }
 
     &__hari_img {
-      width: 70vw;
+      width: 79vw;
+    }
+
+    &__hari_wave {
+      margin-top: -2.5rem;
+      margin-left: 2.5rem;
+      width: 18.125rem;
+    }
+  }
+  @media(max-width: 390px){
+    &__hari_wave {
+      width: 16.125rem !important;
     }
   }
 
@@ -270,7 +281,7 @@
 
     &__intern_btn_wrap {
       margin-top: 3.125rem;
-      margin-left: 5.5%;
+      margin-left: 15.5%;
     }
 
     &__meet_intern_btn {
@@ -281,6 +292,10 @@
 
     &__hari_img {
       width: 80vw;
+    }
+
+    &__landingpage_astronaut {
+      margin-left: -1.125rem;
     }
   }
 }
