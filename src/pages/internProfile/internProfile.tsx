@@ -100,50 +100,50 @@ const InternProfilePage: React.FC = () => {
             <span>Back</span>
           </button>
 
-          <div className={styles.cardContent}>
-            <div className={styles.img_container}>
+          <div className={styles.internprofile__cardContent}>
+            <div className={styles.internprofile__img_container}>
               <img
                 className={styles.internprofile__internAvatar}
                 src={getAssetPath(`internProfileAvatar/${username}.svg`)}
                 alt={`Profile of ${internProfile?.name}`}
               />
             </div>
-            <div className={styles.intern_info_container}>
-              <div className={styles.intern_info}>
-                <div className={styles.intern_label}>
-                  <span className={styles.intern_label_head}>Name</span>
-                  <span className={styles.intern_label_col}>:</span>
+            <div className={styles.internprofile__intern_info_container}>
+              <div className={styles.internprofile__intern_info}>
+                <div className={styles.internprofile__intern_label}>
+                  <span className={styles.internprofile__intern_label_head}>Name</span>
+                  <span className={styles.internprofile__intern_label_col}>:</span>
                 </div>
                 <p className="flex_center">{internProfile?.name}</p>
               </div>
-              <div className={styles.intern_info}>
-                <div className={styles.intern_label}>
-                  <span className={styles.intern_label_head}>Role</span>
-                  <span className={styles.intern_label_col}>:</span>
+              <div className={styles.internprofile__intern_info}>
+                <div className={styles.internprofile__intern_label}>
+                  <span className={styles.internprofile__intern_label_head}>Role</span>
+                  <span className={styles.internprofile__intern_label_col}>:</span>
                 </div>
                 <p className="flex_center">{internProfile?.position}</p>
               </div>
-              <div className={styles.intern_info}>
-                <div className={styles.intern_label}>
-                  <span className={styles.intern_label_head}>Hobby</span>
-                  <span className={styles.intern_label_col}>:</span>
+              <div className={styles.internprofile__intern_info}>
+                <div className={styles.internprofile__intern_label}>
+                  <span className={styles.internprofile__intern_label_head}>Hobby</span>
+                  <span className={styles.internprofile__intern_label_col}>:</span>
                 </div>
                 <p className="flex_center">{internProfile?.hobby}</p>
               </div>
-              <div className={styles.intern_info}>
-                <div className={styles.intern_label}>
-                  <span className={styles.intern_label_head}>About</span>
-                  <span className={styles.intern_label_col}>:</span>
+              <div className={styles.internprofile__intern_info}>
+                <div className={styles.internprofile__intern_label}>
+                  <span className={styles.internprofile__intern_label_head}>About</span>
+                  <span className={styles.internprofile__intern_label_col}>:</span>
                 </div>
                 <p className="flex_center">{internProfile?.about}</p>
               </div>
-              <div className={styles.intern_info}>
-                <div className={styles.intern_label}>
-                  <span className={styles.intern_label_head}>Socials</span>
-                  <span className={styles.intern_label_col}>:</span>
+              <div className={styles.internprofile__intern_info}>
+                <div className={styles.internprofile__intern_label}>
+                  <span className={styles.internprofile__intern_label_head}>Socials</span>
+                  <span className={styles.internprofile__intern_label_col}>:</span>
                 </div>
-                <div className={styles.social_container}>
-                  <span className={styles.social_btn_wrap}>
+                <div className={styles.internprofile__social_container}>
+                  <span className={styles.internprofile__social_btn_wrap}>
                     <a
                       href={internProfile?.linkedin}
                       target="_blank"
@@ -152,7 +152,7 @@ const InternProfilePage: React.FC = () => {
                     >
                       <img
                         src={getAssetPath("images/socials/linkedin.png")}
-                        className={`${styles.social_btn}`}
+                        className={`${styles.internprofile__social_btn}`}
                         alt="LinkedIn"
                       />
                     </a>
@@ -164,7 +164,7 @@ const InternProfilePage: React.FC = () => {
                     >
                       <img
                         src={getAssetPath("images/socials/Instagram.png")}
-                        className={styles.social_btn}
+                        className={styles.internprofile__social_btn}
                         alt="Instagram"
                       />
                     </a>
@@ -176,7 +176,7 @@ const InternProfilePage: React.FC = () => {
                     >
                       <img
                         src={getAssetPath("images/socials/Github.png")}
-                        className={styles.social_btn}
+                        className={styles.internprofile__social_btn}
                         alt="GitHub"
                       />
                     </a>
@@ -188,7 +188,7 @@ const InternProfilePage: React.FC = () => {
                     >
                       <img
                         src={getAssetPath("images/socials/Website.png")}
-                        className={styles.social_btn}
+                        className={styles.internprofile__social_btn}
                         alt="Website"
                       />
                     </a>
@@ -198,12 +198,12 @@ const InternProfilePage: React.FC = () => {
             </div>
           </div>
           {currentIndex > 0 && (
-            <button className={`${styles.backButton} flex_center`} onClick={navigateToPrevIntern}>
+            <button className={`${styles.internprofile__backButton} flex_center`} onClick={navigateToPrevIntern}>
               &#10140;
             </button>
           )}
           {currentIndex < allUsernames.length - 1 && (
-            <button className={`${styles.nextButton} flex_center`} onClick={navigateToNextIntern}>
+            <button className={`${styles.internprofile__nextButton} flex_center`} onClick={navigateToNextIntern}>
               &#10140;
             </button>
           )}

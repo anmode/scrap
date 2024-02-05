@@ -127,14 +127,14 @@ const LandingPage: React.FC = () => {
 
   // Class names for the landing page and overlay loader
   const landingPageClasses = clsx(
-    styles.landingPage,
+    styles.landingpage,
     styles.flex_center,
-    slideLoader && styles.landingPage__landing_page_slide_up
+    slideLoader && styles.landingpage__landing_page_slide_up
   );
 
   const overlayLoaderClasses = clsx(
-    styles.landingPage__overlay_loader,
-    slideLoader && styles.landingPage__video_ended
+    styles.landingpage__overlay_loader,
+    slideLoader && styles.landingpage__video_ended
   );
 
   // Navigation function to all interns page
@@ -166,7 +166,7 @@ const LandingPage: React.FC = () => {
   }, []); // Empty dependency array ensures the effect runs only once on mount
 
   return (
-    <div className={styles.main_wrapper}>
+    <div className={styles.landingpage__wrapper}>
       <Helmet>
         <meta property="og:title" content="HackerSpace" />
         <meta
@@ -187,28 +187,28 @@ const LandingPage: React.FC = () => {
           ease: "linear"
         }}
       >
-        <motion.div className={styles.landingPage__content} ref={scrollContent}>
-          <div className={`${styles.landingPage__Txt_Container} flex_center`}>
-            <h1 className={styles.landingPage__Txt}>
+        <motion.div className={styles.landingpage__content} ref={scrollContent}>
+          <div className={`${styles.landingpage__Txt_Container} flex_center`}>
+            <h1 className={styles.landingpage__Txt}>
               Welcome to
               <br />
-              Hacker<span className={styles.landingPage__spaceTxt}>Space</span>
+              Hacker<span className={styles.landingpage__spaceTxt}>Space</span>
             </h1>
-            <h2 className={styles.landingPage__scroll_txt}>
+            <h2 className={styles.landingpage__scroll_txt}>
               .{" "}
-              <span className={styles.landingPage__scroll_span} onClick={scrollAstronautFunction}>
+              <span className={styles.landingpage__scroll_span} onClick={scrollAstronautFunction}>
                 scroll
               </span>{" "}
               .
             </h2>
           </div>
-          <div ref={scrollAstronaut} className={`${styles.landingPage__astronaut} flex_center`}>
-            <div className={`${styles.landingPage__intern_hari_wrap} flex_center`}>
-              <img src={getAssetPath("hari.png")} className={styles.landingPage__hari_img} />
+          <div ref={scrollAstronaut} className={`${styles.landingpage__astronaut} flex_center`}>
+            <div className={`${styles.landingpage__intern_hari_wrap} flex_center`}>
+              <img src={getAssetPath("hari.png")} className={styles.landingpage__hari_img} />
             </div>
-            <div className={`${styles.landingPage__intern_btn_wrap} flex_center`}>
+            <div className={`${styles.landingpage__intern_btn_wrap} flex_center`}>
               <button
-                className={styles.landingPage__meet_intern_btn}
+                className={styles.landingpage__meet_intern_btn}
                 onClick={navigateToallInterns}
               >
                 Meet my Interns

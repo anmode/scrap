@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Krona+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap");
 
-.landingPage {
+.landingpage {
   & {
     background-color: #121418;
     height: 100%;
@@ -14,6 +14,13 @@
     left: 0;
     right: 0;
     transition: 1.2s ease-out;
+
+    &__wrapper {
+      height: 100vh;
+      position: relative;
+      background-color: black;
+      overflow-y: hidden;
+    }
 
     &__content {
       overflow-y: scroll;
@@ -253,9 +260,3 @@
   }
 }
 
-.main_wrapper {
-  height: 100vh;
-  position: relative;
-  background-color: black;
-  overflow-y: hidden;
-}
