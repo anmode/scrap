@@ -2,261 +2,285 @@
 @import url("https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap");
 
 .landingpage {
-  & {
-    background-color: #121418;
-    height: 100%;
-    background-image: url(../../assets/background.svg);
-    background-repeat: no-repeat;
-    overflow: hidden;
-    background-position: top center;
-    top: 100%;
+  background-color: #121418;
+  height: 100%;
+  background-image: url(../../assets/background.svg);
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-position: top center;
+  top: 100%;
+  position: relative;
+  left: 0;
+  right: 0;
+  transition: 1.2s ease-out;
+
+  &__wrapper {
+    height: 100vh;
     position: relative;
-    left: 0;
-    right: 0;
-    transition: 1.2s ease-out;
+    background-color: black;
+    overflow-y: hidden;
+  }
 
-    &__wrapper {
-      height: 100vh;
-      position: relative;
-      background-color: black;
-      overflow-y: hidden;
+  &__content {
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+  }
+
+  &__txt_container {
+    height: 100%;
+    flex-direction: column;
+    gap: 5rem;
+  }
+
+  &__txt {
+    text-align: center;
+    font-family: "Krona One";
+    font-size: 65px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background: linear-gradient(90deg, #fff 24.54%, rgba(255, 255, 255, 0.63) 102.64%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: default;
+  }
+
+  &__spacetxt {
+    background: linear-gradient(93deg, #6bffff 52.5%, #7bb6fb 92.26%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Krona One";
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  &__scroll_txt {
+    color: #fff;
+    text-align: center;
+    font-family: "Goldman";
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.8rem;
+  }
+
+  &__astronaut {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__hari_wave {
+    border-radius: 13.284px;
+    border-top: 2.657px solid #fff;
+    background: linear-gradient(271deg, #3b7ad8 1%, #0d6492 104.28%);
+    display: block;
+    width: 306.863px;
+    height: 71.734px;
+    padding: 21.255px 26.568px;
+    justify-content: center;
+    align-items: center;
+    gap: 13.284px;
+    flex-shrink: 0;
+    margin-top: -40px;
+    margin-left: 40px;
+  }
+
+  &__hari_hi {
+    color: #fff;
+    text-align: center;
+    font-family: Goldman;
+    font-size: 23.911px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.239px;
+  }
+
+  &__intern_btn_wrap {
+    margin-top: 3rem;
+    margin-left: 2rem;
+  }
+
+  &__meet_intern_btn {
+    color: #0b6797;
+    letter-spacing: 0.18px;
+    text-align: center;
+    font-family: "Goldman";
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.01rem;
+    border-radius: 50px;
+    border: 2px solid #fff;
+    background: #fff;
+    width: 14rem;
+    padding: 1rem 1.5rem;
+    gap: 0.8rem;
+    cursor: pointer;
+  }
+
+  &__scroll_span {
+    cursor: pointer;
+    transition: all 500ms;
+    display: inline-block;
+
+    &:hover {
+      font-size: 2rem;
     }
+  }
 
-    &__content {
-      overflow-y: scroll;
-      height: 100%;
+  &__video_ended {
+    transform: translateY(-100%);
+  }
+
+  &__overlay_loader {
+    transition: 1.5s ease-out;
+    position: relative;
+    height: 100vh;
+    z-index: 1000;
+
+    video {
       width: 100%;
+      height: 100vh;
+      object-fit: cover;
     }
+  }
 
-    &__Txt_Container {
-      height: 100%;
-      flex-direction: column;
-      gap: 5rem;
-    }
+  &__landing_page_slide_up {
+    top: -100%;
+  }
 
+  @media (max-width: 1024px) {
     &__Txt {
-      text-align: center;
-      font-family: "Krona One";
-      font-size: 65px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-      background: linear-gradient(90deg, #fff 24.54%, rgba(255, 255, 255, 0.63) 102.64%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      cursor: default;
+      margin-top: -14%;
+      font-size: 4rem;
     }
 
-    &__spaceTxt {
-      background: linear-gradient(93deg, #6bffff 52.5%, #7bb6fb 92.26%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-family: "Krona One";
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-    }
-
-    &__scroll_txt {
-      color: #fff;
-      text-align: center;
-      font-family: "Goldman";
-      font-size: 1.6rem;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-      letter-spacing: 0.8rem;
-    }
-
-    &__astronaut {
-      flex-direction: column;
-      height: 100%;
-    }
-
-    &__intern_btn_wrap {
-      margin-top: 3rem;
-      margin-left: 2rem;
+    &__intern_hari_wrap svg {
+      width: 22rem;
+      height: 22rem;
     }
 
     &__meet_intern_btn {
-      color: #0b6797;
-      letter-spacing: 0.18px;
-      text-align: center;
-      font-family: "Goldman";
+      width: 16rem;
       font-size: 1.125rem;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-      letter-spacing: 0.01rem;
-      border-radius: 50px;
-      border: 2px solid #fff;
-      background: #fff;
-      width: 14rem;
-      padding: 1rem 1.5rem;
-      gap: 0.8rem;
-      cursor: pointer;
     }
 
     &__scroll_span {
-      cursor: pointer;
-      transition: all 500ms;
-      display: inline-block;
+      font-size: 1.5rem;
 
       &:hover {
-        font-size: 2rem;
-      }
-    }
-
-    &__video_ended {
-      transform: translateY(-100%);
-    }
-
-    &__overlay_loader {
-      transition: 1.5s ease-out;
-      position: relative;
-      height: 100vh;
-      z-index: 1000;
-
-      video {
-        width: 100%;
-        height: 100vh;
-        object-fit: cover;
-      }
-    }
-
-    &__landing_page_slide_up {
-      top: -100%;
-    }
-
-    @media (max-width: 1024px) {
-      &__Txt {
-        margin-top: -14%;
-        font-size: 4rem;
-      }
-
-      &__intern_hari_wrap svg {
-        width: 22rem;
-        height: 22rem;
-      }
-
-      &__meet_intern_btn {
-        width: 16rem;
-        font-size: 1.125rem;
-      }
-
-      &__scroll_span {
-        font-size: 1.5rem;
-
-        &:hover {
-          font-size: 1.8rem;
-        }
-      }
-    }
-
-    @media (max-width: 768px) {
-      &__Txt {
-        font-size: 3.125rem;
-        letter-spacing: 0.1rem;
-        margin-top: -38%;
-      }
-
-      &__intern_hari_wrap svg {
-        width: 20rem;
-        height: 20rem;
-        margin-top: 50%;
-      }
-
-      &__meet_intern_btn {
-        width: 19.125rem;
-        height: 4.125rem;
-        font-size: 1.375rem;
-      }
-
-      &__intern_btn_wrap {
-        margin-top: 2rem;
-      }
-
-      &__scroll_span {
-        font-size: 2rem;
-
-        &:hover {
-          font-size: 2.375px;
-        }
-      }
-
-      &__astronaut {
-        justify-content: flex-start;
-      }
-    }
-
-    @media (max-width: 539px) {
-      & {
-        background-image: url(../../assets/backgroud_phone.png);
-      }
-
-      &__Txt {
-        font-size: 2.375rem;
-        letter-spacing: 0.05rem;
-      }
-
-      &__scroll_span {
-        font-size: 2rem;
-
-        &:hover {
-          font-size: 2.5rem;
-        }
-      }
-
-      &__meet_intern_btn {
-        width: 16rem;
-        height: 3.8rem;
-      }
-
-      &__intern_btn_wrap {
-        padding-top: 2rem;
-      }
-
-      &__hari_img {
-        width: 70vw;
-      }
-    }
-
-    @media (max-width: 375px) {
-      &__Txt {
-        font-size: 32px;
-      }
-
-      &__scroll_span {
-        font-size: 1.375rem;
-
-        &:hover {
-          font-size: 1.5rem;
-        }
-      }
-
-      &__intern_hari_wrap {
-        width: 16rem;
-        height: 16rem;
-        margin-left: -1.5rem;
-      }
-
-      &__intern_btn_wrap {
-        margin-top: 3.125rem;
-        margin-left: 5.5%;
-      }
-
-      &__meet_intern_btn {
-        width: 14rem;
-        height: 3.5rem;
-        font-size: 1rem;
-      }
-
-      &__hari_img {
-        width: 80vw;
+        font-size: 1.8rem;
       }
     }
   }
-}
 
+  @media (max-width: 768px) {
+    &__txt {
+      font-size: 3.125rem;
+      letter-spacing: 0.1rem;
+      margin-top: -38%;
+    }
+
+    &__intern_hari_wrap svg {
+      width: 20rem;
+      height: 20rem;
+      margin-top: 50%;
+    }
+
+    &__meet_intern_btn {
+      width: 19.125rem;
+      height: 4.125rem;
+      font-size: 1.375rem;
+    }
+
+    &__intern_btn_wrap {
+      margin-top: 2rem;
+    }
+
+    &__scroll_span {
+      font-size: 2rem;
+
+      &:hover {
+        font-size: 2.375px;
+      }
+    }
+
+    &__astronaut {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (max-width: 539px) {
+    & {
+      background-image: url(../../assets/backgroud_phone.png);
+    }
+
+    &__txt {
+      font-size: 2.375rem;
+      letter-spacing: 0.05rem;
+    }
+
+    &__scroll_span {
+      font-size: 2rem;
+
+      &:hover {
+        font-size: 2.5rem;
+      }
+    }
+
+    &__meet_intern_btn {
+      width: 16rem;
+      height: 3.8rem;
+    }
+
+    &__intern_btn_wrap {
+      padding-top: 2rem;
+    }
+
+    &__hari_img {
+      width: 70vw;
+    }
+  }
+
+  @media (max-width: 375px) {
+    &__txt {
+      font-size: 32px;
+    }
+
+    &__scroll_span {
+      font-size: 1.375rem;
+
+      &:hover {
+        font-size: 1.5rem;
+      }
+    }
+
+    &__intern_hari_wrap {
+      width: 16rem;
+      height: 16rem;
+      margin-left: -1.5rem;
+    }
+
+    &__intern_btn_wrap {
+      margin-top: 3.125rem;
+      margin-left: 5.5%;
+    }
+
+    &__meet_intern_btn {
+      width: 14rem;
+      height: 3.5rem;
+      font-size: 1rem;
+    }
+
+    &__hari_img {
+      width: 80vw;
+    }
+  }
+}

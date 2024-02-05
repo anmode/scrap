@@ -73,7 +73,6 @@ const InternProfilePage: React.FC = () => {
   const capitalizeFirstLetter = (string: string) =>
     string.charAt(0).toUpperCase() + string.slice(1);
 
-  // Render the component
   return (
     <>
       <Helmet>
@@ -93,17 +92,16 @@ const InternProfilePage: React.FC = () => {
         }}
         className={`${styles.internprofile} flex_center`}
         role="banner"
-        aria-label="Intern Profile Background"
-      >
+        aria-label="Intern Profile Background">
         <div className={styles.internprofile__card}>
-          <button className={styles.internprofile__backAllButton} onClick={navigateToallInterns}>
+          <button className={styles.internprofile__back_all_button} onClick={navigateToallInterns}>
             <span>Back</span>
           </button>
 
-          <div className={styles.internprofile__cardContent}>
+          <div className={styles.internprofile__card_content}>
             <div className={styles.internprofile__img_container}>
               <img
-                className={styles.internprofile__internAvatar}
+                className={styles.internprofile__intern_avatar}
                 src={getAssetPath(`internProfileAvatar/${username}.svg`)}
                 alt={`Profile of ${internProfile?.name}`}
               />
@@ -148,8 +146,7 @@ const InternProfilePage: React.FC = () => {
                       href={internProfile?.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="LinkedIn"
-                    >
+                      aria-label="LinkedIn">
                       <img
                         src={getAssetPath("images/socials/linkedin.png")}
                         className={`${styles.internprofile__social_btn}`}
@@ -160,8 +157,7 @@ const InternProfilePage: React.FC = () => {
                       href={internProfile?.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="Instagram"
-                    >
+                      aria-label="Instagram">
                       <img
                         src={getAssetPath("images/socials/Instagram.png")}
                         className={styles.internprofile__social_btn}
@@ -172,8 +168,7 @@ const InternProfilePage: React.FC = () => {
                       href={internProfile?.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="GitHub"
-                    >
+                      aria-label="GitHub">
                       <img
                         src={getAssetPath("images/socials/Github.png")}
                         className={styles.internprofile__social_btn}
@@ -184,8 +179,7 @@ const InternProfilePage: React.FC = () => {
                       href={internProfile?.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="Website"
-                    >
+                      aria-label="Website">
                       <img
                         src={getAssetPath("images/socials/Website.png")}
                         className={styles.internprofile__social_btn}
@@ -198,12 +192,16 @@ const InternProfilePage: React.FC = () => {
             </div>
           </div>
           {currentIndex > 0 && (
-            <button className={`${styles.internprofile__backButton} flex_center`} onClick={navigateToPrevIntern}>
+            <button
+              className={`${styles.internprofile__back_button} flex_center`}
+              onClick={navigateToPrevIntern}>
               &#10140;
             </button>
           )}
           {currentIndex < allUsernames.length - 1 && (
-            <button className={`${styles.internprofile__nextButton} flex_center`} onClick={navigateToNextIntern}>
+            <button
+              className={`${styles.internprofile__next_button} flex_center`}
+              onClick={navigateToNextIntern}>
               &#10140;
             </button>
           )}
